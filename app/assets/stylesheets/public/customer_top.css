@@ -1,0 +1,200 @@
+body {
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #333;
+}
+
+header {
+  background: orange;
+  color: white;
+  text-align: center;
+  padding-top: 64px;
+}
+
+header h1,
+header p {
+  margin: 0;
+}
+
+header img {
+  width: 300px;
+  vertical-align: bottom;
+}
+
+.btn {
+  text-decoration: none;
+  background: #fff;
+  color: orange;
+  display: block;
+  width: 140px;
+  line-height: 44px;
+  margin: 40px auto 48px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.features img {
+  width: 100%;
+}
+
+.features > h1 {
+  text-align: center;
+  padding: 64px;
+  font-weight: normal;
+}
+
+.features .container {
+  margin: 0 32px;
+}
+
+.features p {
+  line-height: 1.8;
+}
+
+.features section {
+  padding-bottom: 64px;
+}
+
+.members {
+  background: whitesmoke;
+}
+
+.members > h1 {
+  text-align: center;
+  padding: 64px;
+  font-weight: normal;
+}
+
+.members ul {
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.members img {
+  width: 250px;
+  border-radius: 50%;
+}
+
+.members h2 {
+  font-size: 20px;
+}
+
+.members li {
+  padding-bottom: 20px;
+}
+
+.call-to-action {
+  background: orange;
+  color: white;
+  text-align: center;
+  padding: 64px 0;
+}
+
+.call-to-action h1 {
+  font-weight: normal;
+}
+
+.call-to-action .btn{
+  margin: 0 auto;
+}
+
+footer {
+  padding: 64px 0;
+  background: #323135 ;
+  color: #98969c;
+  text-align: center;
+}
+
+.message {
+  width:300px;
+  padding: 8px 16px;
+  background: #2c2c2c;
+  color: #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0.2);
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  text-align: center;
+  animation: popup 4s forwards ;
+  justify-content: center;
+}
+
+@keyframes popup {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+    /* animation-timing-function: ease-out; */
+  }
+
+  20%, 80% {
+    transform: none;
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+    /* アニメーションが消えても残るそのため抹消するには以下が必要 */
+    pointer-events: none;
+  }
+}
+
+
+
+@media (min-width: 900px){
+  header .container{
+    display:flex;
+    width: 800px;
+    margin:  0 auto;
+  }
+
+  header .info {
+    width: 60%;
+    align-self: center;
+  }
+
+  header .pic {
+    width: 40%;
+  }
+
+  .features .container {
+    width: 800px;
+    margin: 0 auto;
+  }
+
+  .features section {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .features section:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .features .pic {
+    width: 50%;
+  }
+
+  .features .info {
+    width: calc(50% - 32px);
+  }
+
+  .members ul {
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .members li {
+    width: 250px;
+  }
+}
