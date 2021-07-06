@@ -11,7 +11,7 @@
 
   <body>
      <% if customer_signed_in? %>
-            <li><%= link_to " マイページ", my_page_path %></li>
+            <li><%= link_to " マイページ", my_page_path(current_customer.id) %></li>
             <li><%#= link_to " 商品一覧", items_path %></li>
             <li><%#= link_to " カート", cart_items_path %></li>
             <li><%= link_to " ログアウト", destroy_customer_session_path, method: :delete %></li>
@@ -26,7 +26,9 @@
             <li><%= link_to " 新規登録", new_customer_registration_path %></li>
             <li><%= link_to " ログイン", new_customer_session_path %></li>
             <li><%= link_to " 管理者ログイン", new_admin_session_path %></li>
-            
+            <li><%= link_to " ゲストログイン（閲覧用）", customers_guest_sign_in_path, method: :post %></li>
+            <li><%= link_to " 管理者ゲストログイン（閲覧用）", admins_guest_sign_in_path, method: :post %></li>
+
           <% end %>
     <%= yield %>
   </body>
