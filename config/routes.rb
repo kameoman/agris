@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :items
   devise_for :customers, controllers: {
     customers: 'customers/customers' ,
     passwords: 'customers/passwords'
@@ -22,11 +23,11 @@ Rails.application.routes.draw do
     get '/customers/change' => 'customers#change'
 
    end
-   
+
    devise_scope :admin do
     post 'admins/guest_sign_in', to: 'admins/sessions#guest_sign_in'
    end
-   
+
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',

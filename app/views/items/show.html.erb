@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @item.name %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @item.date %>
+</p>
+
+<p>
+  <strong>Send:</strong>
+  <%= @item.send %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @item.comment %>
+</p>
+
+<p>
+  <strong>Count:</strong>
+  <%= @item.count %>
+</p>
+
+<p>
+  <strong>Standard:</strong>
+  <%= @item.standard %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @item.image_id %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
