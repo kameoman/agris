@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+    get 'report', to: 'items#report'
 
   resources :items
   devise_for :customers, controllers: {
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
     get '/customers/:id/my_page' => 'customers#edit', as: :my_page
     patch '/customers/withdraw' => 'customers#withdraw'
     get '/customers/change' => 'customers#change'
+
 
    end
 
