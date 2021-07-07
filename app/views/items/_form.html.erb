@@ -12,37 +12,37 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :"品目名(例：ホウレンソウ）" %>
     <%= form.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :date %>
-    <%= form.datetime_select :date %>
+    <%= form.label :"出荷予定日" %>
+    <%= form.date_field :date %>
   </div>
 
   <div class="field">
-    <%= form.label :send %>
-    <%= form.number_field :send %>
+    <%= form.label :"出荷先" %>
+    <%= form.select :send_method, Item.send_methods.keys,{},{class: 'hoge'}%>
   </div>
 
   <div class="field">
-    <%= form.label :comment %>
+    <%= form.label :"コメント：備考欄" %>
     <%= form.text_area :comment %>
   </div>
 
   <div class="field">
-    <%= form.label :count %>
+    <%= form.label :"出荷数量" %>
     <%= form.number_field :count %>
   </div>
 
   <div class="field">
-    <%= form.label :standard %>
+    <%= form.label :"規格" %>
     <%= form.text_field :standard %>
   </div>
 
   <div class="field">
-    <%= form.label :image_id %>
+    <%= form.label :"商品画像" %>
     <%= form.text_field :image_id %>
   </div>
 

@@ -12,7 +12,7 @@
 
 <p>
   <strong>Send:</strong>
-  <%= @item.send %>
+  <%= @item.send_method %>
 </p>
 
 <p>
@@ -36,4 +36,4 @@
 </p>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<%= link_to 'Back', report_path %>

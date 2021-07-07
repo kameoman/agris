@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_05_042937) do
+ActiveRecord::Schema.define(version: 2021_07_07_063041) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2021_07_05_042937) do
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.datetime "date"
-    t.integer "send"
+    t.integer "send_method"
     t.text "comment"
     t.integer "count"
     t.string "standard"
