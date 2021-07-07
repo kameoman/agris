@@ -3,8 +3,9 @@
 <p id="notice"><%= notice %></p>
  <form class="border rounded bg-white form-time-table">
   <h1 class="d-flex justify-content-center">月別リスト</h1>
-<%= link_to "前の月へリンク",report_path(month:@month.prev_month) %>
-<%= link_to "次の月へリンク",report_path(month:@month.next_month) %>
+<%= link_to "",report_path(month:@month.prev_month), class: "fas fa-angle-double-left" %>
+<%= @month.strftime('%Y/%m') %>
+<%= link_to "",report_path(month:@month.next_month), class: "fas fa-angle-double-right" %>
 
 <table class="table table-bordered">
   <thead>
@@ -24,12 +25,12 @@
     <% @items.each do |item| %>
       <tr>
         <td><%= item.name %></td>
-        <td><%= item.date%></td>
+        <td><%= item.date.strftime('%Y/%m/%d')%></td>
         <td><%= item.send_method %></td>
         <td><%= item.comment %></td>
         <td><%= item.count %></td>
         <td><%= item.standard %></td>
-        <td><%= item.image_id %></td>
+        <td><%= attachment_image_tag(item, :image, :fill, 50, 50, fallback: "no-image-icon.jpg") %></td>
         <td><%= link_to '詳細', item %></td>
         <td><%= link_to '編集', edit_item_path(item) %></td>
         <td><%= link_to '削除', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
