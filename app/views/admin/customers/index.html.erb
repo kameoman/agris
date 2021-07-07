@@ -1,45 +1,27 @@
 管理者画面のトップ!
-<table class='table'>
-  <thead>
-    <tr>
-      <th></th>
-      <th>name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td><%#= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %></td>
-        <td><%#= user.name %></td>
-        <td>フォロー数: <%#= user.followings.count %></td>
-        <td>フォロワー数: <%#= user.followers.count %></td>
-        <td><!--自分の時はフォロできないようにする-->
-      </td>
-        <td><%#= link_to 'Show', user_path(user), class: "user_#{user.id}" %></td>
-        
-      </tr>
-    
-  </tbody>
-</table>
-
-<table class= 'table'>
-  <thead>
-    <tr>
-      <th>1</th>
-      <th>name</th>
-      <th>3</th>
-      <th colspan="3"></th>
+<h1 class="d-flex justify-content-center">登録生産者一覧</h1>
+<table class= "table table-bordered">
+ <thead>
+    <tr class="bg-light">
+      <th scope="col">ID</th>
+      <th scope="col">名前</th>
+      <th scope="col">フリガナ</th>
+      <th scope="col">住所</th>
+      <th scope="col">名前</th>
+      <th scope="col">名前</th>
+      <th scope="col" colspan="1">出荷データ</th>
     </tr>
   </thead>
   <tbody>
 <% @customers.each do |customer| %>
     <tr>
+      <td><%= customer.id %></td>
       <td><%= customer.name %></td>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>5</td>
+      <td><%= customer.kana %></td>
+      <td><%= customer.address %></td>
+      <td><%= customer.name %></td>
+      <td><%= customer.name %></td>
+      <td><%= link_to '詳細' %></td>
     </tr>
     <% end %>
   </tbody>
