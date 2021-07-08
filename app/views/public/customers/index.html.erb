@@ -1,14 +1,14 @@
-indexページへようこそ
+indexページへようこそ（登録ごとのデータ）
 <p id="notice"><%= notice %></p>
  <form class="border rounded bg-white form-time-table">
   <h1 class="d-flex justify-content-center">
     <%= @customer.name %>様
     月別リスト</h1>
-<%= link_to "",report_path(month:@month.prev_month), class: "fas fa-angle-double-left fa-2x" %>
+<%= link_to "",customers_path(month:@month.prev_month), class: "fas fa-angle-double-left fa-2x" %>
 <strong>
 <%= @month.strftime('%Y/%m') %>
 </strong>
-<%= link_to "",report_path(month:@month.next_month), class: "fas fa-angle-double-right fa-2x" %>
+<%= link_to "",customers_path(month:@month.next_month), class: "fas fa-angle-double-right fa-2x" %>
 
 <table class="table table-bordered">
   <thead>
