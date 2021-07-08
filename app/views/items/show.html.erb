@@ -1,39 +1,51 @@
-<p id="notice"><%= notice %></p>
+<h2 class="heading6">出荷内容・詳細画面</h2>
 
-<p>
-  <strong>Name:</strong>
-  <%= @item.name %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @item.date %>
-</p>
-
-<p>
-  <strong>Send:</strong>
-  <%= @item.send_method %>
-</p>
-
-<p>
-  <strong>Comment:</strong>
-  <%= @item.comment %>
-</p>
-
-<p>
-  <strong>Count:</strong>
-  <%= @item.count %>
-</p>
-
-<p>
-  <strong>Standard:</strong>
-  <%= @item.standard %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @item.image_id %>
-</p>
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', report_path %>
+<ul class="list1">
+  <li>
+    <p>
+    <strong>品目名:</strong>
+    <%= @item.name %>
+    </p>
+  </li>
+  <li>
+    <p>
+    <strong>出荷予定日:</strong>
+    <%= @item.date.strftime('%Y/%m/%d') %>
+    </p>
+  </li>
+  <li>
+    <p>
+    <strong>出荷先:</strong>
+    <%= @item.send_method %>
+    </p>
+  </li>
+  <li>
+    <p>
+    <strong>コメント：備考欄:</strong>
+    <%= @item.comment %>
+    </p>
+  </li>
+  <li>
+    <p>
+    <strong>数量:</strong>
+    <%= @item.count %>
+    </p>
+  </li>
+  <li>
+    <p>
+    <strong>規格:</strong>
+    <%= @item.standard %>
+    </p>
+  </li>
+  <li>
+    <p>
+    <strong>画像:</strong>
+    <%= attachment_image_tag(@item, :image, :fill, 100, 100, fallback: "no-image-icon.jpg") %>
+    </p>
+  </li>
+<div class="list1-link">
+<%= link_to '編集', edit_item_path(@item) %> |
+<%= link_to '戻る', report_path %>
+</div>
+  
+</ul>

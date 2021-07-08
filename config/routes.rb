@@ -15,11 +15,15 @@ Rails.application.routes.draw do
    root to: 'homes#top'
    get '/homes/about' => 'homes#about'
    resources :item
+   resources :customers
+
    delete 'customers/:id' => 'customers#destroy', as: 'destroy_customer'
 
 
     put "/customers/:id/update" => "customers#update", as: "customer_update"
     get '/customers/:id/my_page' => 'customers#edit', as: :my_page
+    get '/customers/' => 'customers#index'
+    get '/customers/:id' => 'customers#show'
     patch '/customers/withdraw' => 'customers#withdraw'
     get '/customers/change' => 'customers#change'
 

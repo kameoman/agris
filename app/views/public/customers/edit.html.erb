@@ -2,36 +2,38 @@
 <h3>
   <%= current_customer.name %>　さんの会員情報
 </h3>
-<ul>
-<%= form_with model: @customer, url:customer_update_path,local: true, method: :put do |f| %>
-  <li>
-<%= f.label "氏名" %>
-<%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </li>
-  <li>
-<%= f.label "フリガナ" %>
-<%= f.text_field :kana, autofocus: true, autocomplete: "kana" %>
 
-  </li>
-  <li>
-<%= f.label "生産者番号" %>
-<%= f.text_field :customer_no, autofocus: true, autocomplete: "customer_no" %>
-  </li>
-  <li>
-<%= f.label "電話番号" %>
-<%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
-  </li>
-  <li>
-<%= f.label "住所" %>
-<%= f.text_field :address, autofocus: true, autocomplete: "address" %>
-  </li>
-  <li>
-<%= f.label "メールアドレス" %>
-<%= f.text_field :email, autofocus: true, autocomplete: "email" %>
-  </li>
-</ul>
+<%= form_with model: @customer, url:customer_update_path,local: true, method: :put do |f| %>
+
+  <div class="field">
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "input-mail", placeholder: "名前" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :kana, autofocus: true, autocomplete: "kana", class: "input-mail", placeholder: "フリガナ" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :customer_no, autofocus: true, autocomplete: "customer_no", class: "input-mail", placeholder: "生産者番号" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "input-mail", placeholder: "電話番号" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "input-mail", placeholder: "住所"%>
+  </div>
+  <div class="field">
+    <%= f.text_field :email, autofocus: true, autocomplete: "email", class: "input-mail", placeholder: "メールアドレス" %>
+  </div>
+
+    <div class="t-deco">
 <%= f.submit "変更を保存する" %>
+    </div>
 <%#= link_to "アカウントを削除する", customer_path(customer.id),method: :delete %>
 <% end %>
- <%= link_to "トップページ", root_path, class: 'btn btn-info btn-block mb-4' %>
-<%= link_to "アカウントを削除する", destroy_customer_path(@customer), method: :delete ,class: "btn btn-sm btn-danger" ,data: { confirm: 'Are you sure?' }%>
+    <div class="t-deco">
+ <%= link_to "トップページ", root_path, class: 'btn btn-info  mb-4' %>
+    </div>
+
+    <div class="t-deco">
+      <%= link_to "アカウントを削除する", destroy_customer_path(@customer), method: :delete ,class: "btn btn-sm btn-danger" ,data: { confirm: 'Are you sure?' }%>
+    </div>

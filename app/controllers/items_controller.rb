@@ -1,15 +1,21 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: %i[ show edit update destroy ]
-
-  def report
+  
+  def index
     # クエリストリングがあればTimeオブジェクトに変換、ない場合は現在の時刻を取得
     @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today
     # 取得した時刻が含まれる月の範囲のデータを取得
     @items = Item.where(date: @month.all_month).order('date ASC')
   end
 
+  def report
+    # クエリストリングがあればTimeオブジェクトに変換、ない場合は現在の時刻を取得
+    @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today
+    # 取得した時刻が含まれる月の範囲のデータを取得
+    @items = Item.where(date: @month.all_month).order('date ASC')
+    @customer = current_customer
+  end
 
-  # GET /items/1 or /items/1.json
   def show
   end
 

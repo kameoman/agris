@@ -1,9 +1,8 @@
-
-
+showページへようこそ
 <p id="notice"><%= notice %></p>
  <form class="border rounded bg-white form-time-table">
   <h1 class="d-flex justify-content-center">
-    <%#= @customer.name %>様
+    <%= @customers.name %>様
     月別リスト</h1>
 <%= link_to "",report_path(month:@month.prev_month), class: "fas fa-angle-double-left fa-2x" %>
 <strong>
@@ -11,7 +10,7 @@
 </strong>
 <%= link_to "",report_path(month:@month.next_month), class: "fas fa-angle-double-right fa-2x" %>
 
-<table class="table table-bordered" ;>
+<table class="table table-bordered">
   <thead>
     <tr class="bg-light">
       <th scope="col">名前</th>
@@ -29,7 +28,7 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%#= @customer.name %></td>
+        <td><%= @customers.name %></td>
         <td><%= item.name %></td>
         <td><%= item.date.strftime('%Y/%m/%d')%></td>
         <td><%= item.send_method %></td>
@@ -42,6 +41,7 @@
         <td><%= link_to '削除', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    
   </tbody>
 </table>
 
