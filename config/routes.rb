@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
     put "/customers/:id/update" => "customers#update", as: "customer_update"
     get '/customers/:id/my_page' => 'customers#edit', as: :my_page
-    get '/customers/' => 'customers#index', as: :customers
+    get '/customers/' => 'customers#index', as: :customers_index
     get '/customers/:id' => 'customers#show'
     patch '/customers/withdraw' => 'customers#withdraw'
     get '/customers/change' => 'customers#change'
