@@ -17,6 +17,7 @@
     <% end %>
      <% if customer_signed_in? %>
             <li><%= link_to " マイページ", my_page_path(current_customer.id) %></li>
+            <li><%#= link_to " 出荷履歴詳細", customer_path %></li>
             <li><%= link_to " 出荷履歴一覧", customers_path %></li>
             <li><%= link_to " 新規登録", new_item_path %></li>
             <li><%= link_to " ログアウト", destroy_customer_session_path, method: :delete %></li>

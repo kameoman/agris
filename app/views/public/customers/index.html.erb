@@ -48,3 +48,14 @@ indexページへようこそ（登録ごとのデータ）
 
 <%= link_to 'New Item', new_item_path %>
 
+  </thead>
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.name %></td>
+        <td><%= link_to '詳細画面へ', customer_path(customer), class: "customer_#{customer.id}" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
