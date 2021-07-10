@@ -1,5 +1,3 @@
-showページへようこそ
-<p id="notice"><%= notice %></p>
  <form class="border rounded bg-white form-time-table">
   <h1 class="d-flex justify-content-center">
     <%= @customers.name %>様
@@ -21,7 +19,7 @@ showページへようこそ
       <th scope="col">数量</th>
       <th scope="col">規格</th>
       <th scope="col">画像</th>
-      <th scope="col" colspan="3">出荷データ</th>
+      <th scope="col">出荷データ</th>
     </tr>
   </thead>
 
@@ -37,15 +35,10 @@ showページへようこそ
         <td><%= item.standard %></td>
         <td><%= attachment_image_tag(item, :image, :fill, 100, 100, fallback: "no-image-icon.jpg") %></td>
         <td><%= link_to '詳細', item %></td>
-        <td><%= link_to '編集', edit_item_path(item) %></td>
-        <td><%= link_to '削除', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
     
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Item', new_item_path %>
 

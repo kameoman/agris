@@ -1,38 +1,84 @@
-<h2>新規登録の画面です</h2>
+<h2 class="login-title">新規会員登録</h2>
 
 <div class="form-sign-in">
-  
+
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "customers/shared/error_messages", resource: resource %>
-    
-  <div class="form-group">
-    
-    <div class="form">
-      <%= f.text_field :name,autofocus: true, placeholder:"名前" %>
+
+  <div class="field-group">
+
+    <div class="field">
+      <%= f.text_field :name,autofocus: true, placeholder:"名前", class: "input-mail" %>
     </div>
-  
-    <div class="form">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"メールアドレス" %>
+
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"メールアドレス", class: "input-mail" %>
     </div>
-  
-    <div class="form">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password", placeholder:"新規パスワード" %>
+
+    <div class="field">
+      <%= f.password_field :password, autocomplete: "new-password", placeholder:"新規パスワード(6文字以上で入力）", class: "input-mail" %>
     </div>
-  
-    <div class="form">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"新規パスワードの確認（再入力）" %>
+
+    <div class="field">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"新規パスワードの確認（再入力）", class: "input-mail" %>
     </div>
   </div>
-  
+
     <div class="actions">
-      <%= f.submit "Sign up" %>
+      <%= f.submit "新規登録", class: "button-2" %>
     </div>
   <% end %>
-  
+
+<div class="wrapper">アカウントをお持ちの方はこちらから
   <%= render "customers/shared/links" %>
+</div>
+
+<Hr>
+<script>
+let password_numeric = '1234567890';
+let password_uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+let password_lowercase = 'abcdefghijklmnopqrstuvwxyz';
+let password_symbol = '!"#$%&()=~|@[];:+-*<>?_>.,\'';
+
+function genPassword(length = 6)
+{
+	let password = '';
+	let password_base = '';
+	//生成ルールの確認
+	if (document.getElementById('rule_numeric').checked) password_base += password_numeric;
+	if (document.getElementById('rule_uppercase').checked) password_base += password_uppercase;
+	if (document.getElementById('rule_lowercase').checked) password_base += password_lowercase;
+	if (document.getElementById('rule_symbol').checked) password_base += password_symbol;
+	for (let i = 0; i < length; i++) {
+		password += password_base.charAt(Math.floor(Math.random() * password_base.length));
+	}
+	return password;
+}
+function setPassword(id)
+{
+	let rule_length = document.getElementById('rule_length').value;
+	document.getElementById(id).value = genPassword(rule_length);
+}
+</script>
+
+<div class="wrapper">
+
+<form>
+<fieldset>
+<legend>パスワードに何をお困りですか？</legend>
+<p>以下から使用したい項目を選択してください</p>
+<input type="checkbox" id="rule_numeric" checked>数字
+<input type="checkbox" id="rule_uppercase" checked>英大文字
+<input type="checkbox" id="rule_lowercase" checked>英小文字
+<input type="checkbox" id="rule_symbol" checked>記号<br>
+<p></p>
+希望のパスワードの長さ（文字数）<input type="number" id="rule_length" >
+</fieldset><br>
+<p>
+パスワード見本作成する➡
+<input type="button" onclick="setPassword('passwd');" value="パスワード作成">
+<input type="text" id="passwd">
+</p>
+</form>
+
 </div>
