@@ -1,6 +1,57 @@
 <h1>Editing Item</h1>
+<%= form_with model: @item, local: true do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
 
-<%= render 'form', item: @item %>
+      <ul>
+      <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :"品目名(例：ホウレンソウ）" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"出荷予定日" %>
+    <%= f.date_field :date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"出荷先" %>
+    <%= f.select :send_method, Item.send_methods.keys,{},{class: 'hoge'}%>
+  </div>
+
+  <div class="field">
+    <%= f.label :"コメント：備考欄" %>
+    <%= f.text_area :comment %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"出荷数量" %>
+    <%= f.number_field :count %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"規格" %>
+    <%= f.text_field :standard %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "現在の画像" %>
+    <%= attachment_image_tag(@item, :image, :fill, 100, 100, fallback: "no-image-icon.jpg") %><br/
+    <%= f.attachment_field :image %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
 
 <%= link_to 'Show', @item %> |
 <%= link_to 'Back', items_path %>

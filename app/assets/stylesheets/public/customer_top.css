@@ -4,38 +4,21 @@ body {
   color: #333;
 }
 
-header {
+main {
   background: orange;
   color: white;
   text-align: center;
   padding-top: 64px;
 }
 
-header h1,
-header p {
+main h1,
+main p {
   margin: 0;
 }
 
-header img {
+main img {
   width: 300px;
   vertical-align: bottom;
-}
-
-.btn {
-  text-decoration: none;
-  background: #fff;
-  color: orange;
-  display: block;
-  width: 140px;
-  line-height: 44px;
-  margin: 40px auto 48px;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 8px;
-}
-
-.btn:hover {
-  opacity: 0.8;
 }
 
 .features img {
@@ -123,7 +106,7 @@ footer {
   right: 32px;
   bottom: 32px;
   text-align: center;
-  animation: popup 4s forwards ;
+  animation: popup 1s forwards ;
   justify-content: center;
 }
 

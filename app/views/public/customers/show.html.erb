@@ -1,20 +1,8 @@
-
-
-<p id="notice"><%= notice %></p>
- <form class="border rounded bg-white form-time-table">
-  <h1 class="d-flex justify-content-center">
-    <%#= @customer.name %>様
-    月別リスト</h1>
-<%= link_to "",report_path(month:@month.prev_month), class: "fas fa-angle-double-left fa-2x" %>
-<strong>
-<%= @month.strftime('%Y/%m') %>
-</strong>
-<%= link_to "",report_path(month:@month.next_month), class: "fas fa-angle-double-right fa-2x" %>
-
-<table class="table table-bordered" ;>
+<%= @customer.name %>様の出荷登録内容
+（CustomersControllerのshow画面）
+<table class="table table-bordered">
   <thead>
     <tr class="bg-light">
-      <th scope="col">名前</th>
       <th scope="col">品目</th>
       <th scope="col">出荷日時</th>
       <th scope="col">出荷先</th>
@@ -29,9 +17,8 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%#= @customer.name %></td>
         <td><%= item.name %></td>
-        <td><%= item.date.strftime('%Y/%m/%d')%></td>
+        <td><%= item.date %></td>
         <td><%= item.send_method %></td>
         <td><%= item.comment %></td>
         <td><%= item.count %></td>
@@ -44,8 +31,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Item', new_item_path %>
-

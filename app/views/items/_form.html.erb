@@ -1,4 +1,4 @@
-<%= form_with(model: item, local: true) do |form| %>
+<%= form_with model: item, local: true do |f| %>
   <% if item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
@@ -12,41 +12,41 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :"品目名(例：ホウレンソウ）" %>
-    <%= form.text_field :name %>
+    <%= f.label :"品目名(例：ホウレンソウ）" %>
+    <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :"出荷予定日" %>
-    <%= form.date_field :date %>
+    <%= f.label :"出荷予定日" %>
+    <%= f.date_field :date %>
   </div>
 
   <div class="field">
-    <%= form.label :"出荷先" %>
-    <%= form.select :send_method, Item.send_methods.keys,{},{class: 'hoge'}%>
+    <%= f.label :"出荷先" %>
+    <%= f.select :send_method, Item.send_methods.keys,{},{class: 'hoge'}%>
   </div>
 
   <div class="field">
-    <%= form.label :"コメント：備考欄" %>
-    <%= form.text_area :comment %>
+    <%= f.label :"コメント：備考欄" %>
+    <%= f.text_area :comment %>
   </div>
 
   <div class="field">
-    <%= form.label :"出荷数量" %>
-    <%= form.number_field :count %>
+    <%= f.label :"出荷数量" %>
+    <%= f.number_field :count %>
   </div>
 
   <div class="field">
-    <%= form.label :"規格" %>
-    <%= form.text_field :standard %>
+    <%= f.label :"規格" %>
+    <%= f.text_field :standard %>
   </div>
 
   <div class="field">
-    <%= form.label :"商品画像" %>
-    <%= form.text_field :image_id %>
+    <%= f.label :image, "商品画像" %>
+    <%= f.attachment_field :image %>
   </div>
-
+  
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>

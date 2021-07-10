@@ -1,9 +1,6 @@
-
-
-<p id="notice"><%= notice %></p>
  <form class="border rounded bg-white form-time-table">
   <h1 class="d-flex justify-content-center">
-    <%#= @customer.name %>様
+    <%= @customers.name %>様
     月別リスト</h1>
 <%= link_to "",report_path(month:@month.prev_month), class: "fas fa-angle-double-left fa-2x" %>
 <strong>
@@ -11,7 +8,7 @@
 </strong>
 <%= link_to "",report_path(month:@month.next_month), class: "fas fa-angle-double-right fa-2x" %>
 
-<table class="table table-bordered" ;>
+<table class="table table-bordered">
   <thead>
     <tr class="bg-light">
       <th scope="col">名前</th>
@@ -22,14 +19,14 @@
       <th scope="col">数量</th>
       <th scope="col">規格</th>
       <th scope="col">画像</th>
-      <th scope="col" colspan="3">出荷データ</th>
+      <th scope="col">出荷データ</th>
     </tr>
   </thead>
 
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%#= @customer.name %></td>
+        <td><%= @customers.name %></td>
         <td><%= item.name %></td>
         <td><%= item.date.strftime('%Y/%m/%d')%></td>
         <td><%= item.send_method %></td>
@@ -38,14 +35,10 @@
         <td><%= item.standard %></td>
         <td><%= attachment_image_tag(item, :image, :fill, 100, 100, fallback: "no-image-icon.jpg") %></td>
         <td><%= link_to '詳細', item %></td>
-        <td><%= link_to '編集', edit_item_path(item) %></td>
-        <td><%= link_to '削除', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Item', new_item_path %>
 
