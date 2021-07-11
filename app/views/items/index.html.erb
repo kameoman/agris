@@ -13,6 +13,7 @@
   <thead>
     <tr class="bg-light">
       <th scope="col">品目</th>
+      <th scope="col">品目</th>
       <th scope="col">出荷日時</th>
       <th scope="col">出荷先</th>
       <th scope="col">コメント</th>
@@ -26,6 +27,7 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
+        <td><%= item.customer_id %></td>
         <td><%= item.name %></td>
         <td><%= item.date.strftime('%Y/%m/%d')%></td>
         <td><%= item.send_method %></td>
