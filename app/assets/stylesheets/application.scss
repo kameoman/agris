@@ -264,17 +264,21 @@ ul.header li{
 }
 
 .form-field{
- margin: 5px auto 0px auto;
+ margin: 5px 0px 0px 0;
  height: 50px;
  width: 300px;
 }
 .form-field-2{
- margin: 20px auto 5px auto;
+ margin: 20px auto 5px 0;
  width: 300px;
 }
 
-section {
- width: 300px;
- margin: 0 auto 20px 250px;
+section2 {
+ margin-left: 200px;
  font-size: 13px;
+}
+
+ #target {
+  width: 550px;
+  height: 400px;
 }
