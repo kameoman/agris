@@ -17,7 +17,6 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-
 .login-title {
   text-align: center;
   color: #323232;
@@ -296,8 +295,26 @@ section2 {
 
 .nav-link {
   hover: pointer;
+  font-size: 20px;
 }
 
 .nav-link:hover {
  background-color: #FFF;
+}
+
+header {
+  background-color: 	#F5F5F5;
+  justify-content: center;
+  text-align: center;
+}
+
+ul.header li {
+  padding-top: 20px;
+  font-size: 20px;
+}
+
+.link-2 {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
 }

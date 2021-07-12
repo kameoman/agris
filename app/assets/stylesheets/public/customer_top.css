@@ -37,6 +37,7 @@ main img {
 
 .features p {
   line-height: 1.8;
+  font-size: 15px;
 }
 
 .features section {
@@ -95,42 +96,18 @@ footer {
   text-align: center;
 }
 
-.message {
-  width:300px;
-  padding: 8px 16px;
-  background: #2c2c2c;
-  color: #ddd;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0.2);
-  position: fixed;
-  right: 32px;
-  bottom: 32px;
-  text-align: center;
-  animation: popup 1s forwards ;
+.container1 {
+  display: flex;
   justify-content: center;
 }
 
-@keyframes popup {
-  0% {
-    transform: translateY(20px);
-    opacity: 0;
-    /* animation-timing-function: ease-out; */
-  }
-
-  20%, 80% {
-    transform: none;
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateY(20px);
-    opacity: 0;
-    /* アニメーションが消えても残るそのため抹消するには以下が必要 */
-    pointer-events: none;
-  }
+.info1 {
+  margin: 10px;
 }
 
-
+p {
+  padding-bottom: 10px;
+}
 
 @media (min-width: 900px){
   header .container{
@@ -180,4 +157,5 @@ footer {
   .members li {
     width: 250px;
   }
+
 }
