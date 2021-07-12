@@ -1,7 +1,7 @@
 <h1 class="d-flex justify-content-center">登録生産者一覧</h1>
 <table class= "table table-bordered">
  <thead>
-    <tr class="bg-light">
+    <tr class="bg-light text-center">
       <th scope="col">ID</th>
       <th scope="col">名前</th>
       <th scope="col">フリガナ</th>
@@ -22,7 +22,7 @@
       <td><%= customer.phone_number %></td>
       <td><%= customer.email %></td>
       <td><%= customer.customer_no %></td>
-      <td><%= link_to '詳細', admin_customer_path(customer), class: "customer_#{customer.id}" %></td>
+      <td><%= link_to '詳細', admin_customer_path(customer), class: "customer_#{customer.id} fas fa-poll-h fa-2x nav-link" %></td>
     </tr>
     <% end %>
   </tbody>
