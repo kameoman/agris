@@ -21,8 +21,8 @@
             <li><%= link_to " 新規登録", new_item_path %></li>
             <li><%= link_to " ログアウト", destroy_customer_session_path, method: :delete %></li>
           <% elsif admin_signed_in? %>
-            <li><%= link_to " 会員一覧", admin_customers_path %></li>
-            <li><%= link_to " 出荷履歴一覧", items_path %></li>
+            <li><%= link_to " 会員一覧", admin_customers_profile_path %></li>
+            <li><%= link_to " 出荷全履歴一覧", items_path %></li>
             <li><%= link_to " ログアウト", destroy_admin_session_path, method: :delete %></li>
           <% else %>
             <li><%= link_to " 使い方", homes_about_path %></li>
@@ -35,7 +35,7 @@
           <% end %>
     </header>
     <%= yield %>
-    <footer class="mt-3">
+    <footer>
       <div class="adress">
         兵庫県XX市XX町x-xx</br>
       　Agis Next innovation 本店

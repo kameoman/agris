@@ -10,7 +10,7 @@
   <li>
     <p>
     <strong>出荷予定日:</strong>
-    <%= @item.date.strftime('%Y/%m/%d') %>
+    <%= @item.date %>
     </p>
   </li>
   <li>
@@ -45,7 +45,7 @@
   </li>
 <div class="list1-link">
 <%= link_to '編集', edit_item_path(@item) %> |
-<%= link_to '戻る', report_path %>
+<%= link_to '戻る', customers_path %>
 </div>
   
 </ul>

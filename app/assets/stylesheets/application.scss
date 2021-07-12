@@ -178,7 +178,11 @@ ul.list1 li {
 
 .admin-login {
   background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-  padding: 100px 0;
+  padding: 50px 0 ;
+}
+.customer-login {
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  padding: 50px 0 ;
 }
 
 .button-gradation {
@@ -221,3 +225,64 @@ ul.header li{
   text-align: center;
 }
 
+
+.input-mail {
+  box-sizing: border-box;
+  width: 300px;
+  padding: 10px 10px;
+  margin: 5px auto 5px auto;
+  font-size: 14px;
+  color: #333;
+  border: solid 1px #ccc;
+  border-radius: 6px;
+  outline: 0;
+  transition: 0.3s;
+  -webkit-appearance: none;
+}
+
+.form-1{
+  display:flex;
+  justify-content: center;
+}
+
+.side-var {
+  width: 200px;
+  height: auto;
+  text-color: #fff;
+  background-color: darkblue;
+  margin-right: 10px;
+}
+
+.side-h3{
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.form-label{
+  margin-top: 15px;
+  font-size: 15px;
+  text-align: left;
+  width: 200px;
+}
+
+.form-field{
+ margin: 5px 0px 0px 0;
+ height: 50px;
+ width: 300px;
+}
+.form-field-2{
+ margin: 20px auto 5px 0;
+ width: 300px;
+}
+
+section2 {
+ margin-left: 200px;
+ font-size: 13px;
+}
+
+ #target {
+  width: 550px;
+  height: 400px;
+}
