@@ -1,5 +1,4 @@
 
-
 <p id="notice"><%= notice %></p>
  <form class="border rounded bg-white form-time-table">
   <h1 class="d-flex justify-content-center">全出荷者リスト</h1>
@@ -27,7 +26,7 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= item.customer_id %></td>
+        <td><%= item.customer.name %></td>
         <td><%= item.name %></td>
         <td><%= item.date.strftime('%Y/%m/%d')%></td>
         <td><%= item.send_method %></td>
@@ -41,6 +40,38 @@
   </tbody>
 </table>
 
-<br>
-<%= link_to 'New Item', new_item_path %>
 
+<div>
+  <canvas id="stage"></canvas>
+</div>
+
+<script>
+  //「月別データ」
+var mydata = {
+  labels: ["１月", "２月", "３月", "４月", "５月", "６月", "７月"],
+  datasets: [
+    {
+      label: '数量',
+      hoverBackgroundColor: "rgba(255,99,132,0.3)",
+      data: [65, 59, 80, 81, 56, 55, 48],
+    }
+  ]
+};
+
+//「オプション設定」
+var options = {
+  title: {    
+    display: true,
+    text: 'サンプルチャート'
+  }
+};
+
+var canvas = document.getElementById('stage');
+var chart = new Chart(canvas, {
+
+  type: 'bar',  //グラフの種類
+  data: mydata,  //表示するデータ
+  options: options  //オプション設定
+
+});
+</script>
