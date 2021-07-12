@@ -16,22 +16,22 @@
       <img src="assets/logo.jpeg" width="100px" height="100px" >
     <% end %>
      <% if customer_signed_in? %>
-            <li><%= link_to " マイページ", my_page_path(current_customer.id) %></li>
-            <li><%= link_to " 出荷履歴一覧", customers_path %></li>
-            <li><%= link_to " 新規登録", new_item_path %></li>
-            <li><%= link_to " ログアウト", destroy_customer_session_path, method: :delete %></li>
+            <li><%= link_to " マイページ", my_page_path(current_customer.id), class: "fas fa-user nav-link fa-2x" %></li>
+            <li><%= link_to " 出荷履歴一覧", customers_path, class: "fas fa-clipboard-list nav-link fa-2x" %></li>
+            <li><%= link_to " 新規登録", new_item_path, class: "fas fa-plus-square nav-link fa-2x" %></li>
+            <li><%= link_to " ログアウト", destroy_customer_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link fa-2x" %></li>
           <% elsif admin_signed_in? %>
-            <li><%= link_to " 会員一覧", admin_customers_profile_path %></li>
-            <li><%= link_to " 出荷全履歴一覧", items_path %></li>
-            <li><%= link_to " ログアウト", destroy_admin_session_path, method: :delete %></li>
+            <li><%= link_to " 会員一覧", admin_customers_profile_path, class: "fas fa-users nav-link fa-2x" %></li>
+            <li><%= link_to " 出荷全履歴一覧", items_path, class: "fas fa-clipboard-list nav-link fa-2x" %></li>
+            <li><%= link_to " ログアウト", destroy_admin_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link fa-2x" %></li>
           <% else %>
-            <li><%= link_to " 使い方", homes_about_path %></li>
-            <li><%= link_to " 新規登録", new_customer_registration_path %></li>
-            <li><%= link_to " ログイン", new_customer_session_path %></li>
-            <li><%= link_to " 管理者ログイン", new_admin_session_path %></li>
-            <li><%= link_to " ゲストログイン（閲覧用）", customers_guest_sign_in_path, method: :post %></li>
-            <li><%= link_to " 管理者ゲストログイン（閲覧用）", admins_guest_sign_in_path, method: :post %></li>
+            <li><%= link_to " 使い方", homes_about_path, class: "fas fa-info-circle nav-link fa-2x" %></li>
+            <li><%= link_to " 新規登録", new_customer_registration_path, class: "fas fa-user-plus nav-link fa-2x" %></li>
+            <li><%= link_to " ログイン", new_customer_session_path, class: "fas fa-sign-in-alt nav-link fa-2x" %></li>
+            <li><%= link_to " 管理者ログイン", new_admin_session_path, class: "fas fa-user-tie nav-link fa-2x" %></li>
             </ul>
+            <%= link_to " ゲストログイン（閲覧用）", customers_guest_sign_in_path, method: :post, class: "fas fa-chalkboard-teacher nav-link" %>
+            <%= link_to " 管理者ゲストログイン（閲覧用）", admins_guest_sign_in_path, method: :post, class: "fas fa-chalkboard-teacher nav-link" %>
           <% end %>
     </header>
     <%= yield %>

@@ -245,11 +245,18 @@ ul.header li{
   justify-content: center;
 }
 
-.side-var {
+.side-var-1 {
   width: 200px;
   height: auto;
   text-color: #fff;
-  background-color: darkblue;
+  background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
+  margin-right: 10px;
+}
+.side-var-2 {
+  width: 200px;
+  height: auto;
+  text-color: #fff;
+  background-image: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
   margin-right: 10px;
 }
 
@@ -285,4 +292,12 @@ section2 {
  #target {
   width: 550px;
   height: 400px;
+}
+
+.nav-link {
+  hover: pointer;
+}
+
+.nav-link:hover {
+ background-color: #FFF;
 }
