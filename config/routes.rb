@@ -45,6 +45,8 @@ Rails.application.routes.draw do
      resources :items, only: [:show]
      resources :customers, only:  [ :index, :show, :update, :edit]
 
+     get '/customers_profile' => 'customers#profile', as: :customers_profile
+
   end
 
 
