@@ -10,10 +10,29 @@ class Public::CustomersController < ApplicationController
     # end
     @customers = Customer.all
         # クエリストリングがあればTimeオブジェクトに変換、ない場合は現在の時刻を取得
-    # binding pry
     @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today
     # 取得した時刻が含まれる月の範囲のデータを取得
     @items = @customer.items.where(date: @month.all_month).order('date ASC')
+    @item = @items.count
+
+    @customer_1day_items = Item.where(customer_id: current_customer.id).where(created_at: 1.day.ago.all_day)
+    # 1ヶ月間の投稿数
+    # @customer_today_items = Item.where(customer_id: current_customer.id).where(date: @month.all_month)
+    @customer_today_items = Item.where(customer_id: current_customer.id).where(count: @month.all_month)
+
+    @items_all = current_customer.items.all
+
+
+    # binding pry
+#    @items.each do |item|
+#    if item.name = item.name
+#      @new_count = item.count = item.count
+#    end
+#    @item_name = item.name
+#    @item_count = item.count
+    @graph_items = Item.where(customer_id: current_customer).where(date: @month.all_month).group(:name).order(:date).sum(:count)
+#    end
+
   end
 
   def show

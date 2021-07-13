@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
     # 取得した時刻が含まれる月の範囲のデータを取得
     @items = Item.where(date: @month.all_month).order('date ASC')
     @customer = Customer.all
+    @item = Item.find(params[:id])
   end
 
   def report
