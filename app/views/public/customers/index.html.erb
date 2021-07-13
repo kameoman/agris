@@ -16,10 +16,8 @@
       <th scope="col">品目</th>
       <th scope="col">出荷日時</th>
       <th scope="col">出荷先</th>
-      <th scope="col">コメント</th>
       <th scope="col">数量</th>
       <th scope="col">規格</th>
-      <th scope="col">画像</th>
       <th scope="col" colspan="3">出荷データ</th>
     </tr>
   </thead>
@@ -32,11 +30,11 @@
           <td><%= item.name %></td>
           <td><%= item.date.strftime('%Y/%m/%d')%></td>
           <td><%= item.send_method %></td>
-          <td><%= item.comment %></td>
           <td><%= item.count %></td>
           <td><%= item.standard %></td>
-          <td><%= attachment_image_tag(item, :image, :fill, 100, 100, fallback: "no-image-icon.jpg") %></td>
-          <td><%= link_to '詳細', item, class: "fas fa-poll-h fa-2x nav-link" %></td>
+          <td>
+            <%= link_to '詳細', item,  class: "fas fa-poll-h fa-2x nav-link" %>
+            </td>
           <td><%= link_to '編集', edit_item_path(item), class: "fas fa-pencil-alt fa-2x nav-link" %></td>
           <td><%= link_to '削除', item, method: :delete, data: { confirm: '削除してもいいですか?' }, class: "fas fa-trash fa-2x nav-link" %></td>
         </tr>
@@ -44,3 +42,59 @@
     </tbody>
   </table>
 </div>
+
+
+<div id="mask" class="hidden"></div>
+
+<section id="modal" class="hidden">
+  <%= render 'items/show', item: @items %>
+  <div id="close">
+    閉じる
+  </div>
+</section>
+<script src="assets/edit.js"></script>
+
+
+<div>
+  <canvas id="stage"></canvas>
+</div>
+
+<script>
+  //「月別データ」
+var mydata = {
+  <% items = @graph_items.to_a() %>
+  labels: [
+    <% items.each do |item| %>
+      "<%=item[0]%>",
+    <% end %>
+  ],
+  datasets: [
+    {
+      label: '数量',
+      backgroundColor: ["#c97586","#bbbcde","#7CFC00", "#FF66FF","#FFFF99","#CCFFFF","#66FF99"],
+      data: [
+        <% items.each do |item| %>
+          <%= item[1] %>,
+        <% end %>
+      ],
+    }
+  ]
+};
+
+//「オプション設定」
+var options = {
+  title: {
+    display: true,
+    text: '品目別出荷割合'
+  }
+};
+
+var canvas = document.getElementById('stage');
+var chart = new Chart(canvas, {
+
+  type: 'pie',  //グラフの種類
+  data: mydata,  //表示するデータ
+  options: options  //オプション設定
+
+});
+</script>
