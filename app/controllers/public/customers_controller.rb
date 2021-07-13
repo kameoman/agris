@@ -22,16 +22,8 @@ class Public::CustomersController < ApplicationController
 
     @items_all = current_customer.items.all
 
-
-    # binding pry
-#    @items.each do |item|
-#    if item.name = item.name
-#      @new_count = item.count = item.count
-#    end
-#    @item_name = item.name
-#    @item_count = item.count
+  # 分析するため
     @graph_items = Item.where(customer_id: current_customer).where(date: @month.all_month).group(:name).order(:date).sum(:count)
-#    end
 
   end
 
