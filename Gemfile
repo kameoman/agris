@@ -73,3 +73,8 @@ gem 'dotenv-rails'
 gem 'pry-rails'
 gem 'axlsx_rails'
 gem 'chart-js-rails', '~> 0.1.4'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
