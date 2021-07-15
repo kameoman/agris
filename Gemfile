@@ -73,8 +73,9 @@ gem 'pry-rails'
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
 gem 'rubocop'
+gem 'axlsx_rails'
+gem 'chart-js-rails', '~> 0.1.4'
 
-gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end

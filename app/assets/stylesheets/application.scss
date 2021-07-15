@@ -289,6 +289,7 @@ section2 {
 }
 
  #target {
+  margin: 0 auto;
   width: 550px;
   height: 400px;
 }
@@ -387,4 +388,8 @@ ul.header li {
 
 #stage {
   margin: 40px 0 ;
+}
+
+.map {
+  margin: 30px auto 30px auto;
 }

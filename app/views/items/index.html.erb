@@ -29,7 +29,6 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= item.customer.name %></td>
         <td><%= item.name %></td>
         <td><%= item.date.strftime('%Y/%m/%d')%></td>
         <td><%= item.send_method %></td>
