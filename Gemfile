@@ -62,7 +62,9 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'axlsx_rails'
+gem 'axlsx_rails'
 gem 'bootstrap', '~> 4.5'
+gem 'chart-js-rails', '~> 0.1.4'
 gem 'chart-js-rails', '~> 0.1.4'
 gem 'devise'
 gem 'dotenv-rails'
@@ -73,8 +75,6 @@ gem 'pry-rails'
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
 gem 'rubocop'
-gem 'axlsx_rails'
-gem 'chart-js-rails', '~> 0.1.4'
 
 group :production do
   gem 'mysql2'

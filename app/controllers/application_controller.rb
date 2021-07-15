@@ -14,8 +14,11 @@ class ApplicationController < ActionController::Base
   # ログアウト後の遷移先
   def after_sign_out_path_for(resource_or_scope)
     if resource_or_scope == :admin
+      root_path
+    elsif resource_or_scope == :customer
+      root_path
     end
-    root_path
+      root_path
   end
 
   private
