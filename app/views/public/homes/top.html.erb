@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://kit.fontawesome.com/124e42cc69.js" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<body>
+  <main>
+
+    <div class="container1">
+      <div class="info1">
+        <h1>Agris</h1>
+        <p>出荷登録管理アプリです</p>
+        <a href="/customers/sign_up" class="button-1 fas fa-plus-square fa-1x mx-3"> 新規登録はこちら</a>
+        <a href="/customers/sign_in" class="button-1 fas fa-sign-in-alt fa-1x mx-3"> ログインはこちら</a>
+      </div>
+      <div class="pic1">
+        <img src="assets/agri01.jpg">
+      </div>
+    </div>
+  </main>
+  <section class="features">
+    <h1>このアプリケーションをご紹介！</h1>
+    <div class="container">
+      <section>
+        <div class="pic">
+          <img src="assets/agri02.jpg" width="400px" height="225px">
+        </div>
+        <div class="info">
+          <h1>パソコン・スマートフォンから簡単入力ができる</h1>
+          <p>手書きの伝票に記入する必要が無くなります。お手元の機械で数値を入力するだけで登録完了！</p>
+        </div>
+      </section>
+      <section>
+        <div class="pic">
+          <img src="assets/agri01.jpg" width="400px" height="225px">
+        </div>
+        <div class="info">
+          <h1>出先でもどこでも登録ができる</h1>
+          <p>とにかくすごい。とにかくすごい。とにかくすごい。とにかくすごい。とにかくすごい。とにかくすごい。とにかくすごい。とにかくすごい。</p>
+        </div>
+      </section>
+      <section>
+        <div class="pic">
+          <img src="assets/agri02.jpg" width="400px" height="225px">
+        </div>
+        <div class="info">
+          <h1>これまでのデータを見ることができる</h1>
+          <p>とにかくすごい。とにかくすごい。とにかくすごい。とにかくすごい。とにかくすごい。とにかくすごい。とにかくすごい。とにかくすごい。</p>
+        </div>
+      </section>
+      <section>
+        <div class="pic">
+          <img src="assets/agri03.jpg" width="400px" height="225px">
+        </div>
+        <div class="info">
+          <h1>伝票の記入が無くなる！</h1>
+          <p>JAなどと登録頂いたデータを共有する事ができます。そのため伝票や出荷予約の連絡が不要になり、出荷ミスなども大幅に軽減できる。</p>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <section class="members">
+    <h1>
+      メンバー紹介
+    </h1>
+    <ul>
+      <li>
+
+        <h2>ユニバーサル</h2>
+        <p>世界最高をお届けしたい。</p>
+      </li>
+      <li>
+
+        <h2>ユニバーサル</h2>
+        <p>世界最高をお届けしたい。</p>
+      </li>
+      <li>
+        <h2>ユニバーサル</h2>
+        <p>世界最高をお届けしたい。</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="call-to-action">
+    <h1>今すぐ新規登録しよう！</h1>
+    <a href="/customers/sign_up" class="button-gradation">新規登録はこちら</a>
+  </section>
+
+
+<table class="table table-bordered">
+  <thead>
+    <tr class="bg-light">
+
+      <th scope="col">品目</th>
+      <th scope="col">出荷日時</th>
+      <th scope="col">出荷先</th>
+      <th scope="col">コメント</th>
+      <th scope="col">数量</th>
+      <th scope="col">規格</th>
+      <th scope="col">画像</th>
+      <th scope="col">画像</th>
+      <th scope="col">画像</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+
+        <td><%= item.name %></td>
+        <td><%= item.date %></td>
+        <td><%= item.send_method %></td>
+        <td><%= item.comment %></td>
+        <td><%= item.count %></td>
+        <td><%= item.standard %></td>
+        <td><%= attachment_image_tag(item, :image, :fill, 100, 100, fallback: "no-image-icon.jpg") %></td>
+          <td><%= link_to '編集', edit_item_path(item), class: "fas fa-pencil-alt fa-2x nav-link" %></td>
+          <td><%= link_to '削除', item, method: :delete, data: { confirm: '削除してもいいですか?' }, class: "fas fa-trash fa-2x nav-link" %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+
+
+</body>
+</html>

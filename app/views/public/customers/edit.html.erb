@@ -1,0 +1,82 @@
+<h1 class="d-flex justify-content-center mx-4">マイページ</h1>
+<h3 class="d-flex justify-content-center mx-4">
+  <%= current_customer.name %>　さんの会員情報
+</h3>
+<hr>
+
+<%= form_with model: @customer, url:customer_update_path,local: true, method: :put do |f| %>
+
+  <div class="field">
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "input-mail", placeholder: "名前" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :kana, autofocus: true, autocomplete: "kana", class: "input-mail", placeholder: "フリガナ" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :customer_no, autofocus: true, autocomplete: "customer_no", class: "input-mail", placeholder: "生産者番号" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "input-mail", placeholder: "電話番号" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "input-mail", placeholder: "住所"%>
+  </div>
+  <div class="field">
+    <%= f.text_field :email, autofocus: true, autocomplete: "email", class: "input-mail", placeholder: "メールアドレス" %>
+  </div>
+
+    <div class="t-deco">
+<%= f.submit "変更を保存する" %>
+    </div>
+<%#= link_to "アカウントを削除する", customer_path(customer.id),method: :delete %>
+<% end %>
+    <div class="t-deco">
+ <%= link_to "トップページ", root_path, class: 'btn btn-info  mb-4' %>
+    </div>
+
+    <div class="t-deco">
+      <%= link_to "アカウントを削除する", destroy_customer_path(@customer), method: :delete ,class: "btn btn-sm btn-danger" ,data: { confirm: 'Are you sure?' }%>
+    </div>
+
+
+      <div id="target"></div>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyDJ5GOOTLbFLVD8ViuUGcaCcei8E-uTsb0&callback=initMap"
+      async
+      defer
+    ></script>
+    <script>
+      function initMap() {
+        "use strict";
+
+        var target = document.getElementById("target");
+        var map;
+        // 以下でlat緯度　lng経度を示している
+        var USJ = { lat: 34.66566258832827, lng: 135.4324562141497 };
+
+        map = new google.maps.Map(target, {
+          center: USJ,
+          // zoomは最大18段階までで0が世界地図
+          zoom: 15,
+        });
+
+        // クリックした箇所にマーカーを設置、マーカーの緯度経度を取得し表示できる
+        map.addListener('click',function(e){
+          var marker = new google.maps.Marker({
+            position: e.latLng,
+            map: this,
+            animation: google.maps.Animation.DROP
+          });
+          var infoWindow = new google.maps.InfoWindow({
+            content: e.latLng.toString()
+          });
+          marker.addListener('click',function(){
+            infoWindow.open(map, marker);
+          });
+        });
+
+
+      }
+    </script>

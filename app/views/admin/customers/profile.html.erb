@@ -1,0 +1,94 @@
+<h1 class="d-flex justify-content-center">登録生産者一覧</h1>
+<table class= "table table-bordered">
+ <thead>
+    <tr class="bg-light text-center">
+      <th scope="col">ID</th>
+      <th scope="col">名前</th>
+      <th scope="col">フリガナ</th>
+      <th scope="col">住所</th>
+      <th scope="col">電話番号</th>
+      <th scope="col">メールアドレス</th>
+      <th scope="col">生産者番号</th>
+      <th scope="col" colspan="1">出荷データ</th>
+    </tr>
+  </thead>
+  <tbody>
+<% @customers.each do |customer| %>
+    <tr>
+      <td><%= customer.id %></td>
+      <td><%= customer.name %></td>
+      <td><%= customer.kana %></td>
+      <td><%= customer.address %></td>
+      <td><%= customer.phone_number %></td>
+      <td><%= customer.email %></td>
+      <td><%= customer.customer_no %></td>
+      <td><%= link_to '詳細', admin_customer_path(customer), class: "customer_#{customer.id} fas fa-poll-h fa-2x nav-link" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<hr>
+
+<h3>圃場検索</h3>
+<div class="map">
+
+  <input type="text" id="address">
+  <button id="search">検索</button>
+   <div id="target"></div>
+
+      <script
+        src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyDJ5GOOTLbFLVD8ViuUGcaCcei8E-uTsb0&callback=initMap"
+        async
+        defer
+      ></script>
+      <script>
+        function initMap() {
+          'use strict';
+          var map;
+          var target = document.getElementById('target');
+          var geocoder = new google.maps.Geocoder();
+          var marker ;
+          var center = {
+            lat:35.683819,
+            lng: 139.773729,
+          }
+
+          map = new google.maps.Map(document.getElementById('target'), {
+            center: center,
+            zoom: 10
+          });
+
+
+
+          document.getElementById('search').addEventListener('click', function(){
+            // 入力された内容を緯度経度へ変換する
+            geocoder.geocode({
+              address: document.getElementById('address').value
+            }, function(results, status){
+              if (status !== 'OK') {
+                alert('読み込みに失敗しました: ' + status);
+                return;
+              }
+              if(results[0]){
+               map = new google.maps.Map(target,{
+                  center: results[0].geometry.location,
+                  zoom: 18
+                });
+
+                marker = new google.maps.Marker({
+                  position: results[0].geometry.location,
+                  map: map,
+                  animation: google.maps.Animation.DROP
+                });
+              } else {
+                alert('No results found');
+                return;
+              }
+            });
+
+          });
+
+        }
+      </script>
+</div>

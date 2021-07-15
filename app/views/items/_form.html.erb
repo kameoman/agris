@@ -1,0 +1,52 @@
+<%= form_with model: item, local: true do |f| %>
+  <% if item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :"品目名(例：ホウレンソウ）" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"出荷予定日" %>
+    <%= f.date_field :date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"出荷先" %>
+    <%= f.select :send_method, Item.send_methods.keys,{},{class: 'hoge'}%>
+  </div>
+
+  <div class="field">
+    <%= f.label :"コメント：備考欄" %>
+    <%= f.text_area :comment %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"出荷数量" %>
+    <%= f.number_field :count %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"規格" %>
+    <%= f.text_field :standard %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image ,"商品画像" %>
+    <%= f.attachment_field :image %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

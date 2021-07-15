@@ -1,0 +1,85 @@
+<h1 class="d-flex justify-content-center mb-4"><%= @item.date.strftime('%Y年/%m月/%d日')%>の投稿データの編集</h1>
+<hr>
+
+<div class="form-1">
+
+<div class="side-var-2">
+
+  <div class="side-h3">投稿データの編集</div>
+</div>
+<%= form_with model: @item, local: true do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :"品目名", class: "form-label"%>
+    <%= f.text_field :name , class: "form-field" %>
+  </div>
+  <section2>※(例：トマト・きゅうり・ブロッコリー等）</section2>
+<hr>
+  <div class="field">
+    <%= f.label :"出荷予定日", class: "form-label" %>
+    <%= f.date_field :date, class: "form-field"  %>
+  </div>
+  <section2>※収穫日ではなく、出荷日を入力して下さい</section2>
+<hr>
+  <div class="field">
+    <%= f.label :"出荷先", class: "form-label" %>
+    <%= f.select :send_method, Item.send_methods.keys,{},{class: "form-field"}%>
+  </div>
+  <section2>※1.該当するものがない場合は、「その他」を選択</section2><br/>
+  <section2>※2.コメント欄に記入下さい</section2>
+<hr>
+
+  <div class="field">
+    <%= f.label :"コメント：備考欄", class: "form-label" %>
+    <%= f.text_area :comment, class: "form-field"  %>
+  </div>
+  <section2>※生育状況の報告や伝えたいことなどに活用下さい</section2>
+<hr>
+
+  <div class="field">
+    <%= f.label :"出荷数量", class: "form-label" %>
+    <%= f.number_field :count, class: "form-field"  %>
+  </div>
+  <section2>※個数ではなく、袋数や箱数で入力下さい</section2>
+<hr>
+
+  <div class="field">
+    <%= f.label :"規格", class: "form-label" %>
+    <%= f.text_field :standard, class: "form-field"  %>
+  </div>
+  <section2>※S/M/Lまたは300gや500g・1㎏束など</section2><br/>
+  <section2>※複数ある場合は新しく登録して下さい</section2>
+<hr>
+
+  <div class="field">
+    <%= f.label :image, "現在の画像", class: "form-label" %>
+    <%= attachment_image_tag(@item, :image, :fill, 100, 100, fallback: "no-image-icon.jpg") %><br/>
+    <%= f.attachment_field :image, class: "form-field-2"  %>
+  </div>
+  <section2>※収穫時の画像を撮影してください</section2><br/>
+  <section2>※投稿された画像は、生育状態の確認に使用します</section2>
+<hr>
+
+  <div class="actions", style="justify-content: center;">
+<input type="submit" value"送信する" class="button-2">
+  </div>
+
+<% end %>
+</div>
+
+<hr>
+
+<div class="d-flex justify-content-center mx-4">
+<%= link_to '登録内容の詳細へ　', @item %> |
+<%= link_to '　一覧画面へ戻る', customers_path %>
+</div>

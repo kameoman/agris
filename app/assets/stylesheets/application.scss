@@ -1,0 +1,395 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+.login-title {
+  text-align: center;
+  color: #323232;
+  font-size: 22px;
+  margin-top: 30px;
+}
+
+
+.wrapper {
+  font-size: 14px;
+  text-align: center;
+}
+.re-pw-link {
+  text-decoration: none;
+  color:  #cdcdcd;
+}
+.re-pw-link:hover {
+  color:  #323232;
+  text-decoration: underline;
+}
+.t-deco {
+  color: #cdcdcd;
+  font-weight: normal;
+  display: flex;
+  -moz-box-align: center;
+  align-items: center;
+  -moz-box-pack: justify;
+  justify-content: space-between;
+}
+.t-deco:before,
+.t-deco:after {
+  content: "";
+  -moz-box-flex: 1;
+  flex-grow: 1;
+  height: 1px;
+  background: #cdcdcd;
+  display: block;
+}
+
+.actions {
+  text-align:center;
+}
+
+
+
+.t-deco:before {
+  margin-right: 20px;
+}
+.t-deco:after {
+  margin-left: 20px;
+}
+
+.field {
+  display: flex;
+}
+
+
+.input-mail {
+  box-sizing: border-box;
+  width: 300px;
+  padding: 10px 10px;
+  margin: 5px auto 5px auto;
+  font-size: 14px;
+  color: #333;
+  border: solid 1px #ccc;
+  border-radius: 6px;
+  outline: 0;
+  transition: 0.3s;
+  -webkit-appearance: none;
+}
+
+
+.item_show {
+  background-color: skyblue;
+  text-align: center;
+}
+
+.heading6 {
+  position: relative;
+  font-size: 1.5em;
+  color: #333;
+  text-align: center;
+}
+
+.heading6::before,
+.heading6::after {
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 10%;
+  content: '';
+  border-top: 3px solid #333;
+}
+
+.heading6::before {
+  left: 0;
+}
+
+.heading6::after {
+  right: 0;
+}
+
+ul.list1 {
+  max-width: 40em;
+  padding: 0.5em 0.5em 0.5em 2em;
+  margin: 0 auto;
+  color: #333;
+  background: #fff;
+  border: solid 3px gray;
+  border-radius: 0.5em;
+}
+
+ul.list1 li {
+  padding: 0.5em 0;
+  line-height: 1.5;
+}
+
+.list1-link {
+  text-align: center;
+}
+
+
+.button-1 {
+  display: inline-block;
+  padding: 0.4em 2em;
+  font-size: 0.8em;
+  color: #00b5ad;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #00b5ad solid;
+  border-radius: 8px;
+  transition: 0.4s ease;
+  background: white;
+}
+
+.button-1:hover {
+  color: #fff;
+  background: #00b5ad;
+}
+
+
+.button-2 {
+  display: inline-block;
+  padding: 0.4em 1.6em;
+  font-size: 1rem;
+  color: #00b5ad;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #00b5ad solid;
+  border-radius: 20px;
+  transition: 0.4s ease;
+}
+
+.button-2:hover {
+  color: #fff;
+  background: #00b5ad;
+}
+
+.admin-login {
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  padding: 50px 0 ;
+}
+.customer-login {
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  padding: 50px 0 ;
+}
+
+.button-gradation {
+  position: relative;
+  display: inline-block;
+  padding: 0.4em 1.6em;
+  font-size: 0.8em;
+  color: #00b5ad;
+  text-decoration: none;
+  user-select: none;
+  background: #fff;
+  transition: 0.3s;
+}
+
+.button-gradation:hover {
+  color: #fff;
+  background: -webkit-linear-gradient(top left, #00b5ad, #50e684);
+}
+
+.button-gradation::before {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  content: "";
+  background: -webkit-linear-gradient(top left, #00b5ad, #50e684);
+}
+
+ul.header {
+  display: flex;
+  list-style: none;
+}
+
+ul.header li{
+  margin-left: auto;
+  line-height: 80px;
+    font-size: 15px;
+  text-align: center;
+}
+
+
+.input-mail {
+  box-sizing: border-box;
+  width: 300px;
+  padding: 10px 10px;
+  margin: 5px auto 5px auto;
+  font-size: 14px;
+  color: #333;
+  border: solid 1px #ccc;
+  border-radius: 6px;
+  outline: 0;
+  transition: 0.3s;
+  -webkit-appearance: none;
+}
+
+.form-1{
+  display:flex;
+  justify-content: center;
+}
+
+.side-var-1 {
+  width: 200px;
+  height: auto;
+  text-color: #fff;
+  background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
+  margin-right: 10px;
+}
+.side-var-2 {
+  width: 200px;
+  height: auto;
+  text-color: #fff;
+  background-image: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
+  margin-right: 10px;
+}
+
+.side-h3{
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.form-label{
+  margin-top: 15px;
+  font-size: 15px;
+  text-align: left;
+  width: 200px;
+}
+
+.form-field{
+ margin: 5px 0px 0px 0;
+ height: 50px;
+ width: 300px;
+}
+.form-field-2{
+ margin: 20px auto 5px 0;
+ width: 300px;
+}
+
+section2 {
+ margin-left: 200px;
+ font-size: 13px;
+}
+
+ #target {
+  margin: 0 auto;
+  width: 550px;
+  height: 400px;
+}
+
+.nav-link {
+  hover: pointer;
+  font-size: 20px;
+}
+
+.nav-link:hover {
+ background-color: #FFF;
+}
+
+header {
+  background-color: 	#F5F5F5;
+  justify-content: center;
+  text-align: center;
+}
+
+ul.header li {
+  padding-top: 20px;
+  font-size: 20px;
+}
+
+.link-2 {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+#open, #close {
+  cursor: pointer;
+  text-align: center;
+  padding: 12px 0;
+  margin: 16px auto 0;
+}
+
+#mask {
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+#modal {
+  background: #fff;
+  width: 800px;
+  padding: 20px;
+  border-radius: 4px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+#modal > p {
+  margin: 0 0 20px;
+}
+
+#mask.hidden {
+  display: none;
+}
+
+#modal.hidden {
+  transform: translate(0, -500px);
+}
+
+.vertical-scroll-table{
+	color: #5e5e5e;
+  max-height: 400px;
+	overflow: auto;
+	overflow-x: hidden;
+	margin: 20px;
+}
+.vertical-scroll-table table{
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.vertical-scroll-table table thead tr{
+	font-weight: bold;
+	text-align: center;
+	background-color: #f3f4f5;
+}
+.vertical-scroll-table table tbody tr:nth-child(even){
+	background-color: #fafbfc;
+}
+.vertical-scroll-table table td{
+	width: 33%;
+	padding: 5px;
+	border: 1px solid #ddd;
+}
+
+#stage {
+  margin: 40px 0 ;
+}
+
+.map {
+  margin: 30px auto 30px auto;
+}
