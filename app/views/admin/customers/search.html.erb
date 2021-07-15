@@ -1,12 +1,12 @@
-<h1 class="d-flex justify-content-center">登録生産者一覧</h1>
+<h3>ユーザー検索結果</h3>
 
-<h1>ユーザー検索</h1>
-<%= search_form_for @q, url: search_admin_customers_path do |f| %>
-  <%= f.label :name_cont, 'ユーザー名' %>
-  <%= f.search_field :name_cont %>
-  <br>
-  <%= f.submit '検索' %>
-<% end %>
+ <% @results.each do |results| %>
+          検索ワード:<%= results.name %>
+
+<hr>
+
+      <h1 class="d-flex justify-content-center"> <%= results.name %>様 登録データ</h1>
+      <% end %>
 
 <table class= "table table-bordered">
  <thead>
@@ -22,7 +22,7 @@
     </tr>
   </thead>
   <tbody>
-<% @customers.each do |customer| %>
+<% @customer.each do |customer| %>
     <tr>
       <td><%= customer.id %></td>
       <td><%= customer.name %></td>
