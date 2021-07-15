@@ -9,7 +9,7 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
     # end
     @customers = Customer.all
-        # クエリストリングがあればTimeオブジェクトに変換、ない場合は現在の時刻を取得
+    # クエリストリングがあればTimeオブジェクトに変換、ない場合は現在の時刻を取得
     @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today
     # 取得した時刻が含まれる月の範囲のデータを取得
     @items = @customer.items.where(date: @month.all_month).order('date ASC')
@@ -22,9 +22,8 @@ class Public::CustomersController < ApplicationController
 
     @items_all = current_customer.items.all
 
-  # 分析するため
+    # 分析するため
     @graph_items = Item.where(customer_id: current_customer).where(date: @month.all_month).group(:name).order(:date).sum(:count)
-
   end
 
   def show
@@ -32,28 +31,25 @@ class Public::CustomersController < ApplicationController
     @items = @customer.items
   end
 
-
-
   def edit
     @customer = Customer.find(params[:id])
   end
 
   def update
     customer = Customer.find(params[:id])
-    if customer.update(customer_params)
-      redirect_to my_page_path, notice:'会員情報を更新しました'
-    end
+    redirect_to my_page_path, notice: '会員情報を更新しました' if customer.update(customer_params)
   end
 
   def destroy
-  # binding pry
-   customer = Customer.find(params[:id])
-   customer.destroy
-   flash[:success] = "会員情報を削除しました"
-   redirect_to root_path
+    # binding pry
+    customer = Customer.find(params[:id])
+    customer.destroy
+    flash[:success] = '会員情報を削除しました'
+    redirect_to root_path
   end
 
   private
+
   def customer_params
     params.require(:customer).permit(:name, :kana, :address, :phone_number, :email, :customer_no)
   end
@@ -61,10 +57,6 @@ class Public::CustomersController < ApplicationController
   def ensure_correct_customer
     @customer = Customer.find(params[:id])
     @admin = Admin
-    unless @customer == current_customer
-      redirect_to customer_path(current_customer)
-    end
+    redirect_to customer_path(current_customer) unless @customer == current_customer
   end
-
-
 end

@@ -29,6 +29,4 @@ class Admins::SessionsController < Devise::SessionsController
     sign_in admin
     redirect_to admin_customers_profile_path, notice: 'ゲスト管理者としてログインしました。'
   end
-
-
 end
