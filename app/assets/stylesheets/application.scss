@@ -212,19 +212,6 @@ ul.list1 li {
   background: -webkit-linear-gradient(top left, #00b5ad, #50e684);
 }
 
-ul.header {
-  display: flex;
-  list-style: none;
-}
-
-ul.header li{
-  margin-left: auto;
-  line-height: 80px;
-    font-size: 15px;
-  text-align: center;
-}
-
-
 .input-mail {
   box-sizing: border-box;
   width: 300px;
@@ -294,25 +281,6 @@ section2 {
   height: 400px;
 }
 
-.nav-link {
-  hover: pointer;
-  font-size: 20px;
-}
-
-.nav-link:hover {
- background-color: #FFF;
-}
-
-header {
-  background-color: 	#F5F5F5;
-  justify-content: center;
-  text-align: center;
-}
-
-ul.header li {
-  padding-top: 20px;
-  font-size: 20px;
-}
 
 .link-2 {
   display: flex;
@@ -397,3 +365,222 @@ ul.header li {
 .d3 {
       text-align: center;
 }
+
+// ヘッダー関連
+
+ul.header {
+  display: flex;
+  list-style: none;
+  margin-top: 20px;
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+}
+
+.header-fix {
+  width: 150px;
+  height: 0;
+}
+
+.nav-link:hover {
+ background-color: #FFF;
+}
+
+header {
+  background-color: white;
+}
+
+ul.header li {
+  font-size: 18px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+a.nav-link {
+  margin: 0;
+}
+
+.guest {
+  text-align: center;
+  background: #f6d365;
+}
+
+// ヘッダー関連
+
+
+// トップ画面関連
+
+.container1 {
+  height: 500px;
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 100px;
+  margin-bottom: 30px;
+}
+
+.title-p {
+  font-size: 28px;
+  font-weight: 700;
+}
+.title-p2 {
+  margin: 10px 0 10px 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.h1-top {
+ padding: 0;
+  
+}
+
+main {
+  background: orange;
+  color: white;
+  text-align: center;
+}
+
+main h1,
+main p {
+  margin: 0;
+}
+
+main img {
+  width: 300px;
+  vertical-align: bottom;
+}
+
+.features img {
+  width: 100%;
+}
+
+.features > h1 {
+  text-align: center;
+  padding: 30px 0 10px 0;
+  font-weight: normal;
+}
+
+.features .container {
+  margin: 0 32px;
+}
+
+.features p {
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.features section {
+  padding-bottom: 64px;
+}
+
+.members {
+  background: whitesmoke;
+}
+
+.members > h1 {
+  text-align: center;
+  padding: 64px;
+  font-weight: normal;
+}
+
+.members ul {
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.members img {
+  width: 250px;
+  border-radius: 50%;
+}
+
+.members h2 {
+  font-size: 20px;
+}
+
+.members li {
+  padding-bottom: 20px;
+}
+
+.call-to-action {
+  background: orange;
+  color: white;
+  text-align: center;
+  padding: 64px 0;
+}
+
+.call-to-action h1 {
+  font-weight: normal;
+}
+
+.call-to-action .btn{
+  margin: 0 auto;
+}
+
+footer {
+  padding: 64px 0;
+  background: #323135 ;
+  color: #98969c;
+  text-align: center;
+}
+
+p {
+  padding-bottom: 10px;
+}
+
+@media (min-width: 900px){
+  header .container{
+    display:flex;
+    width: 800px;
+    margin:  0 auto;
+  }
+
+  header .info {
+    width: 60%;
+    align-self: center;
+  }
+
+  header .pic {
+    width: 40%;
+  }
+
+  .features .container {
+    width: 800px;
+    margin: 0 auto;
+  }
+
+  .features section {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .features section:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .features .pic {
+    width: 50%;
+  }
+
+  .features .info {
+    width: calc(50% - 32px);
+  }
+
+  .members ul {
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .members li {
+    width: 250px;
+  }
+
+}
+// トップ画面関連

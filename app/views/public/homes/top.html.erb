@@ -1,28 +1,21 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <script src="https://kit.fontawesome.com/124e42cc69.js" crossorigin="anonymous"></script>
-  <title>Document</title>
-</head>
-<body>
   <main>
-
     <div class="container1">
       <div class="info1">
-        <h1>Agris</h1>
-        <p>出荷登録管理アプリです</p>
-        <a href="/customers/sign_up" class="button-1 fas fa-plus-square fa-1x mx-3"> 新規登録はこちら</a>
-        <a href="/customers/sign_in" class="button-1 fas fa-sign-in-alt fa-1x mx-3"> ログインはこちら</a>
+        <h1 class="title">Agris</h1>
+        <p class="title-p">伝票は作らなくてもできあがる</p>
       </div>
       <div class="pic1">
         <img src="assets/agri01.jpg">
       </div>
+        <p class="title-p2">「紙の出荷伝票」をシステム化。Agrisは無料で使える伝票管理アプリです。</p>
+        <a href="/customers/sign_up" class="button-1 fas fa-plus-square fa-1x mx-3"> 新規登録はこちら</a>
+        <a href="/customers/sign_in" class="button-1 fas fa-sign-in-alt fa-1x mx-3"> ログインはこちら</a>
     </div>
   </main>
   <section class="features">
-    <h1>このアプリケーションをご紹介！</h1>
+    <h1 class="h1-top">ご利用例</h1>
     <div class="container">
+    <p>飲食店、店舗、イベント、医療機関、物販、会計など、人が集まり、行列ができてしまう所でご利用可能。従来のやり方をそのまま生かしてご利用いただけます。</p>
       <section>
         <div class="pic">
           <img src="assets/agri02.jpg" width="400px" height="225px">
@@ -88,46 +81,3 @@
     <h1>今すぐ新規登録しよう！</h1>
     <a href="/customers/sign_up" class="button-gradation">新規登録はこちら</a>
   </section>
-
-
-<table class="table table-bordered">
-  <thead>
-    <tr class="bg-light">
-
-      <th scope="col">品目</th>
-      <th scope="col">出荷日時</th>
-      <th scope="col">出荷先</th>
-      <th scope="col">コメント</th>
-      <th scope="col">数量</th>
-      <th scope="col">規格</th>
-      <th scope="col">画像</th>
-      <th scope="col">画像</th>
-      <th scope="col">画像</th>
-
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-
-        <td><%= item.name %></td>
-        <td><%= item.date %></td>
-        <td><%= item.send_method %></td>
-        <td><%= item.comment %></td>
-        <td><%= item.count %></td>
-        <td><%= item.standard %></td>
-        <td><%= attachment_image_tag(item, :image, :fill, 100, 100, fallback: "no-image-icon.jpg") %></td>
-          <td><%= link_to '編集', edit_item_path(item), class: "fas fa-pencil-alt fa-2x nav-link" %></td>
-          <td><%= link_to '削除', item, method: :delete, data: { confirm: '削除してもいいですか?' }, class: "fas fa-trash fa-2x nav-link" %></td>
-        </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-
-
-
-</body>
-</html>
