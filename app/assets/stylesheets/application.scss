@@ -384,7 +384,6 @@ ul.header {
   height: 0;
 }
 
-
 header {
   background-color: white;
 }
@@ -432,7 +431,7 @@ a.nav-link {
 
 .h1-top {
  padding: 0;
-  
+
 }
 
 main {
@@ -594,3 +593,95 @@ p {
   width: 50px;
 }
 // 上部へ戻るボタン
+
+// ハンバーガーメニュー
+@media (max-width:768px){
+  html,body{
+    overflow-x: hidden;
+  }
+  .nav{
+    position: fixed;
+    top: 30px;
+    left: 100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.9);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 右からスライド */
+    transition: left 0.5s;
+  }
+
+  #navbtn{
+    margin-top: 32px;
+  }
+  .nav ul{
+    list-style:none;
+  }
+
+  ul.header{
+    flex-direction: column;
+    align-items: end;
+  }
+
+  .nav li:not(:last-child){
+    margin-bottom: 30px;
+  }
+  .nav a{
+    color: #ffffff;
+  }
+}
+// ボタン（開く)
+#navbtn{
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  padding: 0;
+  outline: none;
+  border: none;
+  background: none;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+}
+
+#navbtn::before,
+#navbtn::after{
+  content : '';
+  display: block;
+  height: 1px;
+  background-color: #333333;
+  transform: translateY(10px);
+  transition: 0.3s ease-in-out;
+}
+
+#navbtn::before{
+  transform: translateY(-10px);
+  box-shadow: 0 10px #333333;
+}
+
+// ボタン（閉じる）
+.open #navbtn{
+  z-index: 100;
+}
+.open #navbtn::before{
+  transform: rotate(-45deg);
+  box-shadow: none;
+}
+.open #navbtn::after{
+  transform: rotate(45deg);
+  box-shadow: none;
+}
+// ハンバーガーメニュー 開いた時
+.open .nav{
+  left: 0;
+}
+
+@media(min-width: 768px){
+// PCではボタン非表示
+  #navbtn{
+    display:none;
+  }
+}
