@@ -384,9 +384,6 @@ ul.header {
   height: 0;
 }
 
-.nav-link:hover {
- background-color: #FFF;
-}
 
 header {
   background-color: white;
@@ -584,3 +581,16 @@ p {
 
 }
 // トップ画面関連
+
+// 上部へ戻るボタン
+#back {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  opacity: 0.5;
+}
+
+#back img {
+  width: 50px;
+}
+// 上部へ戻るボタン
