@@ -42,7 +42,8 @@
 <h3>圃場検索</h3>
 <div class="map">
 
-  <input type="text" id="address">
+  <input type="text" id="address" >
+  <%= @address.address %>
   <button id="search">検索</button>
    <div id="target"></div>
 
@@ -57,7 +58,12 @@
           var map;
           var target = document.getElementById('target');
           var geocoder = new google.maps.Geocoder();
-          var marker ;
+          var marker =  new google.maps.Marker({
+                        position:test,
+                        map: map,
+                        title: contentString
+                       });
+          var contentString = '住所：<%= @address.address %>';
           var center = {
             lat:35.683819,
             lng: 139.773729,
@@ -100,4 +106,45 @@
 
         }
       </script>
+
+<script type="text/javascript">
+  function initMap() {
+#latitude,longitudeから位置を特定
+    var test ={lat: <%= @address.latitude %>, lng: <%= @address.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 15, 
+              center: test
+              });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    var contentString = '住所：<%= @address.address %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+ #Map上の指定した位置にピンを挿して表示する
+    var marker = new google.maps.Marker({
+                  position:test,
+                  map: map,
+                  title: contentString
+                 });
+
+     marker.addListener('click', function() {
+       infowindow.open(map, marker);
+     });
+  }
+</script>
+
+      <script
+        src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyDJ5GOOTLbFLVD8ViuUGcaCcei8E-uTsb0&callback=initMap"
+        async
+        defer
+      ></script>
+
+<style type="text/css">
+  .map { height: 200px;
+         width: 70%;}
+</style>
+
 </div>

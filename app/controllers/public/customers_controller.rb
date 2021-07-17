@@ -51,7 +51,7 @@ class Public::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:name, :kana, :address, :phone_number, :email, :customer_no)
+    params.require(:customer).permit(:name, :kana, :address, :phone_number, :email, :customer_no, :latitude, :longitude)
   end
 
   def ensure_correct_customer

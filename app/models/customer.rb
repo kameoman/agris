@@ -7,6 +7,10 @@ class Customer < ApplicationRecord
   belongs_to :admin, optional: true
   has_many :items
 
+  # addressを登録した際にgeocoderが緯度、経度のカラムにも自動的に値を入れてくれる
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |customer|
       customer.password = SecureRandom.urlsafe_base64

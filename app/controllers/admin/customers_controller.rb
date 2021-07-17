@@ -9,15 +9,23 @@ class Admin::CustomersController < ApplicationController
     @items = Item.where(date: @month.all_month).order('date ASC')
     @customer = Customer.all
     @customer_items = Customer.joins(:items)
-  end
-  
-  def search
-    @results = @q.result
-    @customer = @results
-    
+    @customer_data = Customer.joins(:items).group(:name).order(:date).sum(:count)
+
+
   end
 
-  
+  def search
+    @results = @q.result
+
+    @customer = @results
+
+    @address = @q.result.select("id,address,latitude,longitude").find_by(@q.id)
+
+
+
+  end
+
+
   def profile
     @customers = Customer.all
   end

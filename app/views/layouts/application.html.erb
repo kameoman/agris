@@ -34,7 +34,13 @@
               <li><%= link_to " 管理者ログイン", new_admin_session_path, class: "fas fa-user-tie nav-link " %></li>
               </ul>
       </nav>
-      <button type="button" id="navbtn"></button>
+      <button type="button" id="navbtn">
+        <div class="c-hamburger-btn__bars">
+      		<div class="c-hamburger-btn__bar"></div>
+      		<div class="c-hamburger-btn__bar"></div>
+      		<div class="c-hamburger-btn__bar"></div>
+      	</div>
+      </button>
               <div class="guest">
               <%= link_to " ゲストログイン（閲覧用）", customers_guest_sign_in_path, method: :post, class: "fas fa-chalkboard-teacher nav-link" %>
               <%= link_to " 管理者ゲストログイン（閲覧用）", admins_guest_sign_in_path, method: :post, class: "fas fa-chalkboard-teacher nav-link" %>
