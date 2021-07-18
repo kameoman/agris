@@ -48,10 +48,10 @@
 
 <hr>
 <div class="d3">
-  <h3>出荷量順グラフ</h3>
-  <svg width="600" height="240" style="background:#f8f8f8";>  
+
+  <h3>全出荷者　<%= @month.strftime('%Y年%m月') %>分　出荷量分析グラフ</h3>
+  <svg width="600" height="240" style="background:#f8f8f8";>
 </div>
-<%= @customer_data %>
 </svg>
 
 <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -61,7 +61,7 @@
 
     var WIDTH = 600;
     var HEIGHT = 240;
-    
+
     var padding = {
       top: 40,
       bottom: 40,
@@ -71,12 +71,9 @@
 
 
     var scores = [
-      {name: 'tagushi', score: 77},
-      {name: 'kame', score: 92},
-      {name: 'nishi', score: 66},
-      {name: 'nori', score: 55},
-      {name: 'aii', score: 42},
-      {name: 'koshi', score: 20}
+      <% @customer_data.each do |customer_data| %>
+      {name: '<%= customer_data[0] %>', score: <%= customer_data[1] %> },
+      <% end %>
       ];
 
     function update(data) {
@@ -88,16 +85,16 @@
       })])
       .range([0, WIDTH - padding.left - padding.right])
       .nice();
-     
+
       var yScale = d3.scaleBand()
       .domain(scores.map(function(d){
         return d.name;
       }))
       .range([0, HEIGHT - padding.top - padding.bottom])
       .padding([0.1]);
-      
+
       var color = d3.scaleOrdinal(d3.schemeCategory10);
-      
+
       bars
         .enter()
         .append('rect')
@@ -120,13 +117,13 @@
           .attr('width', function(d){
             return xScale(d.score);
           });
-        
+
 
       bars
         .exit()
         .remove();
-        
-        
+
+
       d3.select('svg')
         .append('g')
         .attr(
@@ -134,7 +131,7 @@
           'translate(' + [padding.left , HEIGHT - padding.bottom] +')'
           )
         .call(d3.axisBottom(xScale));
-    
+
       d3.select('svg')
         .append('g')
         .attr(
@@ -148,43 +145,4 @@
 
 
   })();
-</script>
-
-
-
-<hr>
-
-<div>
-  <canvas id="stage"></canvas>
-</div>
-
-<script>
-  //「月別データ」
-var mydata = {
-  labels: ["１月", "２月", "３月", "４月", "５月", "６月", "７月"],
-  datasets: [
-    {
-      label: '数量',
-      hoverBackgroundColor: "rgba(255,99,132,0.3)",
-      data: [65, 59, 80, 81, 56, 55, 48],
-    }
-  ]
-};
-
-//「オプション設定」
-var options = {
-  title: {
-    display: true,
-    text: 'サンプルチャート'
-  }
-};
-
-var canvas = document.getElementById('stage');
-var chart = new Chart(canvas, {
-
-  type: 'bar',  //グラフの種類
-  data: mydata,  //表示するデータ
-  options: options  //オプション設定
-
-});
 </script>
