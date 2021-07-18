@@ -38,3 +38,48 @@
     <div class="t-deco">
       <%= link_to "アカウントを削除する", destroy_customer_path(@customer), method: :delete ,class: "btn btn-sm btn-danger" ,data: { confirm: 'Are you sure?' }%>
     </div>
+
+
+<%= @customer.latitude %> <br>
+<%= @customer.longitude %>
+
+      <div id="target"></div>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyDJ5GOOTLbFLVD8ViuUGcaCcei8E-uTsb0&callback=initMap"
+      async
+      defer
+    ></script>
+    <script>
+      function initMap() {
+        "use strict";
+
+        var target = document.getElementById("target");
+        var map;
+        // 以下でlat緯度　lng経度を示している
+        var USJ = { lat: <%= @customer.latitude %>, lng: <%= @customer.longitude %> };
+
+        map = new google.maps.Map(target, {
+          center: USJ,
+          // zoomは最大18段階までで0が世界地図
+          zoom: 15,
+        });
+
+        // クリックした箇所にマーカーを設置、マーカーの緯度経度を取得し表示できる
+        map.addListener('click',function(e){
+          var marker = new google.maps.Marker({
+            position: e.latLng,
+            map: this,
+            animation: google.maps.Animation.DROP
+          });
+          var infoWindow = new google.maps.InfoWindow({
+            content: e.latLng.toString()
+          });
+          marker.addListener('click',function(){
+            infoWindow.open(map, marker);
+          });
+        });
+
+
+      }
+    </script>
