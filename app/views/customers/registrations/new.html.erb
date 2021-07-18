@@ -10,6 +10,19 @@
     <div class="field">
       <%= f.text_field :name,autofocus: true, placeholder:"名前", class: "input-mail" %>
     </div>
+    
+     <div class="field">
+    <%= f.text_field :kana, autofocus: true, autocomplete: "kana", class: "input-mail", placeholder: "フリガナ" %>
+     </div>
+     <div class="field">
+      <%= f.text_field :customer_no, autofocus: true, autocomplete: "customer_no", class: "input-mail", placeholder: "生産者番号" %>
+     </div>
+     <div class="field">
+      <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "input-mail", placeholder: "電話番号" %>
+     </div>
+     <div class="field">
+      <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "input-mail", placeholder: "住所"%>
+    </div>
 
     <div class="field">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"メールアドレス", class: "input-mail" %>

@@ -9,8 +9,8 @@ class Admin::CustomersController < ApplicationController
     @items = Item.where(date: @month.all_month).order('date ASC')
     @customer = Customer.all
     @customer_items = Customer.joins(:items)
-    @customer_data = Customer.joins(:items).group(:name).order(:date).sum(:count)
-
+    # 出荷量データ
+    @customer_data = Customer.joins(:items).group(:name).group(:date).where(date: @month.all_month).order(:date).sum(:count)
 
   end
 
