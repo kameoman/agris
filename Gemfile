@@ -76,6 +76,9 @@ gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
 gem 'rubocop'
 gem "geocoder"
+gem "bullet"
+
+
 gem 'ransack'
 group :production do
   gem 'mysql2'
