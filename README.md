@@ -74,15 +74,23 @@ https://docs.google.com/spreadsheets/d/1dSv6NABsCQpkjAK1dc5TmW_1u0GUoZabVEaY_xdH
 - 使用gem
 
 ```
-gem 'devise'
-gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick"
-gem 'kaminari','~> 1.2.1'
+gem 'axlsx_rails'
 gem 'bootstrap', '~> 4.5'
-gem 'jquery-rails'
-gem 'font-awesome-sass', '~> 5.13'
-gem 'rubocop'
+gem 'chart-js-rails', '~> 0.1.4'
+gem 'devise'
 gem 'dotenv-rails'
+gem 'font-awesome-sass', '~> 5.13'
+gem 'jquery-rails'
+gem 'kaminari', '~> 1.2.1'
+gem 'refile', require: 'refile/rails', github: 'manfe/refile'
+gem 'refile-mini_magick'
+gem 'rubocop'
+gem "geocoder"
+gem "bullet"
+gem 'ransack'
+group :production do
+  gem 'mysql2'
+end
 ```
 ## 使用素材
 随時更新予定
