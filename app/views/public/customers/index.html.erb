@@ -32,8 +32,8 @@
           <td><%= item.send_method %></td>
           <td><%= item.count %></td>
           <td><%= item.standard %></td>
-          <td>
-            <%= link_to '詳細', item,  class: "fas fa-poll-h fa-2x nav-link" %>
+          <td><div id="open">詳細を見る</div>
+            <%= link_to '詳細', item_path(item),remote: true %>
             </td>
           <td><%= link_to '編集', edit_item_path(item), class: "fas fa-pencil-alt fa-2x nav-link" %></td>
           <td><%= link_to '削除', item, method: :delete, data: { confirm: '削除してもいいですか?' }, class: "fas fa-trash fa-2x nav-link" %></td>
@@ -44,15 +44,18 @@
 </div>
 
 
-<div id="mask" class="hidden"></div>
 
-<section id="modal" class="hidden">
-  <%= render 'items/show', item: @items %>
-  <div id="close">
-    閉じる
-  </div>
-</section>
-<script src="assets/edit.js"></script>
+  <div id="mask" class="hidden"></div>
+
+  <section id="modal" class="hidden">
+    <%= render partial: 'items/modal', locals: {item: @item }%>
+  </section>
+
+
+
+
+
+
 
 
 <div>
@@ -97,4 +100,29 @@ var chart = new Chart(canvas, {
   options: options  //オプション設定
 
 });
+
+
+// {
+//   const op = document.getElementById('open');
+//   const cl = document.getElementById('close');
+//   const modal = document.getElementById('modal');
+//   const mask = document.getElementById('mask');
+
+//   op.addEventListener('click', () => {
+//     modal.classList.remove('hidden');
+//     mask.classList.remove('hidden');
+//   });
+
+//   cl.addEventListener('click', () => {
+//     modal.classList.add('hidden');
+//     mask.classList.add('hidden');
+//   });
+
+//   mask.addEventListener('click', () => {
+//     modal.classList.add('hidden');
+//     mask.classList.add('hidden');
+//   });
+
+// }
+
 </script>

@@ -13,7 +13,6 @@ class Public::CustomersController < ApplicationController
     @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today
     # 取得した時刻が含まれる月の範囲のデータを取得
     @items = @customer.items.where(date: @month.all_month).order('date ASC')
-    @item = @items.count
 
     @customer_1day_items = Item.where(customer_id: current_customer.id).where(created_at: 1.day.ago.all_day)
     # 1ヶ月間の投稿数
