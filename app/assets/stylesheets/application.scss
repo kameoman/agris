@@ -743,7 +743,7 @@ p {
 }
 
 #mask {
-  background: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   bottom: 0;
@@ -752,18 +752,23 @@ p {
   z-index: 1;
 }
 
+#mask.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
 #modal {
-  background: #fff;
-  width: 800px;
-  padding: 20px;
-  border-radius: 4px;
-  position: absolute;
-  top: 40px;
+  position: fixed;   /* スクロールで移動しないようmodalの位置を固定します */
+  top: 10vh;
+  /* 以下3行：モーダルを左右中央揃えにする方法 */
   left: 0;
   right: 0;
   margin: 0 auto;
-  transition: transform 0.4s;
-  z-index: 2;
+  transform: translate(0, 0) scale(1);
+  transition: 0.2s;   /* transitionでアニメーションを作成 */
+  z-index: 5;   /* マスクより上に重なるようにする */
+  width: 935px;   /* showビューの幅に合わせて設定 */
 }
 
 #modal > p {
@@ -771,5 +776,15 @@ p {
 }
 
 #modal.hidden {
-  transform: translate(0, -500px);
+  transform: translate(0, 0);
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
 }

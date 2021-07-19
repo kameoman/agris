@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
     elsif resource_or_scope == :customer
       root_path
     end
-      root_path
+    root_path
   end
 
   private

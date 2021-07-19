@@ -15,9 +15,7 @@ class Customer < ApplicationRecord
     end
   end
 
-
   # addressを登録した際にgeocoderが緯度、経度のカラムにも自動的に値を入れてくれる
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
-
 end

@@ -1,6 +1,5 @@
 class Admin::CustomersController < ApplicationController
-  before_action :set_q, only: [:profile, :search]
-
+  before_action :set_q, only: %i[profile search]
 
   def index
     # クエリストリングがあればTimeオブジェクトに変換、ない場合は現在の時刻を取得
@@ -10,8 +9,7 @@ class Admin::CustomersController < ApplicationController
     @customer = Customer.all
     @customer_items = Customer.joins(:items)
     # 出荷量データ
-    @customer_data = Customer.joins(:items).where(items: {date: @month.all_month}).group(:name).sum(:count)
-
+    @customer_data = Customer.joins(:items).where(items: { date: @month.all_month }).group(:name).sum(:count)
   end
 
   def search
@@ -19,12 +17,8 @@ class Admin::CustomersController < ApplicationController
 
     @customer = @results
 
-    @address = @q.result.select("id,address,latitude,longitude").find_by(@q.id)
-
-
-
+    @address = @q.result.select('id,address,latitude,longitude').find_by(@q.id)
   end
-
 
   def profile
     @customers = Customer.all
@@ -38,9 +32,7 @@ class Admin::CustomersController < ApplicationController
     @items = @customer.items.where(date: @month.all_month).order('date ASC')
   end
 
-    def set_q
+  def set_q
     @q = Customer.ransack(params[:q])
-    end
-
-
+  end
 end

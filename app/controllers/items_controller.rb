@@ -7,17 +7,15 @@ class ItemsController < ApplicationController
     # 取得した時刻が含まれる月の範囲のデータを取得
     @items = Item.where(date: @month.all_month).order('date ASC')
     @customer = Customer.all
-
   end
 
   def report; end
 
   def show
-   @item = Item.find(params[:id])
-   respond_to do |format|
-    format.js
-   end
-
+    @item = Item.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
   end
 
   def new

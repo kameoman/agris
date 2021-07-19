@@ -41,7 +41,6 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
   gem 'pry-rails'
-
 end
 
 group :development do
@@ -66,18 +65,17 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'axlsx_rails'
 gem 'bootstrap', '~> 4.5'
+gem 'bullet'
 gem 'chart-js-rails', '~> 0.1.4'
 gem 'devise'
 gem 'dotenv-rails'
 gem 'font-awesome-sass', '~> 5.13'
+gem 'geocoder'
 gem 'jquery-rails'
 gem 'kaminari', '~> 1.2.1'
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
 gem 'rubocop'
-gem "geocoder"
-gem "bullet"
-
 
 gem 'ransack'
 group :production do

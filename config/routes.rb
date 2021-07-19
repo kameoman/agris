@@ -31,8 +31,6 @@ Rails.application.routes.draw do
     post 'admins/guest_sign_in', to: 'admins/sessions#guest_sign_in'
   end
 
-
-
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
     passwords: 'admins/passwords',
@@ -43,7 +41,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :items, only: [:show]
     resources :customers, only: %i[index show update edit] do
-    collection do
+      collection do
         get 'search'
       end
     end

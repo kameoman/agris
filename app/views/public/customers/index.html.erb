@@ -25,15 +25,15 @@
 <div class="table-td">
     <tbody>
       <% @items.each do |item| %>
-        <tr class="bg-light ">
+        <tr class="bg-light text-center">
           <td><%= @customer.name %></td>
           <td><%= item.name %></td>
           <td><%= item.date.strftime('%Y/%m/%d')%></td>
           <td><%= item.send_method %></td>
           <td><%= item.count %></td>
           <td><%= item.standard %></td>
-          <td><div id="open">詳細を見る</div>
-            <%= link_to '詳細', item_path(item),remote: true %>
+          <td>
+            <%= link_to '詳細', item_path(item),remote: true, class: "fas fa-poll-h fa-2x nav-link" %>
             </td>
           <td><%= link_to '編集', edit_item_path(item), class: "fas fa-pencil-alt fa-2x nav-link" %></td>
           <td><%= link_to '削除', item, method: :delete, data: { confirm: '削除してもいいですか?' }, class: "fas fa-trash fa-2x nav-link" %></td>
@@ -45,9 +45,9 @@
 
 
 
-  <div id="mask" class="hidden"></div>
+  <div id="mask" class="hidden" ></div>
 
-  <section id="modal" class="hidden">
+  <section id="modal" class="hidden" tabindex="-1" role="dialog">
     <%= render partial: 'items/modal', locals: {item: @item }%>
   </section>
 
@@ -102,27 +102,27 @@ var chart = new Chart(canvas, {
 });
 
 
-// {
-//   const op = document.getElementById('open');
-//   const cl = document.getElementById('close');
-//   const modal = document.getElementById('modal');
-//   const mask = document.getElementById('mask');
+{
+  const op = document.getElementById('open');
+  const cl = document.getElementById('close');
+  const modal = document.getElementById('modal');
+  const mask = document.getElementById('mask');
 
-//   op.addEventListener('click', () => {
-//     modal.classList.remove('hidden');
-//     mask.classList.remove('hidden');
-//   });
+  op.addEventListener('click', () => {
+    modal.classList.remove('hidden');
+    mask.classList.remove('hidden');
+  });
 
-//   cl.addEventListener('click', () => {
-//     modal.classList.add('hidden');
-//     mask.classList.add('hidden');
-//   });
+  cl.addEventListener('click', () => {
+    modal.classList.add('hidden');
+    mask.classList.add('hidden');
+  });
 
-//   mask.addEventListener('click', () => {
-//     modal.classList.add('hidden');
-//     mask.classList.add('hidden');
-//   });
+  mask.addEventListener('click', () => {
+    modal.classList.add('hidden');
+    mask.classList.add('hidden');
+  });
 
-// }
+}
 
 </script>
