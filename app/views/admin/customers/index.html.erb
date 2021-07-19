@@ -9,7 +9,7 @@
 <%= link_to "",admin_customers_path(month:@month.next_month), class: "fas fa-angle-double-right fa-2x" %>
 
 <!--<div class="vertical-scroll-table">-->
-<table class="table-to-export table-bordered" style="width: -webkit-fill-available;" data-sheet-name="野菜出荷データ">
+<table class="table-to-export table-bordered" id="fav-table" style="width: -webkit-fill-available;" data-sheet-name="野菜出荷データ">
     <thead>
       <tr class="bg-light text-center">
         <th scope="col">名前</th>
@@ -20,6 +20,7 @@
         <th scope="col">数量</th>
         <th scope="col">規格</th>
         <th scope="col">画像</th>
+
 
       </tr>
     </thead>
@@ -40,8 +41,8 @@
       <% end %>
     </tbody>
   </table>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.9.10/xlsx.full.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+  
+  
 
 
 <hr>

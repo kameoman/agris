@@ -9,7 +9,7 @@
 </strong>
 <%= link_to "",customers_path(month:@month.next_month), class: "fas fa-angle-double-right fa-2x nav-link" %>
 
-<table class="table table-bordered align-center">
+<table class="table table-bordered align-center" id="fav-table">
   <thead>
     <tr class="bg-light text-center">
       <th scope="col ">名前</th>
@@ -43,21 +43,6 @@
   </table>
 </div>
 
-      <%# @item.tags.each do |tag| %>
-        <span class="label"><%#= tag.name %></span>
-      <%# end %>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   <div id="mask" class="hidden" ></div>
@@ -65,12 +50,6 @@
   <section id="modal" class="hidden" tabindex="-1" role="dialog">
     <%= render partial: 'items/modal', locals: {item: @item }%>
   </section>
-
-
-
-
-
-
 
 
 <div>
@@ -115,5 +94,7 @@ var chart = new Chart(canvas, {
   options: options  //オプション設定
 
 });
+
+
 
 </script>
