@@ -11,8 +11,7 @@
 <!--<div class="vertical-scroll-table">-->
 <table class="table-to-export table-bordered" style="width: -webkit-fill-available;" data-sheet-name="野菜出荷データ">
     <thead>
-      <tr class="bg-light">
-        <th scope="col"></th>
+      <tr class="bg-light text-center">
         <th scope="col">名前</th>
         <th scope="col">品目</th>
         <th scope="col">出荷日時</th>
@@ -27,8 +26,7 @@
 
     <tbody>
       <% @items.each do |item| %>
-        <tr>
-          <td><input type="checkbox"></td>
+        <tr class="text-center">
           <td><%= item.customer.name %></td>
           <td><%= item.name %></td>
           <td><%= item.date.strftime('%Y/%m/%d')%></td>

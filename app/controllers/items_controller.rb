@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.customer_id = current_customer.id
     if @item.save
-      redirect_to @item, notice: '新規データを作成完了しました.'
+      redirect_to customers_path, notice: '新規データを作成完了しました.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -38,7 +38,7 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1 or /items/1.json
   def update
     if @item.update(item_params)
-      redirect_to @item, notice: 'データの更新が完了しました.'
+      redirect_to customers_path, notice: 'データの更新が完了しました.'
     else
       render :edit, status: :unprocessable_entity
     end
