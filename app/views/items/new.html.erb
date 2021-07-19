@@ -12,23 +12,24 @@
     <div id="error_explanation">
       <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
 
-      <ul>
-      <% @item.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
     </div>
   <% end %>
   <div class="field">
     <%= f.label :"品目名", class: "form-label"%>
     <%= f.text_field :name , class: "form-field" %>
   </div>
+    <% if @item.errors.include?(:name) %>
+     <p style="color: red;"><%= @item.errors.full_messages_for(:name).first %>
+     <% end %>
   <section2>※(例：トマト・きゅうり・ブロッコリー等）</section2>
 <hr>
   <div class="field">
     <%= f.label :"規格", class: "form-label" %>
     <%= f.text_field :standard, class: "form-field"  %>
   </div>
+    <% if @item.errors.include?(:standard) %>
+     <p style="color: red;"><%= @item.errors.full_messages_for(:standard).first %>
+     <% end %>
   <section2>※S/M/Lまたは300gや500g・1㎏束など</section2><br/>
   <section2>※複数ある場合は新しく登録して下さい</section2>
 <hr>
@@ -36,6 +37,9 @@
     <%= f.label :"出荷数量", class: "form-label" %>
     <%= f.number_field :count, class: "form-field"  %>
   </div>
+    <% if @item.errors.include?(:count) %>
+     <p style="color: red;"><%= @item.errors.full_messages_for(:count).first %>
+     <% end %>
   <section2>※個数ではなく、袋数や箱数で入力下さい</section2>
 <hr>
 
@@ -43,6 +47,9 @@
     <%= f.label :"出荷予定日", class: "form-label" %>
     <%= f.date_field :date, class: "form-field"  %>
   </div>
+    <% if @item.errors.include?(:date) %>
+     <p style="color: red;"><%= @item.errors.full_messages_for(:date).first %>
+     <% end %>
   <section2>※収穫日ではなく、出荷日を入力して下さい</section2>
 <hr>
 

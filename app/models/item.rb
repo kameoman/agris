@@ -3,5 +3,12 @@ class Item < ApplicationRecord
   belongs_to :customer, optional: true
   belongs_to :admin, optional: true
 
+    validates :name, presence:true
+    validates :date, presence:true
+    validates :send_method, presence:true
+    validates :count, presence:true
+    validates :standard, presence:true
+
+
   attachment :image
 end

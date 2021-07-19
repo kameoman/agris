@@ -1,0 +1,6 @@
+ja:
+  activerecord:
+    attributes:
+        item:
+        name: 品目名を入力してください。
+        date: 出荷日時
