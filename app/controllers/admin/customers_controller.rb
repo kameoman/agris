@@ -30,6 +30,8 @@ class Admin::CustomersController < ApplicationController
     @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today
     # 取得した時刻が含まれる月の範囲のデータを取得
     @items = @customer.items.where(date: @month.all_month).order('date ASC')
+    # 円グラフに活用
+    @graph_items = Item.where(customer_id: @customer).where(date: @month.all_month).group(:name).order(:date).sum(:count)
   end
 
   def set_q

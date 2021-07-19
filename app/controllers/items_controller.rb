@@ -30,9 +30,17 @@ class ItemsController < ApplicationController
     @item.customer_id = current_customer.id
     if @item.save
       redirect_to customers_path, notice: '新規データを作成完了しました.'
+      # tags = Vision.get_image_data(@item.image)
+      # tags.each do |tag|
+      # item.tags.create(name: tag)
+      # end
     else
       render :new, status: :unprocessable_entity
     end
+
+
+
+
   end
 
   # PATCH/PUT /items/1 or /items/1.json

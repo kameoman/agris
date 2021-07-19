@@ -43,6 +43,21 @@
   </table>
 </div>
 
+      <%# @item.tags.each do |tag| %>
+        <span class="label"><%#= tag.name %></span>
+      <%# end %>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   <div id="mask" class="hidden" ></div>
@@ -100,29 +115,5 @@ var chart = new Chart(canvas, {
   options: options  //オプション設定
 
 });
-
-
-{
-  const op = document.getElementById('open');
-  const cl = document.getElementById('close');
-  const modal = document.getElementById('modal');
-  const mask = document.getElementById('mask');
-
-  op.addEventListener('click', () => {
-    modal.classList.remove('hidden');
-    mask.classList.remove('hidden');
-  });
-
-  cl.addEventListener('click', () => {
-    modal.classList.add('hidden');
-    mask.classList.add('hidden');
-  });
-
-  mask.addEventListener('click', () => {
-    modal.classList.add('hidden');
-    mask.classList.add('hidden');
-  });
-
-}
 
 </script>
