@@ -7,11 +7,16 @@ class Customer < ApplicationRecord
   belongs_to :admin, optional: true
   has_many :items
 
+  validates :name, presence:true
+  validates :kana, presence:true
+  validates :address, presence:true
+  validates :phone_number, presence:true
+
+
+
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |customer|
       customer.password = SecureRandom.urlsafe_base64
-      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
-      # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
     end
   end
 

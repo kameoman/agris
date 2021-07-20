@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
 
   def edit; end
 
-  # POST /items or /items.json
+
   def create
     @item = Item.new(item_params)
     @item.customer_id = current_customer.id
@@ -36,7 +36,7 @@ class ItemsController < ApplicationController
       # item.tags.create(name: tag)
       # end
     else
-      render :new, status: :unprocessable_entity
+      render :new
     end
 
 
@@ -49,7 +49,7 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to customers_path, notice: 'データの更新が完了しました.'
     else
-      render :edit, status: :unprocessable_entity
+      render :edit
     end
   end
 

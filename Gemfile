@@ -81,6 +81,9 @@ gem 'refile-mini_magick'
 gem 'rubocop'
 gem 'google-cloud-vision'
 gem 'rails-i18n'
+gem "refile-s3"
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 
 gem 'ransack'
 group :production do

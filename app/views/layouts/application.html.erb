@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/css/theme.default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.9.10/xlsx.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 
   </head>
 
@@ -45,6 +46,7 @@
       		<div class="c-hamburger-btn__bar"></div>
       	</div>
       </button>
+            <p id="notice"><%= notice %></p>
               <div class="guest">
               <%= link_to " ゲストログイン（閲覧用）", customers_guest_sign_in_path, method: :post, class: "fas fa-chalkboard-teacher nav-link" %>
               <%= link_to " 管理者ゲストログイン（閲覧用）", admins_guest_sign_in_path, method: :post, class: "fas fa-chalkboard-teacher nav-link" %>

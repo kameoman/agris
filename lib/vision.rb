@@ -6,11 +6,13 @@
 #   class << self
 #     def get_image_data(image_file)
 #       # APIのURL作成
-#       api_url = "https://vision.googleapis.com/v1/images:annotate?key=#{ENV['AIzaSyDJ5GOOTLbFLVD8ViuUGcaCcei8E-uTsb0']}"
+#       api_url = "https://vision.googleapis.com/v1/images:annotate?key=#{ENV['GOOGLE_API_KEY']}"
 
 #       # 画像をbase64にエンコード
 #       base64_image = Base64.encode64(open("#{Rails.root}/public/uploads/#{image_file.id}").read)
-      
+
+#       headers = {'Referer': 'your domain here'}
+
 
 #       # APIリクエスト用のJSONパラメータ
 #       params = {
@@ -34,12 +36,10 @@
 #       request['Content-Type'] = 'application/json'
 #       response = https.request(request, params)
 #       response_body = JSON.parse(response.body)
+
 #       # APIレスポンス出力
-#       if (error = response_body['responses'][0]['error']).present?
-#         raise error['message']
-#       else
-#         response_body['responses'][0]['labelAnnotations'].pluck('description').take(3)
-#       end
+
+#       JSON.parse(response.body)['responses'][0]['labelAnnotations'].pluck('description').take(3)
 #     end
 #   end
 # end

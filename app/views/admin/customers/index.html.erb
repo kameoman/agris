@@ -20,11 +20,8 @@
         <th scope="col">数量</th>
         <th scope="col">規格</th>
         <th scope="col">画像</th>
-
-
       </tr>
     </thead>
-
     <tbody>
       <% @items.each do |item| %>
         <tr class="text-center">
@@ -36,24 +33,19 @@
           <td><%= item.count %></td>
           <td><%= item.standard %></td>
           <td><%= attachment_image_tag(item, :image, :fill, 100, 100, fallback: "no-image-icon.jpg") %></td>
-
         </tr>
       <% end %>
     </tbody>
   </table>
-  
-  
-
-
 <hr>
-<div class="d3">
 
+<div class="d3">
   <h3>全出荷者　<%= @month.strftime('%Y年%m月') %>分　出荷量分析グラフ</h3>
   <svg width="600" height="240" style="background:#f8f8f8";>
 </div>
 </svg>
 
-<script src="https://d3js.org/d3.v7.min.js"></script>
+
 <script>
   (function(){
     'use strict';

@@ -759,15 +759,15 @@ p {
 
 
 #modal {
-  position: fixed; 
+  position: fixed;
   top: 10vh;
   left: 0;
   right: 0;
   margin: 0 auto;
   transform: translate(0, 0) scale(1);
-  transition: 0.2s;   
-  z-index: 5;  
-  width: 935px;  
+  transition: 0.2s;
+  z-index: 5;
+  width: 935px;
 }
 
 #modal > p {
@@ -787,4 +787,53 @@ p {
     width: 100vw;
     height: 100vh;
     background-color: #000;
+}
+#error_explanation h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 14px;
+    margin: -7px -7px 0;
+    background-color: #FF6347;
+    color: #fff;
+}
+
+
+
+#error_explanation {
+    width: 450px;
+    margin: 0 auto;
+    border: 2px solid #FF6347;
+    padding: 7px 7px 0;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+}
+
+
+element.style {
+}
+.field_with_errors {
+    padding: 2px;
+    background-color: #FF6347;
+    display: table;
+    margin: 0 auto;
+}
+
+
+.password_path {
+  width: 600px;
+  height: 300px;
+  margin: 30px auto;
+  background: 	#F5F5F5;
+}
+
+.password_path > h2 {
+  width: 600px;
+  background: orange;
+  height: 50px;
+  text-align: center;
+  padding: 10px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 20px;
 }

@@ -15,7 +15,7 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label :"品目名", class: "form-label"%>
+    <%= f.label :"品目名（必須）", class: "form-label"%>
     <%= f.text_field :name , class: "form-field" %>
   </div>
     <% if @item.errors.include?(:name) %>
@@ -24,7 +24,7 @@
   <section2>※(例：トマト・きゅうり・ブロッコリー等）</section2>
 <hr>
   <div class="field">
-    <%= f.label :"規格", class: "form-label" %>
+    <%= f.label :"規格（必須）", class: "form-label" %>
     <%= f.text_field :standard, class: "form-field"  %>
   </div>
     <% if @item.errors.include?(:standard) %>
@@ -34,7 +34,7 @@
   <section2>※複数ある場合は新しく登録して下さい</section2>
 <hr>
   <div class="field">
-    <%= f.label :"出荷数量", class: "form-label" %>
+    <%= f.label :"出荷数量（必須）", class: "form-label" %>
     <%= f.number_field :count, class: "form-field"  %>
   </div>
     <% if @item.errors.include?(:count) %>
@@ -44,7 +44,7 @@
 <hr>
 
   <div class="field">
-    <%= f.label :"出荷予定日", class: "form-label" %>
+    <%= f.label :"出荷予定日（必須）", class: "form-label" %>
     <%= f.date_field :date, class: "form-field"  %>
   </div>
     <% if @item.errors.include?(:date) %>
@@ -87,6 +87,5 @@
 <hr>
 
 <div class="d-flex justify-content-center mx-4">
-<%= link_to '登録内容の詳細へ　', @item %> |
 <%= link_to '　一覧画面へ戻る', customers_path %>
 </div>
