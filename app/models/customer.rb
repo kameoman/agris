@@ -7,6 +7,7 @@ class Customer < ApplicationRecord
   belongs_to :admin, optional: true
   has_many :items
 
+ 
   validates :name, presence:true
   validates :kana, presence:true
   validates :address, presence:true
