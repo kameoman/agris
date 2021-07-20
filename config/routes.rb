@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root to: 'homes#top'
-    get '/homes/about' => 'homes#about'
+    get '/home/about' => 'homes#about'
     resources :item
     resources :customers
 
