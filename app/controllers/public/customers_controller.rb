@@ -22,7 +22,13 @@ class Public::CustomersController < ApplicationController
     @items_all = current_customer.items.all
 
     # 分析するため
-    @graph_items = Item.where(customer_id: current_customer).where(date: @month.all_month).group(:name).order(:date).sum(:count)
+   #@graph_items = Item.where(customer_id: current_customer).where(date: @month.all_month).group(:name).order(:date).sum(:count)
+    graph_labels =  current_customer.items.where(date: @month.all_month).map {|item| item.name}.uniq
+    gon.graph_labels = graph_labels
+    gon.graph_counts = graph_labels.map do |label|
+      current_customer.items.where(name: label, date: @month.all_month).sum(:count)
+    end
+    
   end
 
   def show

@@ -84,6 +84,7 @@ gem 'rails-i18n'
 gem "refile-s3"
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'gon'
 
 gem 'ransack'
 group :production do
