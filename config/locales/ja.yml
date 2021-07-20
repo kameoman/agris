@@ -1,22 +1,21 @@
 ja:
   activerecord:
     models:
-      customer: ユーザー
-      item: 掲示板
+      customer: "ユーザー"
+      item: "掲示板"
     attributes:
         item:
-          name: 名前
-          # view側： User.human_attribute_name :name => "名前" /　t("activerecord.attributes.user.name")と同じ
-          standard: 規格
-          count: 数量
-          date: 出荷日
+          name: "名前"
+          standard: "規格"
+          count: "数量"
+          date: "出荷日"
         customer:
-          name: 名前
-          password: パスワード
-          kana: フリガナ
-          address: 住所
-          phone_number: 電話番号
+          name: "名前"
+          password: "パスワード"
+          kana: "フリガナ"
+          address: "住所"
+          phone_number: "電話番号"
   # 全てのmodelで共通して使用するattributesを定義
   attributes:
-    created_at: 作成日
-    updated_at: 更新日
+    created_at: "作成日"
+    updated_at: "更新日"

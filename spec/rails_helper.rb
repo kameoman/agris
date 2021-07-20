@@ -62,4 +62,10 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryBot::Syntax::Methods
+
+  # # ログインユーザーの確認
+  # config.include Devise::TestHelpers, type: :controller
+  # config.extend ControllerMacros, :type => :controller
+
+
 end

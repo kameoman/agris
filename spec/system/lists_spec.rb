@@ -15,25 +15,50 @@ describe '投稿のテスト' do
       end
     end
   end
+end
 
-  describe "投稿画面のテスト" do
-    before do
-      visit new_item_path
+describe Customer do
+
+  describe '#create' do
+
+    it "項目全てが存在すれば登録できること" do
+     customer = Customer.new(name: "見本",kana: "フリガナ",address: "東京都千代田区",phone_number: "08000001111", email: "kame@gmail.com", password: "112233", password_confirmation: "112233")
+     expect(customer).to be_valid
+   end
+
+    it"名前が無い場合は登録できない"do
+      customer = Customer.new(name: "",kana: "フリガナ",address: "東京都千代田区",phone_number: "08000001111", email: "kame@gmail.com", password: "112233", password_confirmation: "112233")
+      customer.valid?
+     expect(customer.errors[:name]).to have_content 'を入力してください'
     end
-    context '表示の確認' do
-      it 'new_item_pathが"/items/new"であるか' do
-        expect(current_path).to eq('/items/new')
-      end
-      it '(送信)ボタンが表示されているか' do
-        expect(page).to have_button "送信"
-      end
+
+    it"名前が無い場合は登録できない"do
+      customer = Customer.new(name: "",kana: "フリガナ",address: "東京都千代田区",phone_number: "08000001111", email: "", password: "112233", password_confirmation: "112233")
+      customer.valid?
+     expect(customer.errors[:email]).to have_content 'を入力してください'
     end
-    context '投稿処理のテスト' do
-      it '投稿後のリダイレクト先は正しいか' do
-        click_button "送信"
-        expect(page).to have_current_path customers_path
-      end
+
+    it"名前が無い場合は登録できない"do
+      customer = Customer.new(name: "",kana: "",address: "東京都千代田区",phone_number: "08000001111", email: "", password: "112233", password_confirmation: "112233")
+      customer.valid?
+     expect(customer.errors[:kana]).to have_content 'を入力してください'
     end
-    
+
+    it"名前が無い場合は登録できない"do
+      customer = Customer.new(name: "",kana: "フリガナ",address: "",phone_number: "08000001111", email: "", password: "112233", password_confirmation: "112233")
+      customer.valid?
+     expect(customer.errors[:address]).to have_content 'を入力してください'
+    end
   end
+
+  describe 'ユーザーログイン' do
+    before do
+      visit new_customer_session_path
+    end
+
+  end
+
+
+
+
 end
