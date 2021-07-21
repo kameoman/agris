@@ -12,7 +12,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.9.10/xlsx.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
-
+      <script
+        src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyDJ5GOOTLbFLVD8ViuUGcaCcei8E-uTsb0&callback=initMap"
+        async
+        defer
+      ></script>
   </head>
 
   <body>
@@ -20,7 +24,7 @@
       <nav class="nav">
       <ul class="header">
       <%= link_to root_path, class: "nav-link " do  %>
-        <img src="assets/logo.png" class="logo" >
+        <img src="/assets/logo.png" class="logo" >
       <% end %>
       <li><div class="header-fix"></div></li>
        <% if customer_signed_in? %>
@@ -58,7 +62,7 @@
 
     <span id="back">
       <a href="#">
-        <img src="assets/arrow.png" alt="">
+        <img src="/assets/arrow.png" alt="">
       </a>
     </span>
 

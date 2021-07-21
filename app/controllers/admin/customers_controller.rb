@@ -1,15 +1,12 @@
-# frozen_string_literal: true
-
 class Admin::CustomersController < ApplicationController
   before_action :set_q, only: %i[profile search]
 
   def index
+    @customer_items = Customer.joins(:items)
     # クエリストリングがあればTimeオブジェクトに変換、ない場合は現在の時刻を取得
     @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today
     # 取得した時刻が含まれる月の範囲のデータを取得+N+1のcustomerを追加
     @items = Item.where(date: @month.all_month).order('date ASC').includes(:customer)
-    @customer = Customer.all
-    @customer_items = Customer.joins(:items)
     # 出荷量データ
     @customer_data = Customer.joins(:items).where(items: { date: @month.all_month }).group(:name).sum(:count)
   end

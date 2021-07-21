@@ -25,7 +25,11 @@
     <tbody>
       <% @items.each do |item| %>
         <tr class="text-center">
-          <td><%= item.customer.name %></td>
+          <% if item.customer.nil? %>
+            <td>Guest User</td>
+          <% else %>
+            <td><%= item.customer.name %></td>
+          <% end %>
           <td><%= item.name %></td>
           <td><%= item.date.strftime('%Y/%m/%d')%></td>
           <td><%= item.send_method %></td>
