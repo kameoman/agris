@@ -227,13 +227,59 @@ describe'ユーザーログイン前のテスト'do
         expect(current_path).to eq '/customers/sign_in'
       end
     end
-
-
-
   end
 
+  describe 'ヘッダーのテスト: ログインしている場合' do
+    let(:customer) { create(:customer) }
 
+    before do
+      visit new_customer_session_path
+        fill_in 'customer[email]', with: customer.email
+        fill_in 'customer[password]', with: customer.password
+      click_button 'commit'
+    end
 
+    context'ヘッダーの表示を確認' do
+      it '使い方リンクが表示される: 左上から1番目のリンクが使い方である' do
+        customers_link = find_all('a')[1].native.inner_text
+        expect(customers_link).to match("マイページ")
+      end
+      it '使い方リンクが表示される: 左上から2番目のリンクが使い方である' do
+        customers_link = find_all('a')[2].native.inner_text
+        expect(customers_link).to match("出荷履歴一覧")
+      end
+      it '使い方リンクが表示される: 左上から3番目のリンクが使い方である' do
+        customers_link = find_all('a')[3].native.inner_text
+        expect(customers_link).to match("新規登録")
+      end
+      it '使い方リンクが表示される: 左上から4番目のリンクが使い方である' do
+        customers_link = find_all('a')[4].native.inner_text
+        expect(customers_link).to match("ログアウト")
+      end
+    end
+  end
 
+  describe 'ユーザログアウトのテスト'do
+    let(:customer) { create(:customer)}
 
+    before do
+      visit new_customer_session_path
+      fill_in 'customer[email]', with: customer.email
+      fill_in 'customer[password]', with: customer.password
+      click_button 'commit'
+      logout_link = find_all('a')[4].native.inner_text
+      logout_link = logout_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
+      click_link logout_link
+    end
+
+    context 'ログアウト機能のテスト' do
+      it '正しくログアウトできている: ログアウト後のリダイレクト先においてAbout画面へのリンクが存在する' do
+        expect(page).to have_link '', href: '/home/about'
+      end
+
+      it 'ログアウト後のリダイレクト先が、トップになっている' do
+        expect(current_path).to eq '/'
+      end
+    end
+  end
 end
