@@ -1,5 +1,6 @@
 <div class="customer-login">
-
+  
+<%= render "customers/shared/error_messages", resource: resource %>
   <h2 class="login-title">ログイン</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

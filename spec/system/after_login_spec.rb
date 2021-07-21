@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe '[STEP2] ユーザログイン後のテスト' do
@@ -12,7 +14,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
   end
 
   describe 'ヘッダーのテスト：　ログインしている場合' do
-    context 'リンクの内容を確認'do
+    context 'リンクの内容を確認' do
       subject { current_path }
 
       it '使い方リンクが表示される: 左上から1番目のリンクが使い方である' do
@@ -46,14 +48,14 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(current_path).to eq '/customers/1'
       end
       it 'タイトル「月別リスト」が表示される' do
-        expect(page).to have_content "月別リスト"
+        expect(page).to have_content '月別リスト'
       end
     end
 
     context '投稿成功のテスト' do
       before do
         fill_in 'item[name]', with: Faker::Lorem.characters(number: 5)
-        fill_in 'item[date]', with: "2021/07"
+        fill_in 'item[date]', with: '2021/07'
         fill_in 'item[send_method]'
         fill_in 'item[count]'
         fill_in 'item[standard]'
@@ -68,8 +70,4 @@ describe '[STEP2] ユーザログイン後のテスト' do
       end
     end
   end
-
-  end
-
-
-
+end

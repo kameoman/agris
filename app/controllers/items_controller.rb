@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ItemsController < ApplicationController
   before_action :authenticate_customer!
   before_action :set_item, only: %i[show edit update destroy]
@@ -25,7 +27,6 @@ class ItemsController < ApplicationController
 
   def edit; end
 
-
   def create
     @item = Item.new(item_params)
     @item.customer_id = current_customer.id
@@ -38,10 +39,6 @@ class ItemsController < ApplicationController
     else
       render :new
     end
-
-
-
-
   end
 
   # PATCH/PUT /items/1 or /items/1.json

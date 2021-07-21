@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RenameSendColumnToItems < ActiveRecord::Migration[5.2]
   def change
     rename_column :items, :send, :send_method

@@ -1,10 +1,10 @@
+# frozen_string_literal: true
+
 class Public::CustomersController < ApplicationController
   # before_action :admin_scan,only: [:index]
   before_action :authenticate_customer!
 
-  def index
-
-  end
+  def index; end
 
   def show
     @customer = current_customer
@@ -18,8 +18,8 @@ class Public::CustomersController < ApplicationController
     @items_all = current_customer.items.all
 
     # 分析するため
-   #@graph_items = Item.where(customer_id: current_customer).where(date: @month.all_month).group(:name).order(:date).sum(:count)
-    graph_labels =  current_customer.items.where(date: @month.all_month).map {|item| item.name}.uniq
+    # @graph_items = Item.where(customer_id: current_customer).where(date: @month.all_month).group(:name).order(:date).sum(:count)
+    graph_labels = current_customer.items.where(date: @month.all_month).map(&:name).uniq
     gon.graph_labels = graph_labels
     gon.graph_counts = graph_labels.map do |label|
       current_customer.items.where(name: label, date: @month.all_month).sum(:count)
@@ -33,7 +33,9 @@ class Public::CustomersController < ApplicationController
 
   def update
     customer = Customer.find(params[:id])
-    redirect_to my_page_path, notice: '会員情報を更新しました' if customer.update(customer_params)
+    if customer.update(customer_params)
+      redirect_to my_page_path, notice: '会員情報を更新しました'
+    end
   end
 
   def destroy
@@ -53,6 +55,8 @@ class Public::CustomersController < ApplicationController
   def ensure_correct_customer
     @customer = Customer.find(params[:id])
     @admin = Admin
-    redirect_to customer_path(current_customer) unless @customer == current_customer
+    unless @customer == current_customer
+      redirect_to customer_path(current_customer)
+    end
   end
 end

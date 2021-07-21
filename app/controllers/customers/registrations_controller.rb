@@ -63,6 +63,8 @@ class Customers::RegistrationsController < Devise::RegistrationsController
   # end
 
   def ensure_normal_user
-    redirect_to root_path, alert: 'ゲストユーザーは削除できません。' if resource.email == 'guest@example.com'
+    if resource.email == 'guest@example.com'
+      redirect_to root_path, alert: 'ゲストユーザーは削除できません。'
+    end
   end
 end

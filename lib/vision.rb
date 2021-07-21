@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # require 'base64'
 # require 'json'
 # require 'net/https'
@@ -12,7 +13,6 @@
 #       base64_image = Base64.encode64(open("#{Rails.root}/public/uploads/#{image_file.id}").read)
 
 #       headers = {'Referer': 'your domain here'}
-
 
 #       # APIリクエスト用のJSONパラメータ
 #       params = {

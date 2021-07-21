@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -58,9 +60,9 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
-  gem 'rspec-rails'
-  gem "factory_bot_rails"
+  gem 'factory_bot_rails'
   gem 'faker'
+  gem 'rspec-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -71,20 +73,20 @@ gem 'bootstrap', '~> 4.5'
 gem 'bullet'
 gem 'chart-js-rails', '~> 0.1.4'
 gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 gem 'dotenv-rails'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'geocoder'
+gem 'gon'
+gem 'google-cloud-vision'
 gem 'jquery-rails'
 gem 'kaminari', '~> 1.2.1'
+gem 'rails-i18n'
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
+gem 'refile-s3'
 gem 'rubocop'
-gem 'google-cloud-vision'
-gem 'rails-i18n'
-gem "refile-s3"
-gem 'devise-i18n'
-gem 'devise-i18n-views'
-gem 'gon'
 
 gem 'ransack'
 group :production do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::CustomersController < ApplicationController
   before_action :set_q, only: %i[profile search]
 
