@@ -8,39 +8,41 @@
 </strong>
 <%= link_to "",admin_customers_path(month:@month.next_month), class: "fas fa-angle-double-right fa-2x" %>
 
-<!--<div class="vertical-scroll-table">-->
-<table class="table-to-export table-bordered" id="fav-table" style="width: -webkit-fill-available;" data-sheet-name="野菜出荷データ">
-    <thead>
-      <tr class="bg-light text-center">
-        <th scope="col">名前</th>
-        <th scope="col">品目</th>
-        <th scope="col">出荷日時</th>
-        <th scope="col">出荷先</th>
-        <th scope="col">コメント</th>
-        <th scope="col">数量</th>
-        <th scope="col">規格</th>
-        <th scope="col">画像</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @items.each do |item| %>
-        <tr class="text-center">
-          <% if item.customer.nil? %>
-            <td>Guest User</td>
-          <% else %>
-            <td><%= item.customer.name %></td>
-          <% end %>
-          <td><%= item.name %></td>
-          <td><%= item.date.strftime('%Y/%m/%d')%></td>
-          <td><%= item.send_method %></td>
-          <td><%= item.comment %></td>
-          <td><%= item.count %></td>
-          <td><%= item.standard %></td>
-          <td><%= attachment_image_tag(item, :image, :fill, 100, 100, fallback: "no-image-icon.jpg") %></td>
+<div class="container">
+  <!--<div class="vertical-scroll-table">-->
+  <table class="table-to-export table-bordered" id="fav-table" style="width: -webkit-fill-available;" data-sheet-name="野菜出荷データ">
+      <thead>
+        <tr class="bg-light text-center">
+          <th scope="col">名前</th>
+          <th scope="col">品目</th>
+          <th scope="col">出荷日時</th>
+          <th scope="col">出荷先</th>
+          <th scope="col">コメント</th>
+          <th scope="col">数量</th>
+          <th scope="col">規格</th>
+          <th scope="col">画像</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+          <tr class="text-center">
+            <% if item.customer.nil? %>
+              <td>Guest User</td>
+            <% else %>
+              <td><%= item.customer.name %></td>
+            <% end %>
+            <td><%= item.name %></td>
+            <td><%= item.date.strftime('%Y/%m/%d')%></td>
+            <td><%= item.send_method %></td>
+            <td><%= item.comment %></td>
+            <td><%= item.count %></td>
+            <td><%= item.standard %></td>
+            <td><%= attachment_image_tag(item, :image, :fill, 100, 100, fallback: "no-image-icon.jpg") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>
 <hr>
 
 <div class="d3">

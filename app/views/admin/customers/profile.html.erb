@@ -8,35 +8,36 @@
   <br>
   <%= f.submit '検索' %>
 <% end %>
-
-<table class= "table table-bordered">
- <thead>
-    <tr class="bg-light text-center">
-      <th scope="col">ID</th>
-      <th scope="col">名前</th>
-      <th scope="col">フリガナ</th>
-      <th scope="col">住所</th>
-      <th scope="col">電話番号</th>
-      <th scope="col">メールアドレス</th>
-      <th scope="col">生産者番号</th>
-      <th scope="col" colspan="1">出荷データ</th>
-    </tr>
-  </thead>
-  <tbody>
-<% @customers.each do |customer| %>
-    <tr>
-      <td><%= customer.id %></td>
-      <td><%= customer.name %></td>
-      <td><%= customer.kana %></td>
-      <td><%= customer.address %></td>
-      <td><%= customer.phone_number %></td>
-      <td><%= customer.email %></td>
-      <td><%= customer.customer_no %></td>
-      <td><%= link_to '詳細', admin_customer_path(customer), class: "customer_#{customer.id} fas fa-poll-h fa-2x nav-link" %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <table class= "table table-bordered">
+   <thead>
+      <tr class="bg-light text-center">
+        <th scope="col">ID</th>
+        <th scope="col">名前</th>
+        <th scope="col">フリガナ</th>
+        <th scope="col">住所</th>
+        <th scope="col">電話番号</th>
+        <th scope="col">メールアドレス</th>
+        <th scope="col">生産者番号</th>
+        <th scope="col" colspan="1">出荷データ</th>
+      </tr>
+    </thead>
+    <tbody>
+  <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.id %></td>
+        <td><%= customer.name %></td>
+        <td><%= customer.kana %></td>
+        <td><%= customer.address %></td>
+        <td><%= customer.phone_number %></td>
+        <td><%= customer.email %></td>
+        <td><%= customer.customer_no %></td>
+        <td><%= link_to '詳細', admin_customer_path(customer), class: "customer_#{customer.id} fas fa-poll-h fa-2x nav-link" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <hr>
 
