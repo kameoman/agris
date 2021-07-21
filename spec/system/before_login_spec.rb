@@ -155,17 +155,22 @@ describe'ユーザーログイン前のテスト'do
 
     context '新規登録成功のテスト' do
       before do
-        fill_in 'user[name]', with: Faker::Lorem.characters(number: 10)
-        fill_in 'user[kana]', with: Faker::Lorem.characters(number: 10)
-        fill_in 'user[address]', with: Faker::Lorem.characters(number: 10)
-        fill_in 'user[phone_number]', with: Faker::Lorem.characters(number: 10)
-        fill_in 'user[email]', with: Faker::Internet.email
-        fill_in 'user[password]', with: 'password'
-        fill_in 'user[password_confirmation]', with: 'password'
+        fill_in 'customer[name]', with: Faker::Lorem.characters(number: 10)
+        fill_in 'customer[kana]', with: Faker::Lorem.characters(number: 10)
+        fill_in 'customer[address]', with: Faker::Lorem.characters(number: 10)
+        fill_in 'customer[phone_number]', with: Faker::Lorem.characters(number: 10)
+        fill_in 'customer[email]', with: Faker::Internet.email
+        fill_in 'customer[password]', with: 'password'
+        fill_in 'customer[password_confirmation]', with: 'password'
       end
 
       it '正しく新規登録される' do
-        expect { click_button '新規' }.to change(Customer.all, :count).by(1)
+        expect { click_button '新規登録'}.to change(Customer.all, :count).by(1)
+      end
+
+      it '新規登録後のリダイレクト先が、新規登録できたユーザの詳細画面になっている' do
+        click_button 'commit'
+        expect(current_path).to eq '/customers'
       end
 
     end

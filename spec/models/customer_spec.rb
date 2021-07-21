@@ -1,11 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Customer, type: :model do
-  describe "create" do
-    before do
-     @customer = FactoryBot.build(:customer)
+  describe 'モデルのテスト' do
+    it "有効なcustomerの場合は保存されるか" do
+      expect(build(:customer)).to be_valid
     end
   end
-  
-  
 end
