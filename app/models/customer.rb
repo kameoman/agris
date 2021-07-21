@@ -7,7 +7,7 @@ class Customer < ApplicationRecord
   belongs_to :admin, optional: true
   has_many :items
 
- 
+
   validates :name, presence:true
   validates :kana, presence:true
   validates :address, presence:true
@@ -16,7 +16,7 @@ class Customer < ApplicationRecord
 
 
   def self.guest
-    find_or_create_by!(email: 'guest@example.com') do |customer|
+    find_or_create_by!(name: 'ゲスト',kana: 'フリガナ',address: '住所サンプル',phone_number: '08012345678',email: 'guest@example.com') do |customer|
       customer.password = SecureRandom.urlsafe_base64
     end
   end
