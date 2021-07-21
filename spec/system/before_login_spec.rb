@@ -170,11 +170,63 @@ describe'ユーザーログイン前のテスト'do
 
       it '新規登録後のリダイレクト先が、新規登録できたユーザの詳細画面になっている' do
         click_button 'commit'
-        expect(current_path).to eq '/customers'
+        expect(current_path).to eq '/customers/' + Customer.last.id.to_s
+      end
+    end
+  end
+
+  describe 'ユーザーログイン'do
+    let(:customer) { create(:customer) }
+
+    before do
+      visit new_customer_session_path
+    end
+
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/customers/sign_in'
+      end
+      it 'タイトルに「ログイン」と表示される' do
+        expect(page).to have_content 'ログイン'
+      end
+      it '「ログインする」と表示される' do
+        expect(page).to have_button 'ログインする'
+      end
+      it 'メールアドレスのフォームが表示される' do
+        expect(page).to have_field 'customer[email]'
+      end
+      it 'パスワードのフォームが表示される' do
+        expect(page).to have_field 'customer[password]'
+      end
+       it 'nameフォームは表示されない' do
+        expect(page).not_to have_field 'customer[name]'
+      end
+    end
+
+    context'ログイン成功のテスト' do
+      before do
+        fill_in 'customer[email]', with: customer.email
+        fill_in 'customer[password]', with: customer.password
+        click_button 'commit'
+      end
+
+      it 'ログイン後の遷移先が、ログインした状態になっている' do
+        expect(current_path).to eq '/customers/' + customer.id.to_s
       end
 
     end
 
+    context 'ログイン失敗のテスト' do
+      before do
+        fill_in 'customer[email]', with: ''
+        fill_in 'customer[password]', with: ''
+        click_button 'commit'
+      end
+
+      it 'ログインに失敗し、ログイン画面にリダイレクトされる' do
+        expect(current_path).to eq '/customers/sign_in'
+      end
+    end
 
 
 

@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.customer_id = current_customer.id
     if @item.save
-      redirect_to customers_path, notice: '新規データを作成完了しました.'
+      redirect_to customer_path(current_customer), notice: '新規データを作成完了しました.'
       # tags = Vision.get_image_data(@item.image)
       # tags.each do |tag|
       # item.tags.create(name: tag)
@@ -47,7 +47,7 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1 or /items/1.json
   def update
     if @item.update(item_params)
-      redirect_to customers_path, notice: 'データの更新が完了しました.'
+      redirect_to customer_path(current_customer), notice: 'データの更新が完了しました.'
     else
       render :edit
     end
@@ -56,7 +56,7 @@ class ItemsController < ApplicationController
   # DELETE /items/1 or /items/1.json
   def destroy
     @item.destroy
-    redirect_to customers_path, notice: 'データの削除が完了しました.'
+    redirect_to customer_path(current_customer), notice: 'データの削除が完了しました.'
   end
 
   private
