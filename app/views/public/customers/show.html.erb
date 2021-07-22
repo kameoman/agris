@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
  <form class="border rounded bg-white form-time-table">
   <h1 class="d-flex justify-content-center">
   -<%= @customer.name %>様
@@ -56,3 +56,12 @@
 <div>
   <canvas id="stage"></canvas>
 </div>
+
+   <% if flash.any? %>
+      <script type="text/javascript">
+        <% flash.each do |key, value| %>
+          <% key = "success" if key == "notice" %>
+          toastr['<%= key %>']('<%= value %>');
+        <% end %>
+      </script>
+    <% end %>

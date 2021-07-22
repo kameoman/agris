@@ -4,6 +4,13 @@
 </h3>
 <hr>
 
+<div class="form-1">
+
+<div class="side-var-2">
+
+  <div class="side-h3">プロフィールの編集</div>
+</div>
+
 <%= form_with model: @customer, url:customer_update_path,local: true, method: :put do |f| %>
 
   <div class="field">
@@ -26,17 +33,21 @@
     <%= f.text_field :email, autofocus: true, autocomplete: "email", class: "input-mail", placeholder: "メールアドレス" %>
   </div>
 
-    <div class="t-deco">
-<%= f.submit "変更を保存する" %>
+    <div class="actions">
+<%= f.submit "変更を保存する", class: "button-2" %>
     </div>
 <%#= link_to "アカウントを削除する", customer_path(customer.id),method: :delete %>
 <% end %>
-    <div class="t-deco">
-     <%= link_to '　一覧画面へ戻る', customer_path(current_customer) %>
+</div>
+<br>
+    <div class="actions">
+     <%= link_to '　一覧画面へ戻る', customer_path(current_customer) , class: "button-1"%>
     </div>
+    
+<hr>
 
-    <div class="t-deco">
-      <%= link_to "アカウントを削除する", destroy_customer_path(@customer), method: :delete ,class: "btn btn-sm btn-danger" ,data: { confirm: 'Are you sure?' }%>
+    <div class="actions">
+      <%= link_to "アカウントを削除する", destroy_customer_path(@customer), method: :delete ,class: "btn btn-sm btn-danger fa-1x" ,data: { confirm: 'Are you sure?' }%>
     </div>
 
 

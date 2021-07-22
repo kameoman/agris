@@ -67,10 +67,8 @@
     };
 
 
-    var scores = [
-      <% @customer_data.each do |customer_data| %>
-      {name: '<%= customer_data[0] %>', score: <%= customer_data[1] %> },
-      <% end %>
+    var scores = { name: gon.graph_labels,
+                   score: gon.graph_counts  },
       ];
 
     function update(data) {

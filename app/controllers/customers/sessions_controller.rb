@@ -32,7 +32,7 @@ class Customers::SessionsController < Devise::SessionsController
   end
 end
 
-class SessionsController < ApplicationController
+
   def new
     @login = Session.new
   end
@@ -45,4 +45,4 @@ class SessionsController < ApplicationController
       render :new
     end
   end
-end
+

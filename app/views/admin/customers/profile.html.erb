@@ -1,4 +1,12 @@
-<p id="notice"><%= notice %></p>
+ <% if flash.any? %>
+      <script type="text/javascript">
+        <% flash.each do |key, value| %>
+          <% key = "success" if key == "notice" %>
+          toastr['<%= key %>']('<%= value %>');
+        <% end %>
+      </script>
+    <% end %>
+
 <h1 class="d-flex justify-content-center">登録生産者一覧</h1>
 
 <h1>ユーザー検索</h1>

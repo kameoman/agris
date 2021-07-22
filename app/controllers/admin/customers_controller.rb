@@ -9,6 +9,15 @@ class Admin::CustomersController < ApplicationController
     @items = Item.where(date: @month.all_month).order('date ASC').includes(:customer)
     # 出荷量データ
     @customer_data = Customer.joins(:items).where(items: { date: @month.all_month }).group(:name).sum(:count)
+    @customer_data = Customer.joins(:items).where(items: { date: @month.all_month }).map(&:name).uniq
+    gon.graph_counts = Customer.joins(:items).where(items: { date: @month.all_month }).group(:name).sum(:count)
+
+    graph_labels = Customer.joins(:items).where(items: { date: @month.all_month }).map(&:name).uniq
+    gon.graph_labels = graph_labels
+    gon.graph_counts = graph_labels.map do |label|
+      item.where(name: label, date: @month.all_month).sum(:count)
+    end
+
   end
 
   def search

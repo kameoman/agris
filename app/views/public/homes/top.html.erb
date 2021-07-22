@@ -91,3 +91,13 @@
     <a href="/customers/sign_up" class="button-gradation">新規登録はこちら</a>
   </section>
   
+  
+   <% if flash.any? %>
+      <script type="text/javascript">
+        <% flash.each do |key, value| %>
+          <% key = "success" if key == "notice" %>
+          toastr['<%= key %>']('<%= value %>');
+        <% end %>
+      </script>
+    <% end %>
+  
