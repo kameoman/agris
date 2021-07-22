@@ -51,23 +51,72 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(page).to have_content '月別リスト'
       end
     end
-
-    context '投稿成功のテスト' do
-      before do
-        fill_in 'item[name]', with: Faker::Lorem.characters(number: 5)
-        fill_in 'item[date]', with: '2021/07'
-        fill_in 'item[send_method]'
-        fill_in 'item[count]'
-        fill_in 'item[standard]'
-      end
-
-      it '自分の新しい投稿が正しく保存される' do
-        expect { click_button 'Create Book' }.to change(user.books, :count).by(1)
-      end
-      it 'リダイレクト先が、保存できた投稿の詳細画面になっている' do
-        click_button 'Create Book'
-        expect(current_path).to eq '/books/' + Book.last.id.to_s
-      end
-    end
   end
+
+    describe '投稿画面のテスト' do
+      before do
+        visit new_item_path
+      end
+
+      it 'URLが正しい' do
+        expect(current_path).to eq '/items/new'
+      end
+
+      context '投稿成功のテスト' do
+        before do
+          fill_in 'item[name]', with: Faker::Lorem.characters(number: 5)
+          fill_in 'item[standard]', with: 'L'
+          fill_in 'item[count]', with: '1'
+          fill_in 'item[date]', with: '2021/07'
+        end
+
+        it '自分の新しい投稿が正しく保存される' do
+          expect { click_button 'commit' }.to change(customer.items, :count).by(1)
+        end
+        it 'リダイレクト先が、保存できた投稿の詳細画面になっている' do
+          click_button 'commit'
+          expect(current_path).to eq '/customers/' + Customer.last.id.to_s
+        end
+        it '詳細画面のモーダル表示が表示されるか' do
+          click_button 'commit'
+          expect(page).to have_content'詳細'
+        end
+        it '「詳細」が表示される' do
+          click_button 'commit'
+          expect(current_path).to eq '/customers/' + Customer.last.id.to_s
+          expect(page).to have_content '詳細'
+        end
+        it '「編集」が表示される' do
+          click_button 'commit'
+          expect(current_path).to eq '/customers/' + Customer.last.id.to_s
+          expect(page).to have_content '編集'
+        end
+        it '「削除」が表示される' do
+          click_button 'commit'
+          expect(current_path).to eq '/customers/' + Customer.last.id.to_s
+          expect(page).to have_content '削除'
+        end
+        it '「出荷データ」が表示される' do
+          click_button 'commit'
+          expect(current_path).to eq '/customers/' + Customer.last.id.to_s
+          expect(page).to have_content '出荷データ'
+        end
+        it '「品目別出荷割合(グラフ)」が表示される' do
+          click_button 'commit'
+          expect(current_path).to eq '/customers/' + Customer.last.id.to_s
+          expect(page).to have_css("#stage")
+        end
+      end
+
+      it '一覧画面へ戻る選択ボタンがあり、遷移先も正しい' do
+        click_on '一覧画面へ戻る'
+        expect(current_path).to eq '/customers/' + Customer.last.id.to_s
+      end
+
+
+    end
+
+
+
+
 end

@@ -8,7 +8,6 @@ class Item < ApplicationRecord
 
   validates :name, presence: true
   validates :date, presence: true
-  validates :send_method, presence: true
   validates :count, presence: true
   validates :standard, presence: true
 
