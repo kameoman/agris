@@ -53,7 +53,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
     end
   end
 
-    describe '投稿画面のテスト' do
+  describe '投稿画面のテスト' do
       before do
         visit new_item_path
       end
@@ -106,7 +106,15 @@ describe '[STEP2] ユーザログイン後のテスト' do
           expect(current_path).to eq '/customers/' + Customer.last.id.to_s
           expect(page).to have_css("#stage")
         end
-      end
+        it '「削除」が表示される' do
+          click_button 'commit'
+          expect(current_path).to eq '/customers/' + Customer.last.id.to_s
+          expect(page).to have_content '削除'
+          click_link '削除'
+          click_link 'OK'
+          expect(item.where(id: item.id).count).to eq 0
+        end
+    end
 
       it '一覧画面へ戻る選択ボタンがあり、遷移先も正しい' do
         click_on '一覧画面へ戻る'
@@ -114,9 +122,48 @@ describe '[STEP2] ユーザログイン後のテスト' do
       end
 
 
+  # ↓投稿後
+  end
+
+
+
+
+
+
+
+end
+
+describe '[STEP3 管理者ログイン後のテスト' do
+    let(:admin) { create(:admin) }
+    let(:customer) { create(:customer) }
+    
+    before do
+      visit new_admin_session_path
+      fill_in 'admin[email]', with: admin.email
+      fill_in 'admin[password]', with: admin.password
+      click_button 'commit'
     end
+    
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/admin/customers_profile'
+      end
 
-
-
-
+      it 'タイトルが表示される' do
+        expect(page).to have_content '登録生産者一覧'
+      end
+      it 'ログインメッセージが表示される' do
+        expect(page).to have_content 'ログインしました。'
+      end
+    end 
+    
+    
+    
+    
+    
+  
+  
+  
+  
+  
 end

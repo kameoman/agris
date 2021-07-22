@@ -284,3 +284,113 @@ describe'ユーザーログイン前のテスト' do
     end
   end
 end
+
+describe '管理者ログイン等の確認'do
+  let(:admin) { create(:admin) }
+    before do
+      visit new_admin_session_path
+    end
+
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/admins/sign_in'
+      end
+      it 'タイトルに「ログイン」と表示される' do
+        expect(page).to have_content '管理者ログイン'
+      end
+      it '「ログインする」と表示される' do
+        expect(page).to have_button 'ログインする'
+      end
+      it 'メールアドレスのフォームが表示される' do
+        expect(page).to have_field 'admin[email]'
+      end
+      it 'パスワードのフォームが表示される' do
+        expect(page).to have_field 'admin[password]'
+      end
+      it 'nameフォームは表示されない' do
+        expect(page).not_to have_field 'admin[name]'
+      end
+    end
+
+     context '管理者ログイン成功のテスト' do
+      before do
+        fill_in 'admin[email]', with: admin.email
+        fill_in 'admin[password]', with: admin.password
+      end
+
+      it 'ログイン後の遷移先が、正しい' do
+        click_button 'commit'
+        expect(current_path).to eq '/admin/customers_profile'
+      end
+    end
+
+    context 'ログイン失敗のテスト' do
+      before do
+        fill_in 'admin[email]', with: ''
+        fill_in 'admin[password]', with: ''
+        click_button 'commit'
+      end
+
+      it 'ログインに失敗し、ログイン画面にリダイレクトされる' do
+        expect(current_path).to eq '/admins/sign_in'
+      end
+    end
+
+  describe 'ヘッダーのテスト: 管理者ログインしている場合' do
+    let(:admin) { create(:admin) }
+
+    before do
+      visit new_admin_session_path
+      fill_in 'admin[email]', with: admin.email
+      fill_in 'admin[password]', with: admin.password
+      click_button 'commit'
+    end
+
+      it 'タイトルが表示される' do
+        expect(page).to have_content '登録生産者一覧'
+      end
+      it 'ログインメッセージが表示される' do
+        expect(page).to have_content 'ログインしました。'
+      end
+      
+      
+
+    context 'ヘッダーの表示を確認' do
+      it 'Usersリンクが表示される: 左上から2番目のリンクが「Users」である' do
+        users_link = find_all('a')[1].native.inner_text
+        expect(users_link).to match('会員一覧')
+      end
+      it 'Usersリンクが表示される: 左上から2番目のリンクが「Users」である' do
+        users_link = find_all('a')[2].native.inner_text
+        expect(users_link).to match('出荷全履歴一覧')
+      end
+      it 'Usersリンクが表示される: 左上から2番目のリンクが「Users」である' do
+        users_link = find_all('a')[3].native.inner_text
+        expect(users_link).to match('ログアウト')
+      end
+    end
+  end
+  
+  describe 'ユーザログアウトのテスト' do
+  let(:admin) { create(:admin) }
+
+    before do
+      visit new_admin_session_path
+      fill_in 'admin[email]', with: admin.email
+      fill_in 'admin[password]', with: admin.password
+      click_button 'commit'
+      logout_link = find_all('a')[3].native.inner_text
+      logout_link = logout_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
+      click_link logout_link
+    end
+    
+    context 'ログアウト機能のテスト' do
+      it '正しくログアウトできている: ログアウト後のリダイレクト先においてAbout画面へのリンクが存在する' do
+        expect(page).to have_link '', href: '/home/about'
+      end
+      it 'ログアウト後のリダイレクト先が、トップになっている' do
+        expect(current_path).to eq '/'
+      end
+    end
+  end
+end
