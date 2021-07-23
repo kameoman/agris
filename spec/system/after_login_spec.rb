@@ -64,10 +64,10 @@ describe '[STEP2] ユーザログイン後のテスト' do
 
       context '投稿成功のテスト' do
         before do
-          fill_in 'item[name]', with: Faker::Lorem.characters(number: 5)
-          fill_in 'item[standard]', with: 'L'
-          fill_in 'item[count]', with: '1'
-          fill_in 'item[date]', with: '2021/07'
+          fill_in 'item[name]', with: item.name
+          fill_in 'item[standard]', with: item.standard
+          fill_in 'item[count]', with: item.count
+          fill_in 'item[date]', with: item.date
         end
 
         it '自分の新しい投稿が正しく保存される' do
@@ -83,6 +83,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
         end
         it '「詳細」が表示される' do
           click_button 'commit'
+          # binding.pry
           expect(current_path).to eq '/customers/' + Customer.last.id.to_s
           expect(page).to have_content '詳細'
         end
@@ -90,6 +91,24 @@ describe '[STEP2] ユーザログイン後のテスト' do
           click_button 'commit'
           expect(current_path).to eq '/customers/' + Customer.last.id.to_s
           expect(page).to have_content '編集'
+        end
+        it '「テストで投稿した内容」が表示される' do
+          click_button 'commit'
+          expect(page).to have_content 'イチゴ'
+        end
+        it '「テストで投稿した内容」が表示される' do
+          click_button 'commit'
+          expect(page).to have_content 'L'
+        end
+        it '「テストで投稿した内容」が表示される' do
+          click_button 'commit'
+          expect(page).to have_content '量販店'
+        end
+
+        xit '「編集遷移後」正しく表示される' do
+          click_button 'commit'
+          find_link('編集').click
+          expect(page).to have_content '投稿データの編集'
         end
         it '「削除」が表示される' do
           click_button 'commit'
@@ -106,13 +125,11 @@ describe '[STEP2] ユーザログイン後のテスト' do
           expect(current_path).to eq '/customers/' + Customer.last.id.to_s
           expect(page).to have_css("#stage")
         end
-        it '「削除」が表示される' do
+        xit '「削除」が表示される' do
           click_button 'commit'
-          expect(current_path).to eq '/customers/' + Customer.last.id.to_s
-          expect(page).to have_content '削除'
-          click_link '削除'
-          click_link 'OK'
-          expect(item.where(id: item.id).count).to eq 0
+          find_link('削除').click
+          page.driver.browser.switch_to.alert.accept
+          expect(item).where(id: item.id).to eq 0
         end
     end
 
@@ -126,44 +143,35 @@ describe '[STEP2] ユーザログイン後のテスト' do
   end
 
 
-
-
-
-
-
 end
 
 describe '[STEP3 管理者ログイン後のテスト' do
     let(:admin) { create(:admin) }
     let(:customer) { create(:customer) }
-    
+
     before do
       visit new_admin_session_path
       fill_in 'admin[email]', with: admin.email
       fill_in 'admin[password]', with: admin.password
       click_button 'commit'
     end
-    
+
     context '表示内容の確認' do
       it 'URLが正しい' do
         expect(current_path).to eq '/admin/customers_profile'
       end
-
-      it 'タイトルが表示される' do
+      
+      it '「圃場検索機能」が表示される' do
+        expect(page).to have_content '圃場検索'
+      end
+      it '「ユーザー検索機能」が表示される' do
+        expect(page).to have_content 'ユーザー検索'
+      end
+      it '「登録生産者一覧」が表示される' do
         expect(page).to have_content '登録生産者一覧'
       end
-      it 'ログインメッセージが表示される' do
-        expect(page).to have_content 'ログインしました。'
-      end
-    end 
-    
-    
-    
-    
-    
-  
-  
-  
-  
-  
-end
+      
+    end
+
+
+  end

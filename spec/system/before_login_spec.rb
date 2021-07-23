@@ -349,9 +349,7 @@ describe '管理者ログイン等の確認'do
       it 'タイトルが表示される' do
         expect(page).to have_content '登録生産者一覧'
       end
-      it 'ログインメッセージが表示される' do
-        expect(page).to have_content 'ログインしました。'
-      end
+
       
       
 
@@ -393,4 +391,10 @@ describe '管理者ログイン等の確認'do
       end
     end
   end
+  
+  
+  
+  
+  
+  
 end
