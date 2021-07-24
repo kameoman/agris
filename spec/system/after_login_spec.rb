@@ -83,7 +83,6 @@ describe '[STEP2] ユーザログイン後のテスト' do
         end
         it '「詳細」が表示される' do
           click_button 'commit'
-          # binding.pry
           expect(current_path).to eq '/customers/' + Customer.last.id.to_s
           expect(page).to have_content '詳細'
         end
@@ -105,11 +104,11 @@ describe '[STEP2] ユーザログイン後のテスト' do
           expect(page).to have_content '量販店'
         end
 
-        xit '「編集遷移後」正しく表示される' do
-          click_button 'commit'
-          find_link('編集').click
-          expect(page).to have_content '投稿データの編集'
-        end
+        # xit '「編集遷移後」正しく表示される' do
+        #   click_button 'commit'
+        #   find_link('編集').click
+        #   expect(page).to have_content '投稿データの編集'
+        # end
         it '「削除」が表示される' do
           click_button 'commit'
           expect(current_path).to eq '/customers/' + Customer.last.id.to_s
@@ -125,12 +124,13 @@ describe '[STEP2] ユーザログイン後のテスト' do
           expect(current_path).to eq '/customers/' + Customer.last.id.to_s
           expect(page).to have_css("#stage")
         end
-        xit '「削除」が表示される' do
-          click_button 'commit'
-          find_link('削除').click
-          page.driver.browser.switch_to.alert.accept
-          expect(item).where(id: item.id).to eq 0
-        end
+        # 以下別方法で記述記録のため残す（seleniumの作動不具合)
+        # xit '「削除」が表示される' do
+        #   click_button 'commit'
+        #   find_link('削除').click
+        #   page.driver.browser.switch_to.alert.accept
+        #   expect(item).where(id: item.id).to eq 0
+        # end
     end
 
       it '一覧画面へ戻る選択ボタンがあり、遷移先も正しい' do

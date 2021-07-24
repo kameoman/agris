@@ -215,6 +215,28 @@ describe'ユーザーログイン前のテスト' do
       it 'ログイン後の遷移先が、ログインした状態になっている' do
         expect(current_path).to eq '/customers/' + customer.id.to_s
       end
+      it 'ログイン後の遷移先が、ログインした状態になっている' do
+        find_link('マイページ').click
+        expect(current_path).to eq '/customers/' + customer.id.to_s + '/my_page'
+      end
+      it 'ログイン後、マイページに移動し、表示確認' do
+        find_link('マイページ').click
+        expect(page).to have_content 'さんの会員情報'
+      end
+      it 'ログイン後、マイページに移動し、削除ボタンの表示確認' do
+        find_link('マイページ').click
+        expect(page).to have_content 'アカウントを削除する'
+      end
+      it 'ログイン後、マイページに移動し、削除機能が作動するか確認' do
+        find_link('マイページ').click
+        find_link('削除').click
+        expect(Customer.where(id: customer.id).count).to eq 0
+      end
+      it 'ログイン後、マイページに移動し、削除後の遷移先が正しいかどうかの確認' do
+        find_link('マイページ').click
+        find_link('削除').click
+        expect(current_path).to eq '/'
+      end
     end
 
     context 'ログイン失敗のテスト' do
@@ -227,7 +249,19 @@ describe'ユーザーログイン前のテスト' do
       it 'ログインに失敗し、ログイン画面にリダイレクトされる' do
         expect(current_path).to eq '/customers/sign_in'
       end
+
+      it '会員情報が直接入力されて削除されないこと' do
+          destroy_customer_path(customer.id)
+          expect(Customer.where(id: customer.id).count).to eq 1
+      end
+      it 'URLログイン前に直打ちでも遷移できないようにする' do
+          destroy_customer_path(customer.id)
+        expect(current_path).to eq '/customers/sign_in'
+      end
+
+
     end
+
   end
 
   describe 'ヘッダーのテスト: ログインしている場合' do
@@ -350,8 +384,8 @@ describe '管理者ログイン等の確認'do
         expect(page).to have_content '登録生産者一覧'
       end
 
-      
-      
+
+
 
     context 'ヘッダーの表示を確認' do
       it 'Usersリンクが表示される: 左上から2番目のリンクが「Users」である' do
@@ -368,7 +402,7 @@ describe '管理者ログイン等の確認'do
       end
     end
   end
-  
+
   describe 'ユーザログアウトのテスト' do
   let(:admin) { create(:admin) }
 
@@ -381,7 +415,7 @@ describe '管理者ログイン等の確認'do
       logout_link = logout_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
       click_link logout_link
     end
-    
+
     context 'ログアウト機能のテスト' do
       it '正しくログアウトできている: ログアウト後のリダイレクト先においてAbout画面へのリンクが存在する' do
         expect(page).to have_link '', href: '/home/about'
@@ -391,10 +425,10 @@ describe '管理者ログイン等の確認'do
       end
     end
   end
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
 end
