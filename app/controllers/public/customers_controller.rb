@@ -17,6 +17,8 @@ class Public::CustomersController < ApplicationController
 
     @items_all = current_customer.items.all
 
+    @count_data = current_customer.items.where(date: @month.all_month).select("count")
+
     # 分析するため
     # @graph_items = Item.where(customer_id: current_customer).where(date: @month.all_month).group(:name).order(:date).sum(:count)
     graph_labels = current_customer.items.where(date: @month.all_month).map(&:name).uniq

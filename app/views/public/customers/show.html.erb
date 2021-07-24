@@ -28,7 +28,7 @@
         <%= form_with(model: @item, local: true) do |form| %>
         <% @items.each do |item| %>
           <tr class="bg-light text-center">
-            <td><input type="checkbox" onclick="keisan()"></td>
+            <td><input type="checkbox" class="item-amount-chkbox" value="<%= item.count %>,<%= item.name %>"></td>
             <td><%= @customer.name %></td>
             <td><%= item.name %></td>
             <td><%= item.date.strftime('%Y/%m/%d')%></td>
@@ -45,8 +45,28 @@
         <% end %>
       </tbody>
     </table>
+
+<hr>    
+  <table class="table table-bordered align-center" id="fav-table">
+    <thead>
+      <tr class="bg-light text-center">
+        <th scope="col " colspan="3"> 選択された出荷数量の合計値</th>
+      </tr>
+    </thead>
+
+  <div class="table-td">
+      <tbody>
+          <tr class="bg-light text-center">
+            <td>
+              合計値
+            </td>
+            <td>
+              <div id="calk" class="calk" colspan="2">0</div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
   </div>
-</div>
 
   <div id="mask" class="hidden" ></div>
 
@@ -59,6 +79,19 @@
   <canvas id="stage"></canvas>
 </div>
 
+
+<script >
+  $('.item-amount-chkbox').on('change',function(){
+    var amount = 0;
+    $('.item-amount-chkbox:checked').each(function(){
+      amount += parseInt($(this).val());
+    });
+    //console.log(amount)
+    document.getElementById("calk").textContent = amount;
+  });
+</script>
+
+
    <% if flash.any? %>
       <script type="text/javascript">
         <% flash.each do |key, value| %>
@@ -67,43 +100,3 @@
         <% end %>
       </script>
     <% end %>
-
-
-
-<script language="JavaScript">
-plice=new Array();
-plice[0]=100;
-plice[1]=200;
-plice[2]=300;
-function keisan(){
-goukei=0;
-for(i=0;i<=2;i++){
-if(document.vagesum.elements[i].checked==true){
-goukei=goukei+plice[i];
-}
-}
-document.vagesum.total.value=goukei;
-}
-</script>
-
-
-<form name="vagesum">
-<table cellpadding="1" cellspacing="0" border="0">
-<tr>
-<td align="left" nowrap><font color="#999999"></font>ホウレンソウ(100円)
-<td align="left"><input type="checkbox" onclick="keisan()"> 束</td>
-</tr>
-<tr>
-<td align="left"><font color="#999999"><font>トマト(200円)</td>
-<td><input type="checkbox" onclick="keisan()"> 袋</td>
-</tr>
-<tr>
-<td align="left"><font color="#999999"></font>キャベツ(300円)</td>
-<td><input type="checkbox" onclick="keisan()"> 個</td>
-</tr>
-<tr>
-<td align="left"><font color="red"></font><b><font color="#ff0000">合計金額</font></b></td>
-<td align="left"><input type="text" name="total" value="0"> 円</td>
-</tr>
-</table>
-</form>
