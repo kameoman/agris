@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe'ユーザーログイン前のテスト' do
+describe 'ユーザーログイン前のテスト' do
   describe 'トップ画面のテスト' do
     before do
       visit root_path
@@ -251,17 +251,14 @@ describe'ユーザーログイン前のテスト' do
       end
 
       it '会員情報が直接入力されて削除されないこと' do
-          destroy_customer_path(customer.id)
-          expect(Customer.where(id: customer.id).count).to eq 1
+        destroy_customer_path(customer.id)
+        expect(Customer.where(id: customer.id).count).to eq 1
       end
       it 'URLログイン前に直打ちでも遷移できないようにする' do
-          destroy_customer_path(customer.id)
+        destroy_customer_path(customer.id)
         expect(current_path).to eq '/customers/sign_in'
       end
-
-
     end
-
   end
 
   describe 'ヘッダーのテスト: ログインしている場合' do
@@ -319,56 +316,56 @@ describe'ユーザーログイン前のテスト' do
   end
 end
 
-describe '管理者ログイン等の確認'do
+describe '管理者ログイン等の確認' do
   let(:admin) { create(:admin) }
+  before do
+    visit new_admin_session_path
+  end
+
+  context '表示内容の確認' do
+    it 'URLが正しい' do
+      expect(current_path).to eq '/admins/sign_in'
+    end
+    it 'タイトルに「ログイン」と表示される' do
+      expect(page).to have_content '管理者ログイン'
+    end
+    it '「ログインする」と表示される' do
+      expect(page).to have_button 'ログインする'
+    end
+    it 'メールアドレスのフォームが表示される' do
+      expect(page).to have_field 'admin[email]'
+    end
+    it 'パスワードのフォームが表示される' do
+      expect(page).to have_field 'admin[password]'
+    end
+    it 'nameフォームは表示されない' do
+      expect(page).not_to have_field 'admin[name]'
+    end
+  end
+
+  context '管理者ログイン成功のテスト' do
     before do
-      visit new_admin_session_path
+      fill_in 'admin[email]', with: admin.email
+      fill_in 'admin[password]', with: admin.password
     end
 
-    context '表示内容の確認' do
-      it 'URLが正しい' do
-        expect(current_path).to eq '/admins/sign_in'
-      end
-      it 'タイトルに「ログイン」と表示される' do
-        expect(page).to have_content '管理者ログイン'
-      end
-      it '「ログインする」と表示される' do
-        expect(page).to have_button 'ログインする'
-      end
-      it 'メールアドレスのフォームが表示される' do
-        expect(page).to have_field 'admin[email]'
-      end
-      it 'パスワードのフォームが表示される' do
-        expect(page).to have_field 'admin[password]'
-      end
-      it 'nameフォームは表示されない' do
-        expect(page).not_to have_field 'admin[name]'
-      end
+    it 'ログイン後の遷移先が、正しい' do
+      click_button 'commit'
+      expect(current_path).to eq '/admin/customers_profile'
+    end
+  end
+
+  context 'ログイン失敗のテスト' do
+    before do
+      fill_in 'admin[email]', with: ''
+      fill_in 'admin[password]', with: ''
+      click_button 'commit'
     end
 
-     context '管理者ログイン成功のテスト' do
-      before do
-        fill_in 'admin[email]', with: admin.email
-        fill_in 'admin[password]', with: admin.password
-      end
-
-      it 'ログイン後の遷移先が、正しい' do
-        click_button 'commit'
-        expect(current_path).to eq '/admin/customers_profile'
-      end
+    it 'ログインに失敗し、ログイン画面にリダイレクトされる' do
+      expect(current_path).to eq '/admins/sign_in'
     end
-
-    context 'ログイン失敗のテスト' do
-      before do
-        fill_in 'admin[email]', with: ''
-        fill_in 'admin[password]', with: ''
-        click_button 'commit'
-      end
-
-      it 'ログインに失敗し、ログイン画面にリダイレクトされる' do
-        expect(current_path).to eq '/admins/sign_in'
-      end
-    end
+  end
 
   describe 'ヘッダーのテスト: 管理者ログインしている場合' do
     let(:admin) { create(:admin) }
@@ -380,12 +377,9 @@ describe '管理者ログイン等の確認'do
       click_button 'commit'
     end
 
-      it 'タイトルが表示される' do
-        expect(page).to have_content '登録生産者一覧'
-      end
-
-
-
+    it 'タイトルが表示される' do
+      expect(page).to have_content '登録生産者一覧'
+    end
 
     context 'ヘッダーの表示を確認' do
       it 'Usersリンクが表示される: 左上から2番目のリンクが「Users」である' do
@@ -404,7 +398,7 @@ describe '管理者ログイン等の確認'do
   end
 
   describe 'ユーザログアウトのテスト' do
-  let(:admin) { create(:admin) }
+    let(:admin) { create(:admin) }
 
     before do
       visit new_admin_session_path
@@ -425,10 +419,4 @@ describe '管理者ログイン等の確認'do
       end
     end
   end
-
-
-
-
-
-
 end

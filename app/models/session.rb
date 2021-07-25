@@ -17,9 +17,7 @@ class Session
   def true_password
     @customer = Customer.find_by(email: email)
     if @customer
-      unless @customer.authenticate(password)
-        errors.add(:password, 'は正しくありません。')
-        end
+      errors.add(:password, 'は正しくありません。') unless @customer.authenticate(password)
     else
       errors.add(:password, 'は正しくありません。')
     end

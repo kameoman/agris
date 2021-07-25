@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "投稿データの確認", type: :request do
-  describe "投稿データの作成後の動き" do
+RSpec.describe '投稿データの確認', type: :request do
+  describe '投稿データの作成後の動き' do
     let(:customer) { create(:customer) }
     let!(:item) { create(:item, customer: customer) }
 
@@ -31,24 +31,22 @@ RSpec.describe "投稿データの確認", type: :request do
 
       it '名前編集フォームが表示される' do
         expect do
-        visit edit item_path(item.id)
-        expect(page).to have_field 'item[name]', with: item.name
+          visit edit item_path(item.id)
+          expect(page).to have_field 'item[name]', with: item.name
         end
       end
       it '規格編集フォームが表示される' do
         expect do
-        visit edit item_path(item.id)
-        expect(page).to have_field 'item[standard]', with: item.standard
+          visit edit item_path(item.id)
+          expect(page).to have_field 'item[standard]', with: item.standard
         end
       end
       it '規格編集フォームが表示される' do
         expect do
-        visit edit item_path(item.id)
-        expect(page).to have_content '投稿データの編集'
+          visit edit item_path(item.id)
+          expect(page).to have_content '投稿データの編集'
         end
       end
     end
-
-
   end
 end

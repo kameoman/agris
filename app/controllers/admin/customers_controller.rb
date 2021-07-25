@@ -15,8 +15,7 @@ class Admin::CustomersController < ApplicationController
     gon.graph = Customer.joins(:items).where(items: { date: @month.all_month }).group(:name).sum(:count)
     gon.graph_counts = gon.graph.values
     gon.graph_labels = gon.graph.keys
-      # item.where(name: label, date: @month.all_month).sum(:count)
-
+    # item.where(name: label, date: @month.all_month).sum(:count)
   end
 
   def search

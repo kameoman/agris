@@ -17,7 +17,7 @@ class Public::CustomersController < ApplicationController
 
     @items_all = current_customer.items.all
 
-    @count_data = current_customer.items.where(date: @month.all_month).select("count")
+    @count_data = current_customer.items.where(date: @month.all_month).select('count')
 
     # 分析するため
     # @graph_items = Item.where(customer_id: current_customer).where(date: @month.all_month).group(:name).order(:date).sum(:count)
@@ -35,9 +35,7 @@ class Public::CustomersController < ApplicationController
 
   def update
     customer = Customer.find(params[:id])
-    if customer.update(customer_params)
-      redirect_to my_page_path, notice: '会員情報を更新しました'
-    end
+    redirect_to my_page_path, notice: '会員情報を更新しました' if customer.update(customer_params)
   end
 
   def destroy
@@ -57,8 +55,6 @@ class Public::CustomersController < ApplicationController
   def ensure_correct_customer
     @customer = Customer.find(params[:id])
     @admin = Admin
-    unless @customer == current_customer
-      redirect_to customer_path(current_customer)
-    end
+    redirect_to customer_path(current_customer) unless @customer == current_customer
   end
 end
