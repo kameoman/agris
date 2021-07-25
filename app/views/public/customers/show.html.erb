@@ -28,7 +28,9 @@
         <%= form_with(model: @item, local: true) do |form| %>
         <% @items.each do |item| %>
           <tr class="bg-light text-center">
-            <td><input type="checkbox" class="item-amount-chkbox" value="<%= item.count %>,<%= item.name %>"></td>
+            <td>
+              <input type="checkbox" class="item-amount-chkbox" value="<%= item.count %>" value2="<%= item.name %>">
+            </td>
             <td><%= @customer.name %></td>
             <td><%= item.name %></td>
             <td><%= item.date.strftime('%Y/%m/%d')%></td>
@@ -39,7 +41,7 @@
               <%= link_to "詳細", item_path(item),remote: true, class: "fas fa-poll-h fa-2x nav-link" %>
               </td>
             <td><%= link_to '編集', edit_item_path(item), class: "fas fa-pencil-alt fa-2x nav-link" %></td>
-            <td><%= link_to '削除', item, method: :delete, data: { confirm: '削除してもいいですか?' }, class: "nav-link" %></td>
+            <td><%= link_to '削除', item, method: :delete, data: { confirm: '削除してもいいですか?' }, class: " fas fa-trash fa-2x nav-link" %></td>
           </tr>
           <% end %>
         <% end %>
@@ -76,7 +78,7 @@
 
 
 <div>
-  <canvas id="stage"></canvas>
+  <canvas id="stage" style="position: relative; height:100; width:150"></canvas>
 </div>
 
 
@@ -87,6 +89,8 @@
       amount += parseInt($(this).val());
     });
     //console.log(amount)
+    
+    
     document.getElementById("calk").textContent = amount;
   });
 </script>

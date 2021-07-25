@@ -51,7 +51,6 @@ var chart = new Chart(canvas, {
   options: options  //オプション設定
 
 });
-
 });
 
 // document.addEventListener("turbolinks:load", function() {
