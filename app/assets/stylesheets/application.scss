@@ -430,7 +430,22 @@ a.nav-link {
 
 .h1-top {
  padding: 0;
+position: relative;
+	margin-bottom: 1em;
+	text-align: center;
+}
 
+.h1-top:before {
+	content: '';
+	position: absolute;
+	bottom: -15px;
+	display: inline-block;
+	width: 10%;
+	height: 5px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: skyblue;
+	border-radius: 2px;
 }
 
 main {
@@ -869,4 +884,23 @@ height: 30px;
   padding-bottom: 10px;
   text-align: center;
   font-size: 40px;
+  position: relative;
+	margin-bottom: 1em;
+}
+.now:before {
+	content: '';
+	position: absolute;
+	bottom: -15px;
+	display: inline-block;
+	width: 10%;
+	height: 5px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: skyblue;
+	border-radius: 2px;
+}
+
+.movie2 {
+  text-align: center;
+  padding-bottom: 40px;
 }
