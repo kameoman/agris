@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'report', to: 'items#report'
 
   resources :items
+  delete '/customer_items_destroy_all' => 'items#destroy_all'
   devise_for :customers, controllers: {
     customers: 'customers/customers',
     passwords: 'customers/passwords'

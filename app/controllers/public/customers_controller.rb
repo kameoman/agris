@@ -4,7 +4,9 @@ class Public::CustomersController < ApplicationController
   # before_action :admin_scan,only: [:index]
   before_action :authenticate_customer!
 
-  def index; end
+  def index
+    @items = current_customer.items.all
+  end
 
   def show
     @customer = current_customer
@@ -45,6 +47,11 @@ class Public::CustomersController < ApplicationController
     flash[:success] = '会員情報を削除しました'
     redirect_to root_path
   end
+
+
+
+
+
 
   private
 

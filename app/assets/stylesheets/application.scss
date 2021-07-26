@@ -354,10 +354,6 @@ section2 {
 	border: 1px solid #ddd;
 }
 
-#stage {
-  margin: 40px 0 ;
-}
-
 .map {
   margin: 30px auto 30px auto;
 }
@@ -1070,4 +1066,65 @@ dl > div.appear dd {
 
 .instagram {
   color: #fa709a;
+}
+
+.sum-table {
+  width: 300px;
+  height: 100px;
+}
+
+.item-amount-chkbox {
+  transform: scale(2);
+}
+
+.calk {
+  font-size: 20px;
+}
+
+.destroy_all {
+  margin-left: 400px;
+}
+
+.month {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.result {
+  display: flex;
+}
+
+.export {
+  margin-left: 1000px;
+  margin-bottom: 10px;
+  position: relative;
+  padding: 0.5em 1.6em;
+  font-size: 0.8em;
+  color: #007BFF;
+  user-select: none;
+  border-top: 1px #007BFF solid;
+  border-bottom: 1px #007BFF solid;
+}
+
+.export2 {
+  margin-left: 600px;
+  position: relative;
+  padding: 0.5em 1.6em;
+  font-size: 0.8em;
+  color: #007BFF;
+  user-select: none;
+  border-top: 1px #007BFF solid;
+  border-bottom: 1px #007BFF solid;
+}
+
+.destroy_all {
+  padding: 0.4em 1.6em;
+  font-size: 0.8em;
+  color: #fff;
+  user-select: none;
+  background: #FF0461;
+  border: 1px #fff solid;
+  box-shadow: 0 0 0 3px #FF0461;
+  border-radius: 10px;
+  text-align: center;
 }

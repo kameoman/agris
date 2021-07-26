@@ -1,44 +1,9 @@
+<%= link_to "CSV", customers_path(format: :csv), class: "btn btn-primary" %>
 <p id="notice"><%= notice %></p>
  <form class="border rounded bg-white form-time-table">
   <h1 class="d-flex justify-content-center">
     月別リスト-</h1>
-<%= link_to "",customers_path(month:@month.prev_month), class: "fas fa-angle-double-left fa-2x nav-link" %>
-<strong>
-<%= @month.strftime('%Y/%m') %>
-</strong>
-<%= link_to "",customers_path(month:@month.next_month), class: "fas fa-angle-double-right fa-2x nav-link" %>
 
-<table class="table table-bordered align-center" id="fav-table">
-  <thead>
-    <tr class="bg-light text-center">
-      <th scope="col ">名前</th>
-      <th scope="col">品目</th>
-      <th scope="col">出荷日時</th>
-      <th scope="col">出荷先</th>
-      <th scope="col">数量</th>
-      <th scope="col">規格</th>
-      <th scope="col" colspan="3">出荷データ</th>
-    </tr>
-  </thead>
-
-<div class="table-td">
-    <tbody>
-      <% @items.each do |item| %>
-        <tr class="bg-light text-center">
-          <td><%= item.name %></td>
-          <td><%= item.date.strftime('%Y/%m/%d')%></td>
-          <td><%= item.send_method %></td>
-          <td><%= item.count %></td>
-          <td><%= item.standard %></td>
-          <td>
-            <%= link_to '詳細', item_path(item),remote: true, class: "fas fa-poll-h fa-2x nav-link" %>
-            </td>
-          <td><%= link_to '編集', edit_item_path(item), class: "fas fa-pencil-alt fa-2x nav-link" %></td>
-          <td><%= link_to '削除', item, method: :delete, data: { confirm: '削除してもいいですか?' }, class: "fas fa-trash fa-2x nav-link" %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
 </div>
 
 

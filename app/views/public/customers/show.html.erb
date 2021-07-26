@@ -1,13 +1,17 @@
 
+ <%= link_to "全出荷データのCSVを出力", customers_path(format: :csv), class: "export fas fa-download " %>
  <form class="border rounded bg-white form-time-table">
   <h1 class="d-flex justify-content-center">
   -<%= @customer.name %>様
     月別リスト-</h1>
-<%= link_to "", customer_path(current_customer,month:@month.prev_month), class: "fas fa-angle-double-left fa-2x nav-link" %>
-<strong>
-<%= @month.strftime('%Y/%m') %>
-</strong>
-<%= link_to "", customer_path(current_customer,month:@month.next_month), class: "fas fa-angle-double-right fa-2x nav-link" %>
+    <div class="month">
+      <%= link_to "", customer_path(current_customer,month:@month.prev_month), class: "fas fa-angle-double-left fa-2x nav-link" %>
+      <strong>
+      <%= @month.strftime('%Y/%m') %>
+      </strong>
+      <%= link_to "", customer_path(current_customer,month:@month.next_month), class: "fas fa-angle-double-right fa-2x nav-link" %>
+      <%= link_to ' 当月の記録全て削除',customer_items_destroy_all_path, method: :delete, class: "destroy_all fas fa-trash mb-3",style: "width:200px", data: { confirm: '本当に全て削除しますか?' } %>
+    </div>
 <div class="container">
   <table class="table table-bordered align-center" id="fav-table">
     <thead>
@@ -41,35 +45,38 @@
               <%= link_to "詳細", item_path(item),remote: true, class: "fas fa-poll-h fa-2x nav-link" %>
               </td>
             <td><%= link_to '編集', edit_item_path(item), class: "fas fa-pencil-alt fa-2x nav-link" %></td>
-            <td><%= link_to '削除', item, method: :delete, data: { confirm: '削除してもいいですか?' }, class: " fas fa-trash fa-2x nav-link" %></td>
+            <td><%= link_to '削除', item, method: :delete, data: { confirm: '本当に削除しますか?' }, class: " fas fa-trash fa-2x nav-link" %></td>
           </tr>
           <% end %>
         <% end %>
       </tbody>
     </table>
 
-<hr>    
-  <table class="table table-bordered align-center" id="fav-table">
-    <thead>
-      <tr class="bg-light text-center">
-        <th scope="col " colspan="3"> 選択された出荷数量の合計値</th>
-      </tr>
-    </thead>
-
-  <div class="table-td">
-      <tbody>
-          <tr class="bg-light text-center">
-            <td>
-              合計値
-            </td>
-            <td>
-              <div id="calk" class="calk" colspan="2">0</div>
-            </td>
-          </tr>
-      </tbody>
-    </table>
+<hr>
+  <div class="result">
+    <table class="sum-table table-bordered" id="fav-table">
+      <thead>
+        <tr class="bg-light text-center">
+          <th scope="col " colspan="3"> 選択された数量合計値</th>
+        </tr>
+      </thead>
+    <div class="table-td">
+        <tbody>
+            <tr class="bg-light text-center calk">
+              <td>
+                出荷合計数量
+              </td>
+              <td>
+                <div id="calk" class="calk" colspan="2">0</div>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+      <div class="csv">
+        <%= link_to "当月分のCSVへ出力", customer_path(format: :csv), class: "export2 fas fa-download " %>
+      </div>
+    </div>
   </div>
-
   <div id="mask" class="hidden" ></div>
 
   <section id="modal" class="hidden" tabindex="-1" role="dialog">
@@ -89,8 +96,8 @@
       amount += parseInt($(this).val());
     });
     //console.log(amount)
-    
-    
+
+
     document.getElementById("calk").textContent = amount;
   });
 </script>

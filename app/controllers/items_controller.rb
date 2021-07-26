@@ -56,6 +56,14 @@ class ItemsController < ApplicationController
     redirect_to customer_path(current_customer), notice: 'データの削除が完了しました.'
   end
 
+
+  def destroy_all
+    @item = current_customer.items.where(date: Time.zone.today.all_month)
+    @item.destroy_all
+    redirect_to customer_path(current_customer), notice: '選択された月のデータを全て削除しました'
+  end
+
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
