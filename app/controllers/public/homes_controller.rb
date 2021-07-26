@@ -16,4 +16,10 @@ class Public::HomesController < ApplicationController
 
   def company
   end
+
+  def terms
+  end
+
+  def privacypolicy
+  end
 end
