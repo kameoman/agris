@@ -54,7 +54,7 @@ var chart = new Chart(canvas, {
 });
 
 // document.addEventListener("turbolinks:load", function() {
-  
+
 function initMap() {
           'use strict';
           var map;
@@ -106,7 +106,7 @@ function initMap() {
 
 
 document.addEventListener("turbolinks:load", function() {
-  
+
 $(function(){
   $('a[href^="#"]').click(function(){
     var speed = 500;
@@ -117,8 +117,8 @@ $(function(){
     return false;
   });
 });
-  
-  
+
+
 });
 
 document.addEventListener("turbolinks:load", function() {
@@ -212,3 +212,24 @@ document.addEventListener("turbolinks:load", function() {
       update(scores);
     })();
 });
+
+
+// ↓よくある質問のページで使用箇所（質問のアコーディオンメニュー）
+document.addEventListener("turbolinks:load", function() {
+  'user strict';
+
+  {
+    const dts = document.querySelectorAll('dt');
+
+    dts.forEach(dt => {
+      dt.addEventListener('click',() => {
+        // dt の親要素に対してクラスのつけ外し
+        dt.parentNode.classList.toggle('appear');
+      });
+    });
+
+  }
+
+});
+
+

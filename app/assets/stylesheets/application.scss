@@ -905,6 +905,7 @@ height: 30px;
   padding-bottom: 40px;
 }
 
+// ↓よくある質問と答えのページ
 .question {
   margin: 30px 300px;
 }
@@ -921,20 +922,82 @@ height: 30px;
   font-size: 20px;
 }
 
-ol {
+.question-ol {
   position: relative;
 }
 
-ol li {
+.question-ol li {
   line-height: 1.5;
   padding: 0.5em 0;
   list-style-type: none!important;
 }
 
-ol li:before {
+.question-ol li:before {
   font-family: "Font Awesome 5 Free";
   content: "\f075";
   position: absolute;
-  left : 1em; 
-  color: skyblue; 
+  left : 1em;
+  color: skyblue;
+}
+
+dl {
+  margin: 0;
+}
+
+dl > div {
+  margin-bottom: 8px;
+}
+
+dt {
+  padding: 8px;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+dt::before {
+  content: 'Q. ';
+}
+
+dt::after {
+  content: '+';
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+dl > div.appear dt::after {
+  transform: rotate(45deg);
+}
+
+dd {
+  padding: 8px;
+  margin: 0;
+  display: none;
+}
+
+dd::before {
+  content: 'A .';
+}
+
+dl > div.appear dd {
+  display: block;
+  animation: .3s fadeIn;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+// ↑よくある質問と答えのページ
+
+.about {
+  margin: 30px auto;
+  width: 800px;
 }
