@@ -378,6 +378,10 @@ ul.header {
   width: 80px;
   height: auto;
 }
+.logo-2 {
+  width: 80px;
+  height: auto;
+}
 
 .header-fix {
   width: 150px;
@@ -397,6 +401,7 @@ ul.header li {
 a.nav-link {
   margin: 0;
 }
+
 
 .guest {
   text-align: center;
@@ -533,11 +538,37 @@ main img {
 }
 
 footer {
-  padding: 64px 0;
+  padding: 40px 0 10px 10px;
   background: #323135 ;
   color: #98969c;
+  display: flex;
+}
+
+.footer-side {
+  width: 200px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.footer-side-all {
+  width: 200px;
   text-align: center;
 }
+.footer-link {
+  width: 200px;
+  margin-left: 60px;
+}
+.footer-link-2 {
+  width: 200px;
+  margin-left: 100px;
+}
+
+a.nav-link-footer {
+  margin: 0;
+  color: #98969c;
+  line-height: 1.8;
+}
+
 
 p {
   padding-bottom: 10px;
@@ -1000,4 +1031,43 @@ dl > div.appear dd {
 .about {
   margin: 30px auto;
   width: 800px;
+}
+
+.mail {
+  padding: 0 300px;
+  height: 1020px;
+}
+.company {
+  padding: 30px;
+}
+
+.company-admin-layout {
+  display: flex;
+  justify-content: center;
+}
+
+.company-admin {
+  width: 400px;
+  height: 450px;
+  margin: 10px 30px;
+  text-align: center;
+  background: #f7f7f7;
+  padding: 50px;
+
+}
+
+.company-image {
+  border-radius: 50%;
+  width: 190px;
+  height: 195px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.youtube {
+  color: red;
+}
+
+.instagram {
+  color: #fa709a;
 }

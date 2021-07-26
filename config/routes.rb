@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get '/home/about' => 'homes#about'
     get '/home/question' => 'homes#question'
+    get '/home/mail' => 'homes#mail'
+    get '/company' => 'homes#company'
     resources :item
     resources :customers
 
