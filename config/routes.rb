@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'record_pdfs/index'
   get 'report', to: 'items#report'
 
   resources :items

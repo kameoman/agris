@@ -88,6 +88,8 @@ gem 'refile-mini_magick'
 gem 'refile-s3'
 gem 'rubocop'
 gem 'toastr-rails'
+gem 'prawn'
+gem 'prawn-table'
 
 gem 'ransack'
 group :production do
