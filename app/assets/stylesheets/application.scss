@@ -934,7 +934,7 @@ height: 30px;
 	border-radius: 2px;
 }
 
-.movie2 {
+.movie-wrap {
   text-align: center;
   padding-bottom: 40px;
 }
@@ -1205,4 +1205,67 @@ dl > div.appear dd {
 
 .hidden {
   display: none;
+}
+
+@media (min-width: 0px) and (max-width: 599px){
+  .main-image {
+    width: 65px;
+    height: 85px;
+    margin: 10px 10px;
+  }
+
+  .title {
+    font-size: 60px;
+    margin-bottom: 30px;
+  }
+  .title-p {
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .title-p2 {
+    margin: 10px 0 10px 0;
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .container1 {
+    height: 400px;
+    margin-bottom: 5px;
+  }
+  .features p {
+    line-height: 1.8;
+    font-size: 15px;
+    width: 400px;
+  }
+  ol, ul, dl {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    width: 300px;
+  }
+
+  footer {
+    display: block;
+  }
+
+  .movie-wrap {
+     position: relative;
+     padding-bottom: 56.25%; /*アスペクト比 16:9の場合の縦幅*/
+     height: 0;
+     overflow: hidden;
+     margin-bottom: 10px;
+  }
+
+  .movie-wrap iframe {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+  }
+
+  .ul-top {
+    list-style: none;
+ margin-left: 0;
+ padding-left: 1em;
+ text-indent: -1em;
+  }
 }
