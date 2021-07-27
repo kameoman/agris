@@ -9,14 +9,15 @@
 
 <h1 class="d-flex justify-content-center">登録生産者一覧</h1>
 
+<div class="search">
 <h1>ユーザー検索</h1>
 <%= search_form_for @q, url: search_admin_customers_path do |f| %>
   <%= f.label :name_cont, 'ユーザー名' %>
   <%= f.search_field :name_cont %>
-  <br>
   <%= f.submit '検索' %>
 <% end %>
-<div class="container">
+</div>
+<div class="container-2">
   <table class= "table table-bordered">
    <thead>
       <tr class="bg-light text-center">
@@ -40,7 +41,7 @@
         <td><%= customer.phone_number %></td>
         <td><%= customer.email %></td>
         <td><%= customer.customer_no %></td>
-        <td><%= link_to '詳細', admin_customer_path(customer), class: "customer_#{customer.id} fas fa-poll-h fa-2x nav-link" %></td>
+        <td><%= link_to '詳細', admin_customer_path(customer), class: "customer_#{customer.id} fas fa-poll-h nav-link" %></td>
       </tr>
       <% end %>
     </tbody>

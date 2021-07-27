@@ -398,7 +398,6 @@ a.nav-link {
   margin: 0;
 }
 
-
 .guest {
   text-align: center;
   background: #f6d365;
@@ -701,7 +700,7 @@ p {
 
 .table-bordered {
     border: 1px solid #dee2e6;
-    width: 900px;
+    width: 1000px;
 }
 
 #navbtn::before{
@@ -822,7 +821,7 @@ p {
   transform: translate(0, 0) scale(1);
   transition: 0.2s;
   z-index: 5;
-  width: 935px;
+  width: 1050px;
 }
 
 #modal > p {
@@ -1219,6 +1218,17 @@ dl > div.appear dd {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
 }
+
+.search {
+  margin-left: 100px;
+}
+
+.container-2 {
+  padding: 20px 120px ;
+  width: 1000px;
+}
+
+
 
 
 @media (min-width: 0px) and (max-width: 599px){
