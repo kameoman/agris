@@ -1,4 +1,4 @@
-
+ <%= link_to "PDFを表示", record_pdfs_index_path(format: "pdf") %>
  <%= link_to "全出荷データのCSVを出力", customers_path(format: :csv), class: "export fas fa-download " %>
  <form class="border rounded bg-white form-time-table">
   <h1 class="d-flex justify-content-center mt-3">
@@ -13,7 +13,7 @@
       <%= link_to ' 当月の記録全て削除',customer_items_destroy_all_path, method: :delete, class: "destroy_all fas fa-trash mb-3",style: "width:200px", data: { confirm: '本当に全て削除しますか?' } %>
     </div>
 <div class="container">
-  <table class="table-responsivetable table-bordered align-center" id="fav-table">
+  <table class=" table-bordered align-center" id="fav-table">
     <thead>
       <tr class="bg-light text-center">
         <th scope="col "></th>

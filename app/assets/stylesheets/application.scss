@@ -699,6 +699,11 @@ p {
   transition: 0.3s ease-in-out;
 }
 
+.table-bordered {
+    border: 1px solid #dee2e6;
+    width: 900px;
+}
+
 #navbtn::before{
   transform: translateY(-10px);
   box-shadow: 0 10px #333333;
@@ -1208,6 +1213,14 @@ dl > div.appear dd {
   display: none;
 }
 
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+
 @media (min-width: 0px) and (max-width: 599px){
   .main-image {
     width: 65px;
@@ -1311,7 +1324,9 @@ dl > div.appear dd {
   }
   .table-bordered thead th, .table-bordered thead td {
     border-bottom-width: 2px;
+    border: 1px solid #dee2e6;
     font-size: 1px;
+    width: 100px;
   }
 
   .fa-2x {
@@ -1466,7 +1481,6 @@ p {
 
 .container, .container-fluid, .container-xl, .container-lg, .container-md, .container-sm {
     width: 100%;
-    padding-right: 100px;
     padding-left: 0px;
     margin-right: auto;
     margin-left: auto;
@@ -1541,5 +1555,19 @@ dt::after {
     font-size: 15px;
     width: 300px;
 }
+
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-bordered {
+    border: 1px solid #dee2e6;
+    width: 100px;
+}
+
+
 
 }
