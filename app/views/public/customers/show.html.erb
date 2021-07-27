@@ -83,10 +83,13 @@
     <%= render partial: 'items/modal', locals: {item: @item }%>
   </section>
 
-
 <div>
   <canvas id="stage" style="position: relative; height:100; width:150"></canvas>
 </div>
+
+
+
+
 
 
 <script >
@@ -111,3 +114,6 @@
         <% end %>
       </script>
     <% end %>
+
+
+  <%= javascript_include_tag 'chart.js' %>

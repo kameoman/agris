@@ -7,7 +7,7 @@
   </strong>
   <%= link_to "",admin_customers_path(month:@month.next_month), class: "fas fa-angle-double-right fa-2x" %>
 </div>
-<%= link_to "CSV", admin_customers_path(format: :csv), class: "btn btn-primary" %>
+<%= link_to "CSV", admin_customers_path(format: :csv), class: "export fas fa-download " %>
 <div class="container">
   <!--<div class="vertical-scroll-table">-->
   <table class="table-to-export table-bordered" id="fav-table" style="width: -webkit-fill-available;" data-sheet-name="野菜出荷データ">
@@ -50,3 +50,5 @@
   <svg width="600" height="240" style="background:#f8f8f8";>
 </div>
 </svg>
+
+<%= javascript_include_tag 'd3' %>
