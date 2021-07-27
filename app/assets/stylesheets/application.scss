@@ -1568,6 +1568,37 @@ dt::after {
     width: 100px;
 }
 
+#modal.hidden {
+    display: none;
+    transform: translate(0, 0);
+    width: 350px;
+    height: 360px;
+}
+
+#open, #close {
+    display: flex;
+    font-size: 10px;
+    cursor: pointer;
+    width: 50px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    padding: 6px 0;
+    margin: 0px auto 0;
+    justify-content: space-around;
+    align-content: flex-end;
+}
+
+.link-2 {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 0px;
+}
+
+.modal-table {
+  width: 300px;
+}
+
 
 
 }
