@@ -219,12 +219,12 @@ document.addEventListener("turbolinks:load", function() {
   'user strict';
 
   {
-    const dts = document.querySelectorAll('dt');
+    const question = document.querySelectorAll('dt');
 
-    dts.forEach(dt => {
-      dt.addEventListener('click',() => {
+    question.forEach(question => {
+      question.addEventListener('click',() => {
         // dt の親要素に対してクラスのつけ外し
-        dt.parentNode.classList.toggle('appear');
+        question.parentNode.classList.toggle('appear');
       });
     });
 
