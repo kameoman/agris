@@ -6,7 +6,10 @@
         <p class="title-p">伝票は作らなくてもできあがる</p>
       </div>
       <div class="pic1">
-        <%= image_tag('agri01.jpg') %>
+          <%= image_tag('main.png',class: "main-image") %>
+          <%= image_tag('main.png',class: "main-image") %>
+          <%= image_tag('main.png',class: "main-image") %>
+          <%= image_tag('main2.png',class: "main-image") %>
       </div>
         <p class="title-p2">「紙の出荷伝票」をシステム化。Agrisは無料で使える伝票管理アプリです。</p>
         <a href="/customers/sign_up" class="button-1 fas fa-plus-square fa-1x mx-3"> 新規登録はこちら</a>
@@ -26,7 +29,19 @@
     <p>管理者側は、タイムリーに出荷状況を把握でき、販売計画や精算処理等も容易になります。生産者側は、出荷状況の分析や累計をネット上で管理することができ、今後の経営にも活用いただけます。</p>
     <h4 class="top-h4">順番操作・閲覧画面 (新規出荷登録）</h4>
     <div class="movie2">
-      <iframe width="600" height="300" src="https://www.youtube.com/embed/BEbgdMTFb8A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <section>
+      <div class="container2">
+        <ul class="scroll-ul">
+          <li class="scroll-li"><%= image_tag('agri02.jpg') %></li>
+          <li class="scroll-li"><%= image_tag('agri01.jpg') %></li>
+          <li class="scroll-li"><%= image_tag('agri03.jpg') %></li>
+        </ul>
+        <button id="prev">&laquo;</button>
+        <button id="next">&raquo;</button>
+      </div>
+      <nav>
+      </nav>
+    </section>
     </div>
     <hr>
     <h1 class="h1-top">機能例</h1><br>
@@ -92,7 +107,7 @@
       </li>
     </ul>
     <div class="movie2">
-      <iframe width="600" height="300" src="https://www.youtube.com/embed/BEbgdMTFb8A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="600" height="300" src="https://www.youtube.com/embed/k_t6_S1p4gM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </section>
 
