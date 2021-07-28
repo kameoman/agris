@@ -1,12 +1,12 @@
 class RecordPdfsController < ApplicationController
   def index
-    @records = Item.all # pdf上で使用するレコードのインスタンスを作成
+    @record = Item.find(params[:id]) # pdf上で使用するレコードのインスタンスを作成
     respond_to do |format|
       format.html
       format.pdf do
 
         # pdfを新規作成。インスタンスを渡す。
-        pdf = RecordPdf.new(@records.first)
+        pdf = RecordPdf.new(@record)
 
         send_data pdf.render,
           filename:    "sample.pdf",

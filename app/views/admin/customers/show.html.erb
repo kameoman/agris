@@ -1,3 +1,24 @@
+ <div class="search">
+<h1>ユーザー検索</h1>
+<%= form_with url: record_pdfs_index_path(format: "pdf"),method: 'get'  do |f| %>
+  <%= f.label :id, '投稿データのID',required:true %>
+  <%= f.number_field :id %>
+<a href="javascript:onPdf()" class="fas fa-download ml-3">伝票を印刷</a>
+<% end %>
+</div>
+<script>
+  function onPdf(){
+    var id = document.getElementById('id').value;
+    if ( id  == ''){
+        alert('IDを入力してください');
+        return;
+    }
+    location.href = "/record_pdfs/index.pdf?id=" + document.getElementById('id').value;
+  }
+</script>
+
+
+
  <form class="border rounded bg-white form-time-table">
   <h1 class="d-flex justify-content-center">
     <%= @customer.name %>様
@@ -11,6 +32,7 @@
   <table class="table table-bordered">
     <thead>
       <tr class="bg-light">
+        <th scope="col">ID</th>
         <th scope="col">名前</th>
         <th scope="col">品目</th>
         <th scope="col">出荷日時</th>
@@ -25,6 +47,7 @@
     <tbody>
       <% @items.each do |item| %>
         <tr>
+          <td><%= item.id %></td>
           <td><%= @customer.name %></td>
           <td><%= item.name %></td>
           <td><%= item.date.strftime('%Y/%m/%d')%></td>

@@ -1,5 +1,5 @@
- 
- 
+
+
  <form class="border rounded bg-white form-time-table">
   <h1 class="d-flex justify-content-center mt-3">
   -<%= @customer.name %>様
@@ -33,7 +33,7 @@
         <% @items.each do |item| %>
           <tr class="bg-light text-center">
             <td>
-              <input type="checkbox" class="item-amount-chkbox" value="<%= item.count %>" value2="<%= item.name %>">
+              <input type="checkbox" class="item-amount-chkbox" value="<%= item.count %>">
             </td>
             <td><%= @customer.name %></td>
             <td><%= item.name %></td>

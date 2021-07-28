@@ -13,6 +13,7 @@
   <table class="table-to-export table-bordered" id="fav-table" style="width: -webkit-fill-available;" data-sheet-name="野菜出荷データ">
       <thead>
         <tr class="bg-light text-center">
+          <th scope="col">ID</th>
           <th scope="col">名前</th>
           <th scope="col">品目</th>
           <th scope="col">出荷日時</th>
@@ -26,6 +27,7 @@
       <tbody>
         <% @items.each do |item| %>
           <tr class="text-center">
+            <td><%= item.id %></td>
             <% if item.customer.nil? %>
               <td>Guest User</td>
             <% else %>
