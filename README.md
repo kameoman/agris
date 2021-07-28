@@ -1,6 +1,8 @@
 # Agris　出荷登録システムアプリケーション
-※イメージロゴ（自作）
-![logo.jpeg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/0a3ac465-070d-b233-dba3-f0b281489bf4.jpeg)
+- トップ画像
+![top.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/38570b94-e64c-c1d3-3911-59223e0d9683.png)
+- ロゴイメージ
+![logo.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/5deb1511-5ecb-1fd6-9b44-f33714ab8c5f.png)
 
 ## サイト概要
 今回作るアプリケーションは、農家がweb上で野菜の出荷登録ができる。「WEB出荷登録システム」サイト
@@ -29,13 +31,79 @@
 - 農業会社（管理者）
 
 ### 主な利用シーン
-農会
 - 出荷をする前日までに登録
 - これまでの出荷履歴を確認
 - 農業会社
 - 明日の出荷状況（総数の確認）
 - 販売方法の検討・計画（販路確保）
 - 前年の販売進捗や今後の戦略立案
+
+## 動作見本
+
+
+![new5.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/ac890c06-7ed2-3f7a-7370-7673dd7585d9.gif)
+
+![new6.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/aec6d0e3-e39d-212f-8435-88837faf5df5.gif)
+
+
+
+## 開発環境
+- 言語：HTML,CSS,JavaScript,Ruby
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
+- Vision AI
+- 使用gem
+
+###技能面
+- サーバーサイド言語：Ruby
+- インフラ：AWS
+- ソース管理：Git
+- フロント周り：HTML,css,js
+
+###テスト面
+- Rubyでのテストコードを記述するために、
+  Rspecを使用しました。
+- コードの検査として、rubocopを使用しました。
+
+
+###使用gemの紹介
+今後使用する可能性のあるgemにも挑戦し導入してみました。
+- PDFを出力できる機能を実装するため'prawn'を使用
+- factorybot
+
+フロント周りでは、
+- Jquery
+- Bootstrap を使用
+
+以下はその他使用したgemになります。
+
+```
+gem 'axlsx_rails'
+gem 'bootstrap', '~> 4.5'
+gem 'bullet'
+gem 'chart-js-rails', '~> 0.1.4'
+gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+gem 'dotenv-rails'
+gem 'font-awesome-sass', '~> 5.13'
+gem 'geocoder'
+gem 'gon'
+gem 'google-cloud-vision'
+gem 'jquery-rails'
+gem 'kaminari', '~> 1.2.1'
+gem 'rails-i18n'
+gem 'refile', require: 'refile/rails', github: 'manfe/refile'
+gem 'refile-mini_magick'
+gem 'refile-s3'
+gem 'rubocop'
+gem 'toastr-rails'
+gem 'prawn'
+gem 'prawn-table'
+
+```
+
 
 ## 設計書
 ![出荷予約登録システム.jpg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/89ef5549-2076-5ab6-8299-3f048c3898d3.jpeg)
@@ -59,33 +127,3 @@ ER図
 
 アプリケーション詳細設計
 ![アプリケーション詳細設計.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/62e30a86-d021-21a8-1836-14cd527d0337.png)
-
-## 開発環境
-- 言語：HTML,CSS,JavaScript,Ruby
-- フレームワーク：Ruby on Rails
-- JSライブラリ：jQuery
-- IDE：Cloud9
-- Vision AI
-- 使用gem
-
-```
-gem 'axlsx_rails'
-gem 'bootstrap', '~> 4.5'
-gem 'chart-js-rails', '~> 0.1.4'
-gem 'devise'
-gem 'dotenv-rails'
-gem 'font-awesome-sass', '~> 5.13'
-gem 'jquery-rails'
-gem 'kaminari', '~> 1.2.1'
-gem 'refile', require: 'refile/rails', github: 'manfe/refile'
-gem 'refile-mini_magick'
-gem 'rubocop'
-gem "geocoder"
-gem "bullet"
-gem 'ransack'
-group :production do
-  gem 'mysql2'
-end
-```
-## 使用素材
-随時更新予定
