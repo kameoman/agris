@@ -6,7 +6,7 @@ class RecordPdfsController < ApplicationController
       format.pdf do
 
         # pdfを新規作成。インスタンスを渡す。
-        pdf = RecordPdf.new(@records)
+        pdf = RecordPdf.new(@records.first)
 
         send_data pdf.render,
           filename:    "sample.pdf",
