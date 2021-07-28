@@ -1,12 +1,8 @@
 <h3>ユーザー検索結果</h3>
-
- <% @results.each do |results| %>
-          検索ワード:<%= results.name %>
-
+ 検索ワード:<%= @results.name %>
 <hr>
 
-      <h1 class="d-flex justify-content-center"> <%= results.name %>様 登録データ</h1>
-      <% end %>
+      <h1 class="d-flex justify-content-center"> <%= @results.name %>様 登録データ</h1>
 <div class="container">
   <table class= "table table-bordered">
    <thead>
@@ -22,18 +18,16 @@
       </tr>
     </thead>
     <tbody>
-  <% @customer.each do |customer| %>
       <tr>
-        <td><%= customer.id %></td>
-        <td><%= customer.name %></td>
-        <td><%= customer.kana %></td>
-        <td><%= customer.address %></td>
-        <td><%= customer.phone_number %></td>
-        <td><%= customer.email %></td>
-        <td><%= customer.customer_no %></td>
-        <td><%= link_to '詳細', admin_customer_path(customer), class: "customer_#{customer.id} fas fa-poll-h fa-2x nav-link" %></td>
+        <td><%= @results.id %></td>
+        <td><%= @results.name %></td>
+        <td><%= @results.kana %></td>
+        <td><%= @results.address %></td>
+        <td><%= @results.phone_number %></td>
+        <td><%= @results.email %></td>
+        <td><%= @results.customer_no %></td>
+        <td><%#= link_to '詳細', admin_customer_path(@results.id), class: "customer_#{customer.id} fas fa-poll-h fa-2x nav-link" %></td>
       </tr>
-      <% end %>
     </tbody>
   </table>
 </div>

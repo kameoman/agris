@@ -9,9 +9,9 @@ class Admin::CustomersController < ApplicationController
     @items = Item.where(date: @month.all_month).order('date ASC').includes(:customer)
     # 出荷量データ
     @customer_data = Customer.joins(:items).where(items: { date: @month.all_month }).group(:name).sum(:count)
-    
+
     @all_data = Customer.joins(:items)
-    
+
     gon.customer_data = @customer_data
     # graph_labels = Customer.joins(:items).where(items: { date: @month.all_month }).map(&:name).uniq
     gon.graph = Customer.joins(:items).where(items: { date: @month.all_month }).group(:name).sum(:count)
@@ -21,11 +21,13 @@ class Admin::CustomersController < ApplicationController
   end
 
   def search
-    @results = @q.result
 
-    @customer = @results
+    if @q.result === []
+      redirect_to admin_customers_profile_path, notice: '該当データが見つかりませんでした。'
+    else
+      @results = @q.result.find_by(@q.id)
+    end
 
-    @address = @q.result.select('id,address,latitude,longitude').find_by(@q.id)
   end
 
   def profile
