@@ -17,10 +17,10 @@
 
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+
 // require_tree .
 
-document.addEventListener("turbolinks:load", function() {
+
 
   $(function() {
     $('a[href^="#"]').click(function() {
@@ -34,28 +34,9 @@ document.addEventListener("turbolinks:load", function() {
   });
 
 
-});
 
 
 
-
-// ↓よくある質問のページで使用箇所（質問のアコーディオンメニュー）
-document.addEventListener("turbolinks:load", function() {
-  'user strict';
-
-  {
-    const question = document.querySelectorAll('dt');
-
-    question.forEach(question => {
-      question.addEventListener('click', () => {
-        // dt の親要素に対してクラスのつけ外し
-        question.parentNode.classList.toggle('appear');
-      });
-    });
-
-  }
-
-});
 
 
 function initMap() {}
