@@ -1,3 +1,17 @@
-<h1>RecordPdfs#index</h1>
-<p>Find me in app/views/record_pdfs/index.html.erb</p>
-<%= @records.name %>
+<h1>伝票作成</h1>
+<%= form_with url: record_pdfs_index_path(format: "pdf"),method: 'get'  do |f| %>
+  <%= f.label :id, '投稿データのID',required:true %>
+  <%= f.number_field :id %>
+<a href="javascript:onPdf()" class="fas fa-download ml-3">伝票を印刷</a>
+<% end %>
+</div>
+<script>
+  function onPdf(){
+    var id = document.getElementById('id').value;
+    if ( id  == ''){
+        alert('IDを入力してください');
+        return;
+    }
+    location.href = "/record_pdfs/index.pdf?id=" + document.getElementById('id').value;
+  }
+</script>

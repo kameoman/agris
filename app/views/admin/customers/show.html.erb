@@ -1,5 +1,5 @@
  <div class="search">
-<h1>ユーザー検索</h1>
+<h1>伝票作成</h1>
 <%= form_with url: record_pdfs_index_path(format: "pdf"),method: 'get'  do |f| %>
   <%= f.label :id, '投稿データのID',required:true %>
   <%= f.number_field :id %>

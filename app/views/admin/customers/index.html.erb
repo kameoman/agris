@@ -1,3 +1,22 @@
+<div class="ad-pdf">
+  <%= form_with url: record_pdfs_index_path(format: "pdf"),method: 'get'  do |f| %>
+    <%= f.label :id, '投稿データのID',required:true %>
+    <%= f.number_field :id %>
+  <% end %>
+  <a href="javascript:onPdf()" class="a-pdf fas fa-download ml-3">伝票を印刷する</a>
+</div>
+<script>
+  function onPdf(){
+    var id = document.getElementById('id').value;
+    if ( id  == ''){
+        alert('IDを入力してください');
+        return;
+    }
+    location.href = "/record_pdfs/index.pdf?id=" + document.getElementById('id').value;
+  }
+</script>
+
+
 <form class="border rounded bg-white form-time-table">
   <h1 class="d-flex justify-content-center">全出荷者リスト</h1>
 <div class="admin-index">
@@ -7,7 +26,7 @@
   </strong>
   <%= link_to "",admin_customers_path(month:@month.next_month), class: "fas fa-angle-double-right fa-2x" %>
 </div>
-<%= link_to "CSV", admin_customers_path(format: :csv), class: "export fas fa-download " %>
+
 <div class="container">
   <!--<div class="vertical-scroll-table">-->
   <table class="table-to-export table-bordered" id="fav-table" style="width: -webkit-fill-available;" data-sheet-name="野菜出荷データ">

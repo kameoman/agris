@@ -31,29 +31,16 @@
        <% if customer_signed_in? %>
               <li class="head-li"><%= link_to " マイページ", my_page_path(current_customer.id), class: "fas fa-user nav-link " %></li>
               <li><%= link_to " 出荷履歴一覧", customer_path(current_customer), class: "fas fa-clipboard-list nav-link " %></li>
-              <li><%= link_to " 新規登録", new_item_path, class: "fas fa-plus-square nav-link " %></li>
-              <li><%= link_to " 伝票を印刷", record_pdfs_index_path(format: "pdf"), class: "fas fa-download ml-3" %></li>
-              <li><%= link_to " 全出荷出力", customers_path(format: :csv), class: "fas fa-download ml-4" %></li>
+              <li><%= link_to " 新規出荷登録", new_item_path, class: "fas fa-plus-square nav-link " %></li>
+              <li><%= link_to " 全出荷データ出力", customers_path(format: :csv), class: "fas fa-download  nav-link" %></li>
               <li><%= link_to " ログアウト", destroy_customer_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link ml-3" %></li>
-              <button type="button" id="navbtn">
-                <div class="c-hamburger-btn__bars">
-              		<div class="c-hamburger-btn__bar"></div>
-              		<div class="c-hamburger-btn__bar"></div>
-              		<div class="c-hamburger-btn__bar"></div>
-              	</div>
-              </button>
+
             <% elsif admin_signed_in? %>
               <li><%= link_to " 会員一覧", admin_customers_profile_path, class: "fas fa-users nav-link " %></li>
               <li><%= link_to " 出荷全履歴一覧", admin_customers_path, class: "fas fa-clipboard-list nav-link " %></li>
-              <li><%= link_to " 伝票を印刷", record_pdfs_index_path(format: "pdf"), class: "fas fa-download ml-3" %></li>
+              <li><%= link_to " 全出荷データCSV出力", admin_customers_path(format: :csv), class: "fas fa-download nav-link " %></li>
               <li><%= link_to " ログアウト", destroy_admin_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link " %></li>
-                 <button type="button" id="navbtn">
-                  <div class="c-hamburger-btn__bars">
-                		<div class="c-hamburger-btn__bar"></div>
-                		<div class="c-hamburger-btn__bar"></div>
-                		<div class="c-hamburger-btn__bar"></div>
-                	</div>
-                  </button>
+
             <% else %>
               <li><%= link_to " 使い方", home_about_path, class: "fas fa-info-circle nav-link " %></li>
               <li><%= link_to " よくある質問と答え", home_question_path, class: "fas fa-info-circle nav-link " %></li>
@@ -63,13 +50,6 @@
               <li><%= link_to " ご意見", home_mail_path, class: "fas fa-envelope-square nav-link " %></li>
               </ul>
               </nav>
-              <button type="button" id="navbtn">
-                <div class="c-hamburger-btn__bars">
-              		<div class="c-hamburger-btn__bar"></div>
-              		<div class="c-hamburger-btn__bar"></div>
-              		<div class="c-hamburger-btn__bar"></div>
-              	</div>
-              </button>
               <div class="guest">
               <%= link_to " ゲストログイン（閲覧用）", customers_guest_sign_in_path, method: :post, class: "fas fa-chalkboard-teacher nav-link" %>
               <%= link_to " 管理者ゲストログイン（閲覧用）", admins_guest_sign_in_path, method: :post, class: "fas fa-chalkboard-teacher nav-link" %>
@@ -78,12 +58,18 @@
     </header>
     <%= yield %>
 
+              <button type="button" id="navbtn">
+                <div class="c-hamburger-btn__bars">
+              		<div class="c-hamburger-btn__bar"></div>
+              		<div class="c-hamburger-btn__bar"></div>
+              		<div class="c-hamburger-btn__bar"></div>
+              	</div>
+              </button>
     <span id="back">
       <a href="#">
         <%= image_tag 'arrow.png', alt: "" %>
       </a>
     </span>
-
     <footer>
       <section>
         <div class="footer-side-all">

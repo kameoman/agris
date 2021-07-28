@@ -1232,6 +1232,42 @@ dl > div.appear dd {
   margin: 0 0 10px 80px;
 }
 
+.pdf {
+    text-align: center;
+    background: skyblue;
+    position: absolute;
+    left: 30px;
+    top: 130px;
+}
+
+#id {
+  width: 70px;
+}
+.ad-pdf {
+    text-align: center;
+    background: skyblue;
+    position: absolute;
+    right: 132px;
+    top: 115px;
+}
+
+.head-li {
+  font-size: 20px;
+}
+
+
+.nav-link {
+    margin: 0;
+    font-size: 18px;
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -1618,8 +1654,27 @@ dt::after {
   height: 150px;
   overflow: hidden;
   position: relative;
-
 }
+
+.pdf {
+    text-align: center;
+    display: contents;
+    position: absolute;
+}
+
+#id {
+  width: 70px;
+}
+
+.a-pdf {
+  padding: 10px 31%;
+}
+
+a.nav-link {
+    margin: 0;
+    font-size: 21px;
+}
+
 
 
 
