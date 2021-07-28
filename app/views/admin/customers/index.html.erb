@@ -37,7 +37,11 @@
             <td><%= item.comment %></td>
             <td><%= item.count %></td>
             <td><%= item.standard %></td>
-            <td><%= attachment_image_tag(item, :image, :fill, 100, 100, fallback: "no-image-icon.jpg") %></td>
+            <% if item.customer.nil? %>
+              <td><%= image_tag("no-image-icon.jpg") %></td>
+            <% else %>
+              <td><%= attachment_image_tag(item, :image, :fill, 100, 100, fallback: "no-image-icon.jpg") %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>
