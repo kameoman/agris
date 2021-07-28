@@ -44,9 +44,11 @@
 
 
 - 投稿後
+
 ![new5.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/ac890c06-7ed2-3f7a-7370-7673dd7585d9.gif)
 
 - 便利機能
+
 ![new6.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/aec6d0e3-e39d-212f-8435-88837faf5df5.gif)
 
 
