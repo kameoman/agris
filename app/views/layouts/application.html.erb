@@ -32,7 +32,9 @@
               <li class="head-li"><%= link_to " マイページ", my_page_path(current_customer.id), class: "fas fa-user nav-link " %></li>
               <li><%= link_to " 出荷履歴一覧", customer_path(current_customer), class: "fas fa-clipboard-list nav-link " %></li>
               <li><%= link_to " 新規登録", new_item_path, class: "fas fa-plus-square nav-link " %></li>
-              <li><%= link_to " ログアウト", destroy_customer_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link " %></li>
+              <li><%= link_to " 伝票を表示", record_pdfs_index_path(format: "pdf"), class: "fas fa-download ml-3" %></li>
+              <li><%= link_to " 全出荷出力", customers_path(format: :csv), class: "fas fa-download ml-4" %></li>
+              <li><%= link_to " ログアウト", destroy_customer_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link ml-3" %></li>
               <button type="button" id="navbtn">
                 <div class="c-hamburger-btn__bars">
               		<div class="c-hamburger-btn__bar"></div>

@@ -44,15 +44,15 @@ end
     subtable = make_table([
       [
         make_cell(content: '出荷日', width: 70),
-        make_cell(content: 'xxxx年 x月 xx日', width: 200, align: :center),
+        make_cell(content: '年 　　月 　　日', width: 200, align: :center),
         make_cell(content: '規格', width: 50, align: :center),
-        make_cell(content: 'L', width: 80, align: :center)
+        make_cell(content: '', width: 80, align: :center)
       ]
     ], width: 400)
 
     name_box = [
       make_cell(content: '氏名', width: 50),
-      make_cell(content: 'xx xxx', width: 350, height: 40, align: :center, valign: :center, size: 20)
+      make_cell(content: '', width: 350, height: 40, align: :center, valign: :center, size: 20)
     ]
 
     data = [
@@ -74,7 +74,7 @@ end
     subtable = make_table([
       [
         make_cell(content: '出荷数量', width: 70),
-        make_cell(content: '100セット', width: 200, align: :center),
+        make_cell(content: '', width: 200, align: :center),
         make_cell(content: '担当印', width: 50, align: :center),
         make_cell(content: '', width: 80, align: :center)
       ]
@@ -82,7 +82,7 @@ end
 
     name_box = [
       make_cell(content: '品目', width: 50),
-      make_cell(content: '量販店部会　贈答用枝豆1㎏', width: 350, height: 40, align: :center, valign: :center, size: 20)
+      make_cell(content: '', width: 350, height: 40, align: :center, valign: :center, size: 20)
     ]
 
     data = [
@@ -104,12 +104,12 @@ end
   def create_address
     address_kana_box = [
       make_cell(content: '出荷先', width: 50),
-      make_cell(content: '〇〇株式会社　青果物販売担当　園芸課　〇〇店', width: 450, align: :center)
+      make_cell(content: '', width: 450, align: :center)
     ]
 
     address_box = [
       make_cell(content: '出荷元', width: 50),
-      make_cell(content: 'xxxxxxxxxxxxxxxxxx', width: 450, align: :center, size: 15)
+      make_cell(content: '', width: 450, align: :center, size: 15)
     ]
 
     table([
