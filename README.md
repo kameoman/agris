@@ -60,11 +60,6 @@ ER図
 アプリケーション詳細設計
 ![アプリケーション詳細設計.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/62e30a86-d021-21a8-1836-14cd527d0337.png)
 
-
-
-## チャレンジ要素一覧
-https://docs.google.com/spreadsheets/d/1dSv6NABsCQpkjAK1dc5TmW_1u0GUoZabVEaY_xdHHbA/edit#gid=0
-
 ## 開発環境
 - 言語：HTML,CSS,JavaScript,Ruby
 - フレームワーク：Ruby on Rails
