@@ -1,6 +1,10 @@
 class RecordPdfsController < ApplicationController
   def index
-    @record = Item.find(params[:id]) # pdf上で使用するレコードのインスタンスを作成
+    @record = Item.find_by_id(params[:id]) if params[:id]
+
+    if @record === nil
+      redirect_back(fallback_location: root_path)
+    else
     respond_to do |format|
       format.html
       format.pdf do
@@ -12,8 +16,8 @@ class RecordPdfsController < ApplicationController
           filename:    "sample.pdf",
           type:        "application/pdf",
           disposition: "inline" # 画面に表示。外すとダウンロードされる。
-      end
+        end
+     end
     end
   end
-
 end
