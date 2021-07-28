@@ -1,4 +1,5 @@
-document.addEventListener("turbolinks:load", function() {
+
+
   (function(){
     'use strict';
 
@@ -88,4 +89,3 @@ document.addEventListener("turbolinks:load", function() {
 
       update(scores);
     })();
-});

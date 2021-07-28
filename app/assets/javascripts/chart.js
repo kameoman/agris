@@ -1,3 +1,4 @@
+document.addEventListener("turbolinks:load", function() {
 
 var mydata = {
 
@@ -27,3 +28,5 @@ var chart = new Chart(canvas, {
   options: options  //オプション設定
 
   });
+
+})
