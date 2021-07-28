@@ -39,9 +39,6 @@
 - 前年の販売進捗や今後の戦略立案
 
 ## 動作見本
-- サイト紹介
-![Agrishow1.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/5858f6a6-3227-a89b-fa04-81b8ecd6efee.gif)
-
 
 - 投稿後
 
