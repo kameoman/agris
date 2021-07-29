@@ -1,7 +1,10 @@
 <div class="pdf">
   <%= form_with url: record_pdfs_index_path(format: "pdf"),method: 'get'  do |f| %>
-    <%= f.label :id, '投稿データのID',required:true %>
-    <%= f.number_field :id %>
+    <%= f.label :id, '伝票を作成する場合',required:true %><br>
+    <div class=pdf-div>
+    ※投稿データのIDを入力してください。
+    </div>
+    <%= f.number_field :id, placeholder: "例:10"%>
   <% end %>
   <a href="javascript:onPdf()" class="a-pdf fas fa-download ml-3">伝票を印刷する</a>
 </div>
@@ -20,6 +23,7 @@
   <h1 class="d-flex justify-content-center mt-3">
   -<%= @customer.name %>様
     月別リスト-</h1>
+  <%= flash[:danger] %>
     <div class="month">
       <%= link_to "", customer_path(current_customer,month:@month.prev_month), class: "fas fa-angle-double-left fa-2x nav-link" %>
       <strong>

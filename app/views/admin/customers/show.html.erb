@@ -1,24 +1,3 @@
- <div class="search">
-<h1>伝票作成</h1>
-<%= form_with url: record_pdfs_index_path(format: "pdf"),method: 'get'  do |f| %>
-  <%= f.label :id, '投稿データのID',required:true %>
-  <%= f.number_field :id %>
-<a href="javascript:onPdf()" class="fas fa-download ml-3">伝票を印刷</a>
-<% end %>
-</div>
-<script>
-  function onPdf(){
-    var id = document.getElementById('id').value;
-    if ( id  == ''){
-        alert('IDを入力してください');
-        return;
-    }
-    location.href = "/record_pdfs/index.pdf?id=" + document.getElementById('id').value;
-  }
-</script>
-
-
-
  <form class="border rounded bg-white form-time-table">
   <h1 class="d-flex justify-content-center">
     <%= @customer.name %>様
@@ -63,6 +42,27 @@
   </table>
 </div>
 
+<hr>
+ <div class="search">
+<h6>【伝票作成（PDF出力】</h6>
+<%= form_with url: record_pdfs_index_path(format: "pdf"),method: 'get'  do |f| %>
+  <%= f.label :id, 'PDFの伝票を作成する場合',required:true %>
+    ※投稿データのIDを入力してください。<br>
+    IDを入力（例：100)
+  <%= f.number_field :id %>
+<a href="javascript:onPdf()" class="fas fa-download ml-3">対象の伝票を印刷</a>
+<% end %>
+</div>
+<script>
+  function onPdf(){
+    var id = document.getElementById('id').value;
+    if ( id  == ''){
+        alert('IDを入力してください');
+        return;
+    }
+    location.href = "/record_pdfs/index.pdf?id=" + document.getElementById('id').value;
+  }
+</script>
 
 <div>
   <canvas id="stage"></canvas>

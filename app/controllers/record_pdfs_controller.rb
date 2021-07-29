@@ -3,7 +3,7 @@ class RecordPdfsController < ApplicationController
     @record = Item.find_by_id(params[:id]) if params[:id]
 
     if @record === nil
-      redirect_back(fallback_location: root_path)
+      redirect_back(fallback_location: root_path ,notice: "該当データが見つかりませんでした")
     else
     respond_to do |format|
       format.html

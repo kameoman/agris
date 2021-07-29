@@ -1234,10 +1234,12 @@ dl > div.appear dd {
 
 .pdf {
     text-align: center;
-    background: skyblue;
     position: absolute;
     left: 30px;
-    top: 130px;
+    top: 87px;
+    border: solid 2px gray;
+    border-radius: 7%;
+    padding: 4px;
 }
 
 #id {
@@ -1245,10 +1247,13 @@ dl > div.appear dd {
 }
 .ad-pdf {
     text-align: center;
-    background: skyblue;
+    background: whitesmoke;
     position: absolute;
     right: 132px;
-    top: 115px;
+    top: 64px;
+    border: solid 2px gray;
+    border-radius: 7%;
+    padding: 4px;
 }
 
 .head-li {
@@ -1259,6 +1264,10 @@ dl > div.appear dd {
 .nav-link {
     margin: 0;
     font-size: 18px;
+}
+
+.pdf-div {
+  font-size: 5px;
 }
 
 
