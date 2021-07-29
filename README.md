@@ -40,11 +40,7 @@
 
 ## 動作見本
 
-- 投稿後
-
-![agris2.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/b69200d2-52db-da07-b330-25df2f0de6c0.gif)
-
-- 便利機能
+- 投稿後/便利機能
 
 ![agris3 (1).gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/465b64c3-9394-c588-0252-63a6e38282a1.gif)
 
