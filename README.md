@@ -69,6 +69,27 @@
   Rspecを使用しました。
 - コードの検査として、rubocopを使用しました。
 
+##チャレンジ要素一覧
+| 項目   |     機能名      | 　概要　　　　　　 |
+| :--- | :-----------: | -------: |
+| HTML/CSS    　　| Flexbox | レイアウトを整えるのに導入 |
+| Ruby on Rails　 | デバック|　binding.pry　|
+| Ruby on Rails   | 侍エンジニア3 |     Java |
+| Ruby on Rails   | 侍エンジニア4 |   python |
+| Ruby on Rails   | 侍エンジニア5 |     ruby |
+|Ruby on Rails|	テスト(単体/正常・異常)|	結合テストをRSpecで実装予定|
+|Ruby on Rails|	CRUD|resorcesメソッド|
+|Ruby on Rails|	ユーザー認証|devise|
+|Ruby on Rails|	画像アップロード|画像アップロード|
+|その他|デプロイ|EC2, RDS, GitHub Actions|
+|その他|	リーダブルコード|Rubocopを利用|
+|その他|	README|マークダウン形式で記入|
+|Ruby on Rails|	環境変数化|GitHubに公開したくない変数や値を隠してpushする方法 dotenv-rails,bash_profile|
+|JavaScript(その他)|	データ可視化|de.js|
+|その他|	地図表示|GoogleMapAPI  地図の検索機能|
+|Ruby on Rails(その他)|	検索|検索機能（生産者の検索に使用）|
+|その他|	N+1問題|bulletの活用でN+1の箇所を修正|
+
 
 ## 使用gemの紹介
 今後使用する可能性のあるgemにも挑戦し導入してみました。
