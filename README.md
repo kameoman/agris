@@ -41,8 +41,6 @@
 ## 動作見本
 
 - 投稿後
-![agris.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/fee49c85-a2ef-f62c-79ab-14bc88cd7903.gif)
-
 
 ![agris2.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/b69200d2-52db-da07-b330-25df2f0de6c0.gif)
 
