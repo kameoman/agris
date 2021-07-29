@@ -42,7 +42,7 @@
 
 - 投稿後/便利機能
 
-![agris3 (1).gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/465b64c3-9394-c588-0252-63a6e38282a1.gif)
+![agris3.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/4cb0a566-6784-684d-a280-0f663aef79ea.gif)
 
 
 
@@ -131,16 +131,5 @@ gem 'prawn-table'
 管理者側
 ![agris管理者側.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/5a1cb6c8-1283-d2ef-c206-3e6862bece12.png)
 
-テーブル定義書
-![テーブル定義書.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/66382cbf-83f4-5fc1-9c76-78c63dc1af6b.png)
-
-フロー図
-![agris管理者側フロー図.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/a161f4a3-c5be-1625-5b90-8150b0b910f3.png)
-
-![agris生産者側フロー図.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/8b2bacd1-54aa-1a5f-47e4-febe7cccb6ef.png)
-
 ER図
 ![ER図.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/cf7eb77e-8143-91b2-e38e-63beb45e0019.png)
-
-アプリケーション詳細設計
-![アプリケーション詳細設計.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/62e30a86-d021-21a8-1836-14cd527d0337.png)
