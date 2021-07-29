@@ -1306,8 +1306,8 @@ dl > div.appear dd {
   }
 
   .main-image2 {
-  width: 80px;
-  height: 85px;
+  width: 60px;
+  height: 64px;
   margin: 10px 10px;
 }
 
@@ -1710,6 +1710,41 @@ a.nav-link {
     font-size: 21px;
 }
 
+.features section {
+    padding-bottom: 32px;
+    width: 350px;
+}
+
+.features img {
+    width: 84%;
+}
+
+h4, .h4 {
+    font-size: 20px;
+}
+
+.main-image3{
+  display: none;
+}
+
+.title-end{
+  padding: 0 99px;
+}
+
+.call-to-action-left{
+  display: none;
+}
+.call-to-action-right{
+  display: none;
+}
+.call-to-action{
+ justify-content: center;
+}
+
+.call-to-action-center {
+    width: 74%;
+}
+
 
 
 
@@ -1721,4 +1756,11 @@ a.nav-link {
   .container-lg, .container-md, .container-sm, .container {
     max-width: 1040px;
   }
+
+  .features section {
+    padding-bottom: 32px;
+    width: 350px;
+}
+
+
 }
