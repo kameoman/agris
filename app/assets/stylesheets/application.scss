@@ -522,6 +522,17 @@ main img {
   color: white;
   text-align: center;
   padding: 64px 0;
+  display:flex;
+}
+
+.call-to-action-center {
+  width: 40%;
+}
+.call-to-action-right {
+  width: 30%;
+}
+.call-to-action-left {
+  width: 30%;
 }
 
 .call-to-action h1 {
@@ -1150,6 +1161,11 @@ dl > div.appear dd {
   height: 225px;
   margin: 10px 10px;
 }
+.main-image2 {
+  width: 202px;
+  height: 208px;
+  margin: 10px 10px;
+}
 
 .container2 {
   width: 100%;
@@ -1286,6 +1302,13 @@ dl > div.appear dd {
     height: 85px;
     margin: 10px 10px;
   }
+
+  .main-image2 {
+  width: 80px;
+  height: 85px;
+  margin: 10px 10px;
+}
+
 
   .title {
     font-size: 60px;
@@ -1560,6 +1583,7 @@ p {
 .call-to-action h1 {
     font-weight: normal;
     font-size: 25px;
+    display:flex;
 }
 
 .question {
