@@ -41,10 +41,9 @@
 ## 動作見本
 
 - 投稿後/便利機能
+恐れ入りますが、下記のURLよりご確認ください。
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/zFlzQ2c_Ji0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
+https://youtu.be/zFlzQ2c_Ji0
 
 ## 開発環境
 - 言語：HTML,CSS,JavaScript,Ruby
