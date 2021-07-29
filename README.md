@@ -1,8 +1,8 @@
 # Agris　出荷登録システムアプリケーション
 - トップ画像
-![top.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/38570b94-e64c-c1d3-3911-59223e0d9683.png)
+![最終トップ.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/f39f100b-597d-8c22-7a13-f536168d39c4.png)
 - ロゴイメージ
-![logo.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/5deb1511-5ecb-1fd6-9b44-f33714ab8c5f.png)
+![agris.logo.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/54b8c8b3-306b-c0c7-77b2-93f68fdae01e.png)
 
 ## サイト概要
 今回作るアプリケーションは、農家がweb上で野菜の出荷登録ができる。「WEB出荷登録システム」サイト
