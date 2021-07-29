@@ -17,6 +17,11 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+.d3 {
+  width: 600px;
+  height: 240px;
+}
+
 .login-title {
   text-align: center;
   color: #323232;
@@ -1247,7 +1252,7 @@ dl > div.appear dd {
 }
 
 .admin-index {
-  margin: 30px 0 10px 80px;
+  margin: 203px 0 10px 126px;
 }
 
 .pdf {
@@ -1650,7 +1655,7 @@ dt::after {
 
 .table-bordered {
     border: 1px solid #dee2e6;
-    width: 100px;
+    width: 34%;
 }
 
 #modal.hidden {
@@ -1748,6 +1753,21 @@ h4, .h4 {
 .edit-link{
   display: none;
 }
+
+.ad-pdf {
+    text-align: center;
+    background: whitesmoke;
+    position: absolute;
+    right: 89px;
+    top: 77px;
+    border: solid 2px gray;
+    border-radius: 7%;
+    padding: 19px;
+}
+.ad-a {
+  padding: 0;
+}
+
 
 
 
