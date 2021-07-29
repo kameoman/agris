@@ -648,7 +648,7 @@ p {
 // 上部へ戻るボタン
 
 // ハンバーガーメニュー
-@media (max-width:768px){
+@media (max-width:960px){
   html,body{
     overflow-x: hidden;
   }
@@ -738,7 +738,7 @@ p {
   left: 0;
 }
 
-@media(min-width: 768px){
+@media(min-width: 960px){
 // PCではボタン非表示
   #navbtn{
     display:none;
@@ -1298,7 +1298,7 @@ dl > div.appear dd {
 
 
 
-@media (min-width: 0px) and (max-width: 599px){
+@media (min-width: 0px) and (max-width: 960px){
   .main-image {
     width: 65px;
     height: 85px;
