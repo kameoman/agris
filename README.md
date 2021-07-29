@@ -69,14 +69,11 @@
   Rspecを使用しました。
 - コードの検査として、rubocopを使用しました。
 
-##チャレンジ要素一覧
+## チャレンジ要素一覧
 | 項目   |     機能名      | 　概要　　　　　　 |
 | :--- | :-----------: | -------: |
 | HTML/CSS    　　| Flexbox | レイアウトを整えるのに導入 |
 | Ruby on Rails　 | デバック|　binding.pry　|
-| Ruby on Rails   | 侍エンジニア3 |     Java |
-| Ruby on Rails   | 侍エンジニア4 |   python |
-| Ruby on Rails   | 侍エンジニア5 |     ruby |
 |Ruby on Rails|	テスト(単体/正常・異常)|	結合テストをRSpecで実装予定|
 |Ruby on Rails|	CRUD|resorcesメソッド|
 |Ruby on Rails|	ユーザー認証|devise|
