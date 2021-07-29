@@ -1,4 +1,4 @@
-document.addEventListener("turbolinks:load", function() {
+
   {
     const next = document.getElementById('next');
     const prev = document.getElementById('prev');
@@ -42,5 +42,4 @@ document.addEventListener("turbolinks:load", function() {
 
 
 
-});
 
