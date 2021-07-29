@@ -41,12 +41,14 @@
 ## 動作見本
 
 - 投稿後
+![agris.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/fee49c85-a2ef-f62c-79ab-14bc88cd7903.gif)
 
-![new5.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/ac890c06-7ed2-3f7a-7370-7673dd7585d9.gif)
+
+![agris2.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/b69200d2-52db-da07-b330-25df2f0de6c0.gif)
 
 - 便利機能
 
-![new6.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/aec6d0e3-e39d-212f-8435-88837faf5df5.gif)
+![agris3 (1).gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1514036/465b64c3-9394-c588-0252-63a6e38282a1.gif)
 
 
 
