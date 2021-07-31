@@ -1247,13 +1247,11 @@ dl > div.appear dd {
 }
 
 .container-2 {
-  padding: 20px 30px ;
+  padding: 25px 155px ;
   width: 1000px;
 }
 
-.admin-index {
-  margin: 203px 0 10px 126px;
-}
+
 
 .pdf {
     text-align: center;
@@ -1291,6 +1289,10 @@ dl > div.appear dd {
 
 .pdf-div {
   font-size: 5px;
+}
+
+.admin-index {
+  margin: 40px 0 10px 126px;
 }
 
 
@@ -1768,20 +1770,23 @@ h4, .h4 {
   padding: 0;
 }
 
+.admin-index {
+  margin: 0px 0 10px 126px;
+}
+
 
 
 
 }
 
 @media (min-width: 992px) {
-  /* line 20, ../../.rvm/gems/ruby-2.6.3/gems/bootstrap-4.6.0/assets/stylesheets/bootstrap/_grid.scss */
   .container-lg, .container-md, .container-sm, .container {
     max-width: 1040px;
   }
 
   .features section {
     padding-bottom: 32px;
-    width: 350px;
+
 }
 
 
