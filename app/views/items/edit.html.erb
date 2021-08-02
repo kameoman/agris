@@ -67,7 +67,12 @@
     <%= f.attachment_field :image, class: "form-field-2"  %>
   </div>
   <section2>※収穫時の画像を撮影してください</section2><br/>
-  <section2>※投稿された画像は、生育状態の確認に使用します</section2>
+  <section2>※投稿された画像は、生育状態の確認に使用します</section2><br > 
+  <section2>
+    <% @item.tags.each do |tag| %>
+      <span class="label"><%= tag.name %></span>
+      <% end %>
+  </section2>
 <hr>
 
   <div class="actions", style="justify-content: center;">
