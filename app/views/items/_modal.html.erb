@@ -36,5 +36,7 @@
   <div id="close" data-dismiss="modal">
       閉じる
     </div>
-
+      <% item.tags.each do |tag| %>
+        <span class="label"><%= tag.name %></span>
+      <% end %>
 <% end %>

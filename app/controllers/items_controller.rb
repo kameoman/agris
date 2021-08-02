@@ -31,11 +31,11 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.customer_id = current_customer.id
     if @item.save
+      tags = Vision.get_image_data(@item.image)
+      tags.each do |tag|
+        @item.tags.create(name: tag)
+      end
       redirect_to customer_path(current_customer), notice: '新規データを作成完了しました.'
-      # tags = Vision.get_image_data(@item.image)
-      # tags.each do |tag|
-      # item.tags.create(name: tag)
-      # end
     else
       render :new
     end
