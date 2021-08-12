@@ -44,6 +44,11 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1 or /items/1.json
   def update
     if @item.update(item_params)
+       @item.tags.destroy_all
+      tags = Vision.get_image_data(@item.image)
+      for tag in tags do
+        @item.tags.create(name: tag)
+      end
       redirect_to customer_path(current_customer), notice: 'データの更新が完了しました.'
     else
       render :edit
