@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_customer!
-  # before_action :ensure_correct_customer
+  before_action :ensure_correct_customer, only: %i[show edit update destroy]
   before_action :set_item, only: %i[show edit update destroy]
 
   def index
@@ -82,7 +82,9 @@ class ItemsController < ApplicationController
   end
 
   def ensure_correct_customer
-    @item = Item.find(params[:id])
-    redirect_to customers_path unless @item.customer == current_customer
+      @item = Item.find(params[:id])
+      unless @item.customer == current_customer
+      redirect_to customers_path
+    end
   end
 end
