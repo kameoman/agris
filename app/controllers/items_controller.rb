@@ -1,7 +1,6 @@
-# frozen_string_literal: true
-
 class ItemsController < ApplicationController
   before_action :authenticate_customer!
+  # before_action :ensure_correct_customer
   before_action :set_item, only: %i[show edit update destroy]
 
   def index
@@ -30,14 +29,16 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.customer_id = current_customer.id
-    if @item.save
+    if @item.image_id != nil
+      @item.save
       tags = Vision.get_image_data(@item.image)
       tags.each do |tag|
         @item.tags.create(name: tag)
       end
       redirect_to customer_path(current_customer), notice: '新規データを作成完了しました.'
     else
-      render :new
+      @item.save
+      redirect_to customer_path(current_customer), notice: '新規データを作成完了しました.'
     end
   end
 
