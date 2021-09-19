@@ -5,8 +5,6 @@ class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!
   before_action :ensure_correct_customer
 
-
-
   def index
     @items = current_customer.items.all
   end

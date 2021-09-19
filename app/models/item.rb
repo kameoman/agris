@@ -12,4 +12,13 @@ class Item < ApplicationRecord
   validates :standard, presence: true
 
   attachment :image
+
+  # def self.form_search
+  #   @customer = Customer.find(params[:id])
+  #   @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today
+  #   binding.pry
+  #   where(customer_id: @customer).where(date: @month.all_month).group(:name).order(:date).sum(:count)
+    
+  # end
+
 end

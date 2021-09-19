@@ -22,6 +22,13 @@ class Customer < ApplicationRecord
       customer.password = SecureRandom.urlsafe_base64
     end
   end
+  def too_young
+    if self.id == 30  #20歳以上の場合
+       return "大人です！"
+    else  #20歳以下の場合
+       return "子供です！"
+    end
+  end
 
   # addressを登録した際にgeocoderが緯度、経度のカラムにも自動的に値を入れてくれる
   geocoded_by :address
